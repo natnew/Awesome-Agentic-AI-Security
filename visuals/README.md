@@ -8,13 +8,13 @@ Reusable diagrams should be stored as Mermaid source files so they remain readab
 
 - [Progressive Breach Model](progressive-breach-model.mmd) shows the path from untrusted language or data to organisational impact, with control points along the chain.
 - [Agent, Tool, And Memory Attack Flow](agent-tool-memory-attack-flow.mmd) shows how agent reasoning, tools, credentials, memory, approvals, observability, and downstream systems interact.
+- [AI Defense Plane](ai-defense-plane.mmd) shows Discover, Protect, and Govern across agents, tools, memory, authority, downstream action, and assurance evidence.
+- [Secure Agent Reference Architecture](secure-agent-reference-architecture.mmd) shows the control path across intake, agent planning, policy decisions, guardrails, tool and credential brokers, approvals, outcome control, memory, and audit.
 
 ## Planned Coverage
 
 Future visuals will cover:
 
-- The AI Defense Plane.
-- Secure agent reference architectures.
 - Policy decision, tool broker, credential broker, observability, and audit boundaries.
 
 ## Diagram Standard

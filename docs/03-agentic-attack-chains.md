@@ -144,6 +144,6 @@ If the answer is unclear, the system is difficult to govern even if the model ap
 
 ## Relationship To Defence Architecture
 
-These chains show where controls need to operate. The later defence architecture phase will organise those controls into layers for identity, policy decisions, runtime guardrails, tool brokering, credential brokering, memory and context controls, observability, human approval, audit, outcome control, and governance.
+These chains show where controls need to operate. The [defence architecture](04-defence-architecture.md) organises those controls into layers for identity, policy decisions, runtime guardrails, tool brokering, credential brokering, memory and context controls, observability, human approval, audit, outcome control, and governance.
 
 The reusable Mermaid source for the agent, tool, memory, credential, and observability interaction model is available in [agent-tool-memory-attack-flow.mmd](../visuals/agent-tool-memory-attack-flow.mmd).

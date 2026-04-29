@@ -130,7 +130,7 @@ The first section indexes are available here:
 | [Patterns](patterns/README.md) | Secure engineering patterns for agent runtimes, tool calling, MCP, memory, credentials, approval, sandboxing, observability, and policy enforcement. |
 | [Visuals](visuals/README.md) | Mermaid diagrams for execution boundaries, action paths, control points, and reference architectures. |
 
-Start with the [landscape map](docs/00-landscape-map.md), [threat model](docs/01-threat-model.md), [attack surfaces](docs/02-attack-surfaces.md), and [agentic attack chains](docs/03-agentic-attack-chains.md) for the first conceptual foundation. More detailed topic pages will be added in focused phases, and the section indexes describe the intended structure without presenting planned files as complete.
+Start with the [landscape map](docs/00-landscape-map.md), [threat model](docs/01-threat-model.md), [attack surfaces](docs/02-attack-surfaces.md), [agentic attack chains](docs/03-agentic-attack-chains.md), and [defence architecture](docs/04-defence-architecture.md) for the first conceptual foundation. More detailed topic pages will be added in focused phases, and the section indexes describe the intended structure without presenting planned files as complete.
 
 ## Quality Bar
 

@@ -1,0 +1,35 @@
+flowchart TD
+    Goal[User goal or delegated task] --> Intake[Instruction and context intake]
+    Sources[External sources and retrieved data] --> Intake
+    Memory[Memory and task state] --> Intake
+    Intake --> Agent[Agent planning and reasoning]
+
+    Agent --> Policy[Policy decision]
+    Policy -->|allow or revise| Guardrail[Runtime guardrail]
+    Policy -->|require review| Approval[Human approval gate]
+    Policy -->|deny| Denied[Denied or revised action]
+    Approval --> Guardrail
+
+    Guardrail --> ToolBroker[Tool broker]
+    ToolBroker --> CredentialBroker[Credential broker]
+    CredentialBroker --> ToolRuntime[Tool MCP skill workflow or code]
+    ToolBroker --> ToolRuntime
+    ToolRuntime --> Outcome[Outcome control]
+    Outcome --> Downstream[Downstream system]
+    ToolRuntime --> Result[Tool result]
+    Result --> Agent
+
+    Agent --> MemoryDecision[Memory write decision]
+    MemoryDecision --> Memory
+
+    Intake -.-> Audit[Observability and audit]
+    Agent -.-> Audit
+    Policy -.-> Audit
+    Guardrail -.-> Audit
+    Approval -.-> Audit
+    ToolBroker -.-> Audit
+    CredentialBroker -.-> Audit
+    ToolRuntime -.-> Audit
+    Outcome -.-> Audit
+    Downstream -.-> Audit
+    MemoryDecision -.-> Audit

@@ -10,12 +10,12 @@ The goal is to help readers understand failure modes and control boundaries befo
 - [Threat Model: Agentic AI Failure Modes](01-threat-model.md) defines the first threat taxonomy as failure modes, preconditions, impact, and control questions.
 - [Attack Surfaces: Agentic Execution Systems](02-attack-surfaces.md) maps where language, context, authority, state, tools, memory, approvals, policies, and downstream systems expose risk.
 - [Agentic Attack Chains: From Influence To Impact](03-agentic-attack-chains.md) shows how local weaknesses compose into breach paths and where defenders can interrupt them.
+- [Defence Architecture: Securing Agentic Execution](04-defence-architecture.md) defines the layered control model for observing, interpreting, constraining, auditing, discovering, protecting, and governing agentic systems.
 
 ## Planned Coverage
 
 Future docs will also cover:
 
-- Defence architecture for observing, interpreting, constraining, auditing, discovering, protecting, and governing agentic behaviour.
 - Red teaming and evaluation methods for agentic behaviour rather than single model responses.
 - Case studies and open research questions.
 

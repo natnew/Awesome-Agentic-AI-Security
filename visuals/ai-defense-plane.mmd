@@ -1,0 +1,38 @@
+flowchart TB
+    subgraph System[Agentic execution system]
+        Agents[Agents and workflows]
+        Context[Prompts context and memory]
+        Tools[Tools MCP servers and skills]
+        Authority[Credentials and delegated authority]
+        Actions[Downstream actions]
+    end
+
+    subgraph Plane[AI Defense Plane]
+        Discover[Discover inventory ownership and flows]
+        Protect[Protect runtime decisions and controls]
+        Govern[Govern authority evidence and accountability]
+    end
+
+    Discover --> Protect
+    Protect --> Govern
+
+    Discover -.-> Agents
+    Discover -.-> Context
+    Discover -.-> Tools
+    Discover -.-> Authority
+    Discover -.-> Actions
+
+    Protect -.-> Context
+    Protect -.-> Tools
+    Protect -.-> Authority
+    Protect -.-> Actions
+
+    Govern -.-> Authority
+    Govern -.-> Actions
+    Govern -.-> Evidence[Audit and assurance evidence]
+
+    Agents --> Context
+    Context --> Tools
+    Tools --> Authority
+    Authority --> Actions
+    Actions --> Evidence
