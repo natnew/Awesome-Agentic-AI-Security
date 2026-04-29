@@ -1,0 +1,80 @@
+name: Resource Suggestion
+description: Suggest a standard, framework, research item, guide, tool, or other resource.
+title: "Resource: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest resources that improve the map of agentic execution security. Please focus on durable, evidence-led material rather than generic AI news or promotional claims.
+  - type: input
+    id: resource-title
+    attributes:
+      label: Resource title
+      description: Name of the resource you are suggesting.
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Link to the original source.
+    validations:
+      required: true
+  - type: input
+    id: producer
+    attributes:
+      label: Producer or publisher
+      description: Organisation, author, project, or maintainer behind the resource.
+    validations:
+      required: true
+  - type: dropdown
+    id: source-type
+    attributes:
+      label: Source type
+      options:
+        - Standard or framework
+        - Vendor research
+        - Independent research
+        - Tool
+        - Benchmark
+        - Guide or playbook
+        - Case study
+        - Opinion or analysis
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Relevance to agentic AI security
+      description: Explain how this connects to tools, memory, credentials, code execution, MCP, approvals, multi-agent workflows, governance, or another agentic execution surface.
+    validations:
+      required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: Risks, behaviours, or controls covered
+      description: Summarise the risks, controls, architectures, benchmarks, or research questions it helps readers understand.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence quality and maturity
+      description: Note whether this is mature guidance, early research, implementation evidence, vendor analysis, a maintained tool, or an emerging idea.
+    validations:
+      required: true
+  - type: input
+    id: last-checked
+    attributes:
+      label: Last-checked date
+      description: Date you last reviewed the resource, preferably YYYY-MM-DD.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations or caveats
+      description: Mention known gaps, narrow assumptions, vendor bias, reproducibility issues, or unclear evidence.
+    validations:
+      required: true

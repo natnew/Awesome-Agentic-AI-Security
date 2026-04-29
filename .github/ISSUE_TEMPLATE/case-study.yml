@@ -1,0 +1,82 @@
+name: Case Study Suggestion
+description: Suggest a real-world or plausible defensive case study.
+title: "Case study: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Case studies should teach defensive lessons about agentic execution systems. Avoid unnecessary operational exploit detail.
+  - type: input
+    id: scenario
+    attributes:
+      label: Case study title or scenario
+      description: Name the incident, report, or proposed scenario.
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Summarise the incident or scenario at a defensive learning level.
+    validations:
+      required: true
+  - type: textarea
+    id: why-it-matters
+    attributes:
+      label: Why it matters for agentic execution security
+      description: Explain the relevance to agentic systems that use tools, memory, credentials, code execution, approvals, MCP, or multi-agent workflows.
+    validations:
+      required: true
+  - type: textarea
+    id: attack-surface
+    attributes:
+      label: Attack surface and preconditions
+      description: Identify the relevant surfaces and assumptions that made the failure possible.
+    validations:
+      required: true
+  - type: textarea
+    id: exploit-path
+    attributes:
+      label: Defensive exploit-path summary
+      description: Describe the path from input or condition to impact without publishing unnecessary operational steps.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Describe the security, privacy, operational, financial, or governance impact.
+    validations:
+      required: true
+  - type: textarea
+    id: controls
+    attributes:
+      label: Controls that could have helped
+      description: List relevant controls such as policy decisions, tool brokers, credential boundaries, memory controls, approval gates, observability, audit, or outcome control.
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: Related resources
+      description: Link reports, write-ups, standards, research, or tools that support the case study.
+    validations:
+      required: true
+  - type: dropdown
+    id: maturity
+    attributes:
+      label: Evidence level
+      options:
+        - Confirmed public incident
+        - Public report or research-backed scenario
+        - Plausible scenario based on documented behaviour
+        - Early hypothesis
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations or caveats
+      description: Note unknowns, assumptions, evidence gaps, or disputed details.
+    validations:
+      required: true

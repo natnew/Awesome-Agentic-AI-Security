@@ -1,0 +1,64 @@
+name: Pattern Improvement
+description: Suggest or improve a secure engineering pattern.
+title: "Pattern: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Pattern suggestions should help builders secure agentic execution systems through practical controls, evaluation checks, and clear limitations.
+  - type: input
+    id: pattern-area
+    attributes:
+      label: Pattern area
+      description: Example areas include secure runtime, tool calling, MCP, memory, credentials, approvals, sandboxing, observability, policy enforcement, or audit.
+    validations:
+      required: true
+  - type: textarea
+    id: system-context
+    attributes:
+      label: System context
+      description: Describe the agentic system, workflow, integration, or trust boundary the pattern applies to.
+    validations:
+      required: true
+  - type: textarea
+    id: risk-addressed
+    attributes:
+      label: Risk addressed
+      description: Explain the failure mode, attack surface, breach-chain step, or governance gap this pattern addresses.
+    validations:
+      required: true
+  - type: textarea
+    id: recommended-control
+    attributes:
+      label: Recommended control or change
+      description: Describe the control, design pattern, policy decision, or implementation change.
+    validations:
+      required: true
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: Implementation notes
+      description: Include practical guidance, assumptions, dependencies, integration points, or trade-offs.
+    validations:
+      required: true
+  - type: textarea
+    id: evaluation-checks
+    attributes:
+      label: Evaluation checks
+      description: Describe how a team could test whether the pattern works in practice.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or sources
+      description: Link supporting standards, research, implementations, postmortems, benchmarks, or examples.
+    validations:
+      required: false
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations
+      description: Explain where the pattern may fail, what it does not cover, or what risks remain.
+    validations:
+      required: true

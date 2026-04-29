@@ -1,0 +1,70 @@
+name: Benchmark Suggestion
+description: Suggest a benchmark or evaluation method for agentic AI security.
+title: "Benchmark: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Useful benchmarks test agentic behaviour, control effectiveness, or security-relevant system action, not only single model responses.
+  - type: input
+    id: benchmark-name
+    attributes:
+      label: Benchmark name
+      description: Name of the benchmark, dataset, harness, evaluation suite, or method.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Link to the source, paper, repository, documentation, or project page.
+    validations:
+      required: true
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: Behaviour evaluated
+      description: Explain what the benchmark evaluates.
+    validations:
+      required: true
+  - type: checkboxes
+    id: agentic-surfaces
+    attributes:
+      label: Agentic surfaces tested
+      options:
+        - label: Tool use or tool misuse
+        - label: Memory or persistent state
+        - label: Credential, token, or delegated-authority handling
+        - label: Code execution, file-system access, or automation side effects
+        - label: MCP, skills, extensions, or external integrations
+        - label: Human approval, hand-off, or policy decision points
+        - label: Multi-agent communication or cross-agent propagation
+        - label: Runtime guardrails, observability, audit, or outcome control
+  - type: textarea
+    id: maturity
+    attributes:
+      label: Dataset or harness maturity
+      description: Note whether it is maintained, reproducible, peer reviewed, widely used, experimental, or early stage.
+    validations:
+      required: true
+  - type: textarea
+    id: reproducibility
+    attributes:
+      label: Reproducibility notes
+      description: Describe setup requirements, access constraints, scoring method, licences, or known barriers to reproducing results.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations
+      description: Explain what the benchmark does not cover or where results may be misleading.
+    validations:
+      required: true
+  - type: input
+    id: last-checked
+    attributes:
+      label: Last-checked date
+      description: Date you last reviewed the benchmark, preferably YYYY-MM-DD.
+    validations:
+      required: true
