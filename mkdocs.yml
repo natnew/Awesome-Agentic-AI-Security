@@ -1,0 +1,88 @@
+site_name: Awesome Agentic AI Security
+site_description: A curated, structured, and continuously updated map of security risks, controls, benchmarks, architectures, and research for agentic, multi-agent, tool-using, self-improving AI systems.
+site_url: https://github.com/natnew/Awesome-Agentic-AI-Security
+repo_url: https://github.com/natnew/Awesome-Agentic-AI-Security
+repo_name: natnew/Awesome-Agentic-AI-Security
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - content.action.view
+    - toc.integrate
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
+  icon:
+    repo: fontawesome/brands/github
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.tasklist
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.caret
+  - pymdownx.tilde
+  - pymdownx.progressbar
+  - pymdownx.arithmatex
+  - pymdownx.magiclink
+  - pymdownx.betterem
+  - pymdownx.smartsymbols
+  - pymdownx.critic
+  - pymdownx.saneheaders
+  - pymdownx.mermaid
+nav:
+  - Home: README.md
+  - Docs:
+      - Landscape Map: docs/00-landscape-map.md
+      - Threat Model: docs/01-threat-model.md
+      - Attack Surfaces: docs/02-attack-surfaces.md
+      - Agentic Attack Chains: docs/03-agentic-attack-chains.md
+      - Defence Architecture: docs/04-defence-architecture.md
+      - Red Teaming & Evaluation: docs/05-red-teaming-and-evaluation.md
+      - Benchmarks: docs/06-benchmarks.md
+      - Incident Case Studies: docs/09-incident-case-studies.md
+      - Open Research Questions: docs/10-open-research-questions.md
+  - Patterns: patterns/README.md
+  - Resources: resources/README.md
+  - Visuals: visuals/README.md
+  - Rubrics: rubrics/README.md
+  - Specs: specs/roadmap.md
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/natnew/Awesome-Agentic-AI-Security
+  tags:
+    - agentic-ai
+    - security
+    - benchmarks
+    - patterns
+    - research
+    - architecture
+    - evaluation
+    - governance
+    - owasp
+    - mitre
+    - nist
+    - mcp
+    - ai
+    - docs

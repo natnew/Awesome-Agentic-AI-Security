@@ -54,3 +54,38 @@ Before opening a pull request:
 - Do not add copied source material when a concise summary and link are enough.
 
 Pull requests should strengthen the map of agentic execution security without broadening the repository into unrelated AI security material.
+
+## Local Build and Validation Instructions
+
+To contribute to the documentation platform, please follow these steps:
+
+1. **Install Python 3.11+**
+2. **Install dependencies:**
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. **Serve the docs locally:**
+   ```sh
+   mkdocs serve
+   ```
+   The site will be available at http://localhost:8000
+4. **Build the docs for validation:**
+   ```sh
+   mkdocs build --strict
+   ```
+5. **Lint Markdown files:**
+   ```sh
+   pip install markdownlint-cli
+   markdownlint '**/*.md' --ignore site
+   ```
+6. **Check Markdown links:**
+   ```sh
+   pip install markdown-link-check
+   find . -name '*.md' -not -path './site/*' -exec markdown-link-check -q {} \;
+   ```
+
+## Guidelines
+- Do not commit the generated `site/` directory.
+- All documentation must remain readable in GitHub without the site.
+- Use clear, public-ready language and reference the roadmap, mission, and tech stack for direction.
+- See `specs/2026-04-29-docs-platform-implementation/requirements.md` for scope and decisions.
