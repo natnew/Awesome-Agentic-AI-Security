@@ -1,0 +1,17 @@
+flowchart LR
+    A[Untrusted language or data] --> B[Intent or goal compromise]
+    B --> C[Tool, workflow, or code action]
+    C --> D[Credential or delegated authority use]
+    D --> E[Memory, state, or context change]
+    E --> F[Propagation across agents or systems]
+    F --> G[Unsafe autonomous action]
+    G --> H[Organisational impact]
+
+    A -.-> A1[Source labelling]
+    B -.-> B1[Goal alignment check]
+    C -.-> C1[Tool and policy decision]
+    D -.-> D1[Credential broker]
+    E -.-> E1[Memory and state review]
+    F -.-> F1[Origin and trust labels]
+    G -.-> G1[Approval and outcome control]
+    H -.-> H1[Audit and incident review]

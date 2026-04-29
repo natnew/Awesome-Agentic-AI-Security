@@ -4,12 +4,15 @@ This section will hold reusable diagrams for explaining agentic execution securi
 
 Reusable diagrams should be stored as Mermaid source files so they remain readable in GitHub Markdown and portable to the future documentation site.
 
+## Available Now
+
+- [Progressive Breach Model](progressive-breach-model.mmd) shows the path from untrusted language or data to organisational impact, with control points along the chain.
+- [Agent, Tool, And Memory Attack Flow](agent-tool-memory-attack-flow.mmd) shows how agent reasoning, tools, credentials, memory, approvals, observability, and downstream systems interact.
+
 ## Planned Coverage
 
 Future visuals will cover:
 
-- Progressive breach paths from prompt injection to organisational impact.
-- Agent, tool, memory, credential, and approval flows.
 - The AI Defense Plane.
 - Secure agent reference architectures.
 - Policy decision, tool broker, credential broker, observability, and audit boundaries.

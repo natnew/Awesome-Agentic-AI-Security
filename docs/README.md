@@ -8,13 +8,13 @@ The goal is to help readers understand failure modes and control boundaries befo
 
 - [Landscape Map: Agentic Execution Security](00-landscape-map.md) explains the system-level security landscape around prompts, context, tools, credentials, memory, code execution, approvals, and downstream action.
 - [Threat Model: Agentic AI Failure Modes](01-threat-model.md) defines the first threat taxonomy as failure modes, preconditions, impact, and control questions.
+- [Attack Surfaces: Agentic Execution Systems](02-attack-surfaces.md) maps where language, context, authority, state, tools, memory, approvals, policies, and downstream systems expose risk.
+- [Agentic Attack Chains: From Influence To Impact](03-agentic-attack-chains.md) shows how local weaknesses compose into breach paths and where defenders can interrupt them.
 
 ## Planned Coverage
 
 Future docs will also cover:
 
-- Attack surfaces across prompts, context, memory, credentials, tools, skills, MCP, approvals, and agents.
-- Breach chains that show how local compromise can become organisational impact.
 - Defence architecture for observing, interpreting, constraining, auditing, discovering, protecting, and governing agentic behaviour.
 - Red teaming and evaluation methods for agentic behaviour rather than single model responses.
 - Case studies and open research questions.

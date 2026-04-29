@@ -1,0 +1,24 @@
+flowchart TD
+    U[User goal] --> A[Agent reasoning and planning]
+    X[Untrusted retrieved content] --> A
+    M[Memory and task state] --> A
+    A --> P[Policy decision]
+    P --> B[Tool broker]
+    P --> R[Human review when needed]
+    R --> B
+    B --> C[Credential broker]
+    C --> T[Tool, MCP server, skill, or workflow]
+    B --> T
+    T --> D[Downstream system]
+    T --> O[Tool result]
+    O --> A
+    A --> M
+
+    A -.-> L[Observability and audit]
+    P -.-> L
+    B -.-> L
+    C -.-> L
+    T -.-> L
+    M -.-> L
+    R -.-> L
+    D -.-> L
