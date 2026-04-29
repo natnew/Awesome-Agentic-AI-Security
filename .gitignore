@@ -220,4 +220,7 @@ __marimo__/
 # Project scaffolding
 specs/
 
+# Deferred local drafts
+rubrics/README.md
+
 

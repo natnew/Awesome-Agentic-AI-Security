@@ -121,6 +121,17 @@ This project is organised around five kinds of security knowledge:
 | Architectures | Reference models for secure agent runtimes, AI gateways, observability, audit, and governance layers. |
 | Research | Standards, frameworks, papers, vendor research, independent analysis, and open research questions. |
 
+The first section indexes are available here:
+
+| Section | Use it for |
+| --- | --- |
+| [Docs](docs/README.md) | Conceptual maps, threat models, breach chains, defence architecture, evaluation, governance, case studies, and open questions. |
+| [Resources](resources/README.md) | Curated standards, frameworks, research, tools, benchmarks, and evidence requirements. |
+| [Patterns](patterns/README.md) | Secure engineering patterns for agent runtimes, tool calling, MCP, memory, credentials, approval, sandboxing, observability, and policy enforcement. |
+| [Visuals](visuals/README.md) | Mermaid diagrams for execution boundaries, action paths, control points, and reference architectures. |
+
+Detailed topic pages will be added in focused phases. The section indexes describe the intended structure without presenting planned files as complete.
+
 ## Quality Bar
 
 Substantial entries should explain:
