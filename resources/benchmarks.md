@@ -2,6 +2,8 @@
 
 This page collects benchmarks, testbeds, and evaluation methods relevant to agentic AI security. Benchmarks can provide useful evidence, but they are not proof that a production agent is secure. They should be paired with threat modelling, architecture review, runtime telemetry, and system-specific red teaming.
 
+Benchmark results are most useful when readers understand the boundary being tested: a model response, a threat snapshot, a simulated tool workflow, a red team scenario, or a production-like control path. They should not be generalised beyond the tested environment without additional evidence.
+
 Each entry uses the repository metadata format: resource type, producer, source, relevance, coverage, maturity, last checked, and limitations.
 
 ## Entries

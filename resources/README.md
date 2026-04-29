@@ -35,6 +35,12 @@ Substantial resource entries should include:
 - Last-checked date.
 - Important limitations or caveats.
 
+## How To Read Entries
+
+The catalogue is evidence for security judgement, not a list of endorsements. Standards and frameworks help organise risk, vendor research can surface useful field observations, papers can test emerging ideas, tools can support evaluation workflows, and benchmarks can provide bounded signals about behaviour. None of these categories proves that a deployed agentic system is secure by itself.
+
+When comparing entries, pay close attention to the maturity and limitations fields. A resource may be useful for threat modelling, control design, assurance evidence, or research direction while still being narrow, early, vendor-specific, or incomplete.
+
 ## Selection Principle
 
 The repository favours fewer, better-labelled resources over a large unstructured catalogue. A resource should strengthen the reader's understanding of agentic execution security, practical control design, evaluation evidence, governance, or research direction.

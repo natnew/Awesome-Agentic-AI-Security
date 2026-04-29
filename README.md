@@ -121,6 +121,11 @@ This project is organised around five kinds of security knowledge:
 | Architectures | Reference models for secure agent runtimes, AI gateways, observability, audit, and governance layers. |
 | Research | Standards, frameworks, papers, vendor research, independent analysis, and open research questions. |
 
+
+## Resource Catalogue Status
+
+The resource catalogue is now fully populated and public-ready. Each entry uses a consistent metadata format and includes a short explanation of relevance. Guidance has been added to clarify that catalogue entries are evidence for security judgement, not endorsements or proof of safety. Tool and benchmark pages now explicitly state their proof limits.
+
 The first section indexes are available here:
 
 | Section | Use it for |

@@ -2,6 +2,8 @@
 
 This page collects tools that can help teams secure, observe, test, govern, or evaluate agentic AI systems. Tools are included when they support defensive work. Tool inclusion is not endorsement, and no tool should be treated as sufficient evidence of safety by itself.
 
+Tool results should be treated as bounded signals. A scanner, red teaming harness, bill of materials generator, or runtime guardrail can support review, but it cannot prove that the full execution system is secure across real tools, memory, credentials, approvals, and downstream actions.
+
 Each entry uses the repository metadata format: resource type, producer, source, relevance, coverage, maturity, last checked, and limitations.
 
 ## Entries
