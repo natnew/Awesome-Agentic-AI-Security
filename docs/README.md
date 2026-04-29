@@ -4,12 +4,15 @@ This section is the conceptual map for agentic AI security. It will explain how 
 
 The goal is to help readers understand failure modes and control boundaries before they move into resource lists, engineering patterns, diagrams, or assessment rubrics.
 
+## Available Now
+
+- [Landscape Map: Agentic Execution Security](00-landscape-map.md) explains the system-level security landscape around prompts, context, tools, credentials, memory, code execution, approvals, and downstream action.
+- [Threat Model: Agentic AI Failure Modes](01-threat-model.md) defines the first threat taxonomy as failure modes, preconditions, impact, and control questions.
+
 ## Planned Coverage
 
-Future docs will cover:
+Future docs will also cover:
 
-- The agentic AI security landscape.
-- Threat models for systems that can retrieve, decide, call tools, update state, and act.
 - Attack surfaces across prompts, context, memory, credentials, tools, skills, MCP, approvals, and agents.
 - Breach chains that show how local compromise can become organisational impact.
 - Defence architecture for observing, interpreting, constraining, auditing, discovering, protecting, and governing agentic behaviour.
