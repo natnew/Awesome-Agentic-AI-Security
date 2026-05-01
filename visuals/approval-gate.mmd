@@ -1,0 +1,11 @@
+stateDiagram-v2
+  [*] --> Requested : Agent proposes<br/>sensitive action
+  Requested --> EvidenceAssembled : Source context, risk summary,<br/>parameters, identity, expected effect attached
+  EvidenceAssembled --> UnderReview : Approval prompt<br/>shown to reviewer
+  UnderReview --> Approved : Reviewer signs off<br/>(approver identity + timestamp)
+  UnderReview --> Denied : Reviewer rejects<br/>with reason
+  UnderReview --> Revised : Reviewer requests<br/>changes
+  Revised --> Requested : Agent re-proposes<br/>within scope
+  Approved --> Logged : Approval record<br/>linked to trace
+  Denied --> Logged : Decision record<br/>linked to trace
+  Logged --> [*]

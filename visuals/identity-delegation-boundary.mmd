@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant U as User
+  participant A as Agent
+  participant Sub as Sub-agent
+  participant Br as Credential broker
+  participant T as Tool
+
+  U->>A: Delegated authority<br/>(approved task scope)
+  note right of A: Effective identity = User-on-behalf-of-Agent.<br/>Authority pinned to task scope.
+  A->>Sub: Sub-task with<br/>narrowed scope
+  note right of Sub: Effective identity = Agent-on-behalf-of-User.<br/>Sub-scope is subset of task scope.
+  Sub->>Br: Request credential<br/>for tool call
+  Br->>Br: Pre-issuance<br/>scope check
+  Br->>T: Credential bound<br/>to credential scope
+  T-->>Sub: Result within<br/>credential scope
+  Sub-->>A: Result within<br/>sub-scope
+  A-->>U: Outcome within<br/>task scope

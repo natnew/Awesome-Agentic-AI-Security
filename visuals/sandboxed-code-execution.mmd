@@ -1,0 +1,20 @@
+stateDiagram-v2
+  [*] --> PreExecution
+  state PreExecution {
+    [*] --> Generated : Code or<br/>command produced
+    Generated --> DryRun : Run in<br/>sandbox preview
+    DryRun --> ImpactAssessed : Dry-run output<br/>evaluated by policy
+  }
+  PreExecution --> SandboxedExecution : Approved within<br/>blast radius
+  PreExecution --> Denied : Outside approved scope
+  state SandboxedExecution {
+    [*] --> BoundedRun : Within blast radius<br/>and rate limits
+    BoundedRun --> Validated : Post-action validation
+  }
+  SandboxedExecution --> Committed : Result within bounds
+  SandboxedExecution --> RolledBack : Result outside bounds
+  SandboxedExecution --> Quarantined : Sandbox flag<br/>mid-run
+  Committed --> [*]
+  RolledBack --> [*]
+  Quarantined --> [*]
+  Denied --> [*]
