@@ -42,15 +42,18 @@ These capabilities should not be isolated systems. Observation without interpret
 The AI Defense Plane organises controls into three operating layers: Discover, Protect, and Govern. 
 
 ```mermaid
-block-beta
-columns 3
-  Discover["Discover<br/>Inventory and<br/>ownership"]
-  Protect["Protect<br/>Runtime decisions<br/>and controls"]
-  Govern["Govern<br/>Authority, evidence<br/>and accountability"]
+flowchart TB
+  D["Discover<br/>Inventory and ownership"]
+  P["Protect<br/>Runtime decisions and controls"]
+  G["Govern<br/>Authority, evidence, accountability"]
 
-  System["Agentic execution system<br/>agents · context · tools · memory<br/>authority · downstream"]:3
+  S["Agentic execution system<br/>agents · context · tools · memory · authority · downstream"]
+  E["Audit and assurance evidence"]
 
-  Evidence["Audit and assurance<br/>evidence"]:3
+  D --> S
+  P --> S
+  G --> S
+  S --> E
 ```
 
 Source: [ai-defense-plane.mmd](../visuals/ai-defense-plane.mmd).
