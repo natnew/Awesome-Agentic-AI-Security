@@ -1,0 +1,19 @@
+flowchart TB
+    UP["User prompt"]
+    RD["Retrieved context"]
+    SR["System rules"]
+    AR["<b>Agentic reasoning</b><br/>Goals emerge at runtime;<br/>static review cannot inspect them"]
+    IK["Internal knowledge"]
+    EA["External APIs"]
+    OT["Operational tools"]
+    Risk["<b>Risk accumulation</b><br/>Each step passes a local check;<br/>the composed outcome may exceed approved scope"]
+
+    UP --> AR
+    RD --> AR
+    SR --> AR
+    AR -->|permitted step| IK
+    AR -->|permitted step| EA
+    AR -->|permitted step| OT
+    IK --> Risk
+    EA --> Risk
+    OT --> Risk

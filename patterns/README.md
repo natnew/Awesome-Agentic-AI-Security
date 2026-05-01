@@ -1,8 +1,29 @@
 # Patterns
 
-This section will hold secure engineering patterns for agentic systems. The focus is practical: how to design controls around the full system of action rather than relying only on model-level filtering.
+This section holds secure engineering patterns for agentic systems. The focus is practical: how to design controls around the full system of action rather than relying only on model-level filtering.
 
-Patterns should connect a system context to a risk, a recommended control, implementation considerations, validation checks, and known limitations.
+Patterns connect a system context to a risk, a recommended control, implementation considerations, validation checks, and known limitations. Each pattern follows the standard shape below.
+
+```mermaid
+mindmap
+  root((Pattern shape))
+    Why
+      Context
+      Risk
+    What
+      Recommended controls
+      Boundary diagram
+    How
+      Implementation notes
+    Coverage
+      Failure modes covered
+      Evaluation checks
+      Audit evidence
+    Caveats
+      Limitations
+```
+
+Source: [pattern-shape.mmd](../visuals/pattern-shape.mmd). A mindmap is used because the pattern shape is a conceptual taxonomy of sections, not a process — readers should see the standard structure at a glance.
 
 ## Planned Coverage
 

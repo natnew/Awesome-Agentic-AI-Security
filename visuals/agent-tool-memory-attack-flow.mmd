@@ -1,24 +1,24 @@
-flowchart TD
-    U[User goal] --> A[Agent reasoning and planning]
-    X[Untrusted retrieved content] --> A
-    M[Memory and task state] --> A
-    A --> P[Policy decision]
-    P --> B[Tool broker]
-    P --> R[Human review when needed]
-    R --> B
-    B --> C[Credential broker]
-    C --> T[Tool, MCP server, skill, or workflow]
-    B --> T
-    T --> D[Downstream system]
-    T --> O[Tool result]
-    O --> A
-    A --> M
+sequenceDiagram
+  participant U as User
+  participant A as Agent
+  participant P as Policy
+  participant B as Tool broker
+  participant T as Tool or MCP
+  participant M as Memory
+  participant L as Audit
 
-    A -.-> L[Observability and audit]
-    P -.-> L
-    B -.-> L
-    C -.-> L
-    T -.-> L
-    M -.-> L
-    R -.-> L
-    D -.-> L
+  U->>A: Goal
+  M-->>A: Retrieved memory
+  A->>P: Proposed plan
+  alt Allowed
+    P->>B: Allow
+    B->>T: Scoped call
+    T-->>A: Result
+  else Denied
+    P-->>A: Deny or revise
+  end
+  A->>M: Memory write
+  P->>L: Trace
+  B->>L: Trace
+  T->>L: Trace
+  M->>L: Trace

@@ -1,0 +1,25 @@
+sequenceDiagram
+  participant U as User
+  participant A as Agent
+  participant P as Policy
+  participant H as Approval
+  participant G as Guardrail
+  participant X as Action
+  participant L as Audit
+
+  U->>A: Goal and context
+  A->>P: Proposed step
+  alt Allow
+    P->>G: Approve
+    G->>X: Execute
+    X-->>A: Result
+  else Approval needed
+    P->>H: Show evidence
+    H->>G: Approve
+    G->>X: Execute
+  else Deny
+    P-->>A: Deny or revise
+  end
+  P->>L: Trace
+  G->>L: Trace
+  X->>L: Trace
