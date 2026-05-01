@@ -39,16 +39,18 @@ These capabilities should not be isolated systems. Observation without interpret
 
 ## AI Defense Plane
 
-The AI Defense Plane organises controls into three operating layers: Discover, Protect, and Govern. The diagram below uses block syntax because the goal is to show the three layers as a stacked, conceptual architecture wrapping the agentic execution system, not to chart a process.
+The AI Defense Plane organises controls into three operating layers: Discover, Protect, and Govern. 
 
 ```mermaid
 block-beta
 columns 3
-  Discover["Discover\nInventory and ownership"]
-  Protect["Protect\nRuntime decisions and controls"]
-  Govern["Govern\nAuthority, evidence, accountability"]
-  System["Agentic execution system: agents, context, tools, memory, authority, downstream"]:3
-  Evidence["Audit and assurance evidence"]:3
+  Discover["Discover<br/>Inventory and<br/>ownership"]
+  Protect["Protect<br/>Runtime decisions<br/>and controls"]
+  Govern["Govern<br/>Authority, evidence<br/>and accountability"]
+
+  System["Agentic execution system<br/>agents · context · tools · memory<br/>authority · downstream"]:3
+
+  Evidence["Audit and assurance<br/>evidence"]:3
 ```
 
 Source: [ai-defense-plane.mmd](../visuals/ai-defense-plane.mmd).
@@ -131,7 +133,7 @@ The important design choice is to evaluate risk from the relationship between in
 
 Authority in an agentic system rarely flows in a straight line from the user. A user delegates a task scope to an agent; the agent narrows that scope into sub-tasks for sub-agents or tool calls; a credential broker issues short-lived authority bound to each step. At every hand-off, the *effective identity* and the *credential scope* should be narrower than what came before — never broader.
 
-The diagram below uses a sequence diagram because the model is fundamentally about identity flow over time and where scope narrowing happens between participants.
+
 
 ```mermaid
 sequenceDiagram
@@ -170,7 +172,7 @@ Approval prompts should show:
 
 Approval should be required for actions that are sensitive, irreversible, outside normal scope, ambiguous, high-impact, or dependent on weak evidence.
 
-The lifecycle of an approval request moves through six explicit states. A state diagram is used because each state has named entry and exit conditions that the runtime should be able to log, replay, and audit independently.
+The lifecycle of an approval request moves through six explicit states. 
 
 ```mermaid
 stateDiagram-v2
@@ -208,7 +210,6 @@ This is where the architecture connects access control with organisational impac
 
 The audit layer is what makes an agentic system reconstructable. A single *trace identifier* should bind the full set of stage records produced during a task — prompt, context, decision, credential, approval, tool call, memory, output, and downstream effect — so a reviewer can follow the chain from influence to outcome without stitching logs across systems.
 
-The diagram below uses an entity-relationship view because the model is fundamentally about *which records share a trace* and which fields each record must carry.
 
 ```mermaid
 erDiagram
