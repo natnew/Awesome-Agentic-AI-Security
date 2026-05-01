@@ -76,6 +76,35 @@ Source: [secure-agent-runtime-boundaries.mmd](../visuals/secure-agent-runtime-bo
 
 For the broader system-level reference model, see [visuals/secure-agent-reference-architecture.mmd](../visuals/secure-agent-reference-architecture.mmd).
 
+## Sandboxed Execution Lifecycle
+
+The boundary diagram above shows when controls fire. The state diagram below shows the lifecycle of a single piece of generated code or command as it crosses three execution phases: pre-execution checks, sandboxed bounded run, and post-execution disposition. A state diagram with composite states is used because the phases are nested — each phase has its own internal transitions — and because every terminal state (committed, rolled back, quarantined, denied) must be loggable on its own.
+
+```mermaid
+stateDiagram-v2
+  [*] --> PreExecution
+  state PreExecution {
+    [*] --> Generated : Code or<br/>command produced
+    Generated --> DryRun : Run in<br/>sandbox preview
+    DryRun --> ImpactAssessed : Dry-run output<br/>evaluated by policy
+  }
+  PreExecution --> SandboxedExecution : Approved within<br/>blast radius
+  PreExecution --> Denied : Outside approved scope
+  state SandboxedExecution {
+    [*] --> BoundedRun : Within blast radius<br/>and rate limits
+    BoundedRun --> Validated : Post-action validation
+  }
+  SandboxedExecution --> Committed : Result within bounds
+  SandboxedExecution --> RolledBack : Result outside bounds
+  SandboxedExecution --> Quarantined : Sandbox flag<br/>mid-run
+  Committed --> [*]
+  RolledBack --> [*]
+  Quarantined --> [*]
+  Denied --> [*]
+```
+
+Source: [sandboxed-code-execution.mmd](../visuals/sandboxed-code-execution.mmd). The diagram makes the outcome-control vocabulary explicit: dry runs and impact assessment happen before any real effect, blast-radius and rate-limit bounds wrap the run itself, and the post-execution state — committed, rolled back, quarantined, or denied — is always one of four logged outcomes, never an implicit success.
+
 ## Implementation Notes
 
 These notes are vendor-agnostic. They describe the shape of the controls, not a specific framework.

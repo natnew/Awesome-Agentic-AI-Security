@@ -1,0 +1,36 @@
+erDiagram
+  TRACE ||--|| PROMPT_RECORD : binds
+  TRACE ||--|| CONTEXT_RECORD : binds
+  TRACE ||--|{ DECISION_RECORD : binds
+  TRACE ||--|{ CREDENTIAL_RECORD : binds
+  TRACE ||--o{ APPROVAL_RECORD : binds
+  TRACE ||--|{ TOOL_CALL_RECORD : binds
+  TRACE ||--o{ MEMORY_RECORD : binds
+  TRACE ||--|| OUTPUT_RECORD : binds
+  TRACE ||--o{ DOWNSTREAM_RECORD : binds
+
+  TRACE {
+    string trace_identifier
+    string task_scope
+    string effective_identity
+    timestamp created
+  }
+  DECISION_RECORD {
+    string matched_rule
+    string risk_factors
+    string decision
+    string reason
+  }
+  APPROVAL_RECORD {
+    string evidence_shown
+    string approver_identity
+    string decision
+    timestamp approved_at
+  }
+  TOOL_CALL_RECORD {
+    string tool_schema
+    string parameters
+    string broker_decision
+    string credential_scope
+    string outcome
+  }

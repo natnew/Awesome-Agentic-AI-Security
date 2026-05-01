@@ -127,6 +127,34 @@ Not every action needs the same control strength. The architecture should escala
 
 The important design choice is to evaluate risk from the relationship between intent, authority, data, tool, and outcome rather than from the model output alone.
 
+## Identity And Delegation
+
+Authority in an agentic system rarely flows in a straight line from the user. A user delegates a task scope to an agent; the agent narrows that scope into sub-tasks for sub-agents or tool calls; a credential broker issues short-lived authority bound to each step. At every hand-off, the *effective identity* and the *credential scope* should be narrower than what came before — never broader.
+
+The diagram below uses a sequence diagram because the model is fundamentally about identity flow over time and where scope narrowing happens between participants.
+
+```mermaid
+sequenceDiagram
+  participant U as User
+  participant A as Agent
+  participant Sub as Sub-agent
+  participant Br as Credential broker
+  participant T as Tool
+
+  U->>A: Delegated authority<br/>(approved task scope)
+  note right of A: Effective identity = User-on-behalf-of-Agent.<br/>Authority pinned to task scope.
+  A->>Sub: Sub-task with<br/>narrowed scope
+  note right of Sub: Effective identity = Agent-on-behalf-of-User.<br/>Sub-scope is subset of task scope.
+  Sub->>Br: Request credential<br/>for tool call
+  Br->>Br: Pre-issuance<br/>scope check
+  Br->>T: Credential bound<br/>to credential scope
+  T-->>Sub: Result within<br/>credential scope
+  Sub-->>A: Result within<br/>sub-scope
+  A-->>U: Outcome within<br/>task scope
+```
+
+Source: [identity-delegation-boundary.mmd](../visuals/identity-delegation-boundary.mmd). The diagram makes three things explicit: effective identity changes at every hand-off and is recorded, the credential broker is the enforcement point where scope narrowing actually happens, and the outcome that returns to the user must remain within the original task scope.
+
 ## Human Approval Gates
 
 Human approval is a control only when the reviewer can see the evidence needed to make a decision. A button after a confident summary is not enough.
@@ -141,6 +169,24 @@ Approval prompts should show:
 6. The expected effect, rollback path, and business owner where relevant.
 
 Approval should be required for actions that are sensitive, irreversible, outside normal scope, ambiguous, high-impact, or dependent on weak evidence.
+
+The lifecycle of an approval request moves through six explicit states. A state diagram is used because each state has named entry and exit conditions that the runtime should be able to log, replay, and audit independently.
+
+```mermaid
+stateDiagram-v2
+  [*] --> Requested : Agent proposes<br/>sensitive action
+  Requested --> EvidenceAssembled : Source context, risk summary,<br/>parameters, identity, expected effect attached
+  EvidenceAssembled --> UnderReview : Approval prompt<br/>shown to reviewer
+  UnderReview --> Approved : Reviewer signs off<br/>(approver identity + timestamp)
+  UnderReview --> Denied : Reviewer rejects<br/>with reason
+  UnderReview --> Revised : Reviewer requests<br/>changes
+  Revised --> Requested : Agent re-proposes<br/>within scope
+  Approved --> Logged : Approval record<br/>linked to trace
+  Denied --> Logged : Decision record<br/>linked to trace
+  Logged --> [*]
+```
+
+Source: [approval-gate.mmd](../visuals/approval-gate.mmd). The diagram makes the difference between *Approved* and *Logged* explicit: an approval is not complete until the approval record (with evidence shown, approver identity, decision, and timestamp) is linked to the task trace.
 
 ## Outcome Control
 
@@ -157,6 +203,53 @@ Outcome controls can include:
 5. Alerts when the observed result differs from the expected result.
 
 This is where the architecture connects access control with organisational impact.
+
+## Observability And Audit Trail
+
+The audit layer is what makes an agentic system reconstructable. A single *trace identifier* should bind the full set of stage records produced during a task — prompt, context, decision, credential, approval, tool call, memory, output, and downstream effect — so a reviewer can follow the chain from influence to outcome without stitching logs across systems.
+
+The diagram below uses an entity-relationship view because the model is fundamentally about *which records share a trace* and which fields each record must carry.
+
+```mermaid
+erDiagram
+  TRACE ||--|| PROMPT_RECORD : binds
+  TRACE ||--|| CONTEXT_RECORD : binds
+  TRACE ||--|{ DECISION_RECORD : binds
+  TRACE ||--|{ CREDENTIAL_RECORD : binds
+  TRACE ||--o{ APPROVAL_RECORD : binds
+  TRACE ||--|{ TOOL_CALL_RECORD : binds
+  TRACE ||--o{ MEMORY_RECORD : binds
+  TRACE ||--|| OUTPUT_RECORD : binds
+  TRACE ||--o{ DOWNSTREAM_RECORD : binds
+
+  TRACE {
+    string trace_identifier
+    string task_scope
+    string effective_identity
+    timestamp created
+  }
+  DECISION_RECORD {
+    string matched_rule
+    string risk_factors
+    string decision
+    string reason
+  }
+  APPROVAL_RECORD {
+    string evidence_shown
+    string approver_identity
+    string decision
+    timestamp approved_at
+  }
+  TOOL_CALL_RECORD {
+    string tool_schema
+    string parameters
+    string broker_decision
+    string credential_scope
+    string outcome
+  }
+```
+
+Source: [observability-audit-trail.mmd](../visuals/observability-audit-trail.mmd). Approval and downstream records are optional (`o{`) because not every task needs an approval or has a downstream side effect; everything else is required so that a reviewer can always reconstruct the action path.
 
 ## Architecture Review Questions
 

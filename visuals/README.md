@@ -32,6 +32,9 @@ The full selection rule set is documented at the top of the diagram review notes
 - [Agent, Tool, And Memory Attack Flow](agent-tool-memory-attack-flow.mmd) — `sequenceDiagram`. Step-by-step interactions between user, agent, policy, tool broker, tool, memory, and audit.
 - [AI Defense Plane](ai-defense-plane.mmd) — `block-beta`. Discover, Protect, and Govern as three stacked layers wrapping the agentic execution system.
 - [Secure Agent Reference Architecture](secure-agent-reference-architecture.mmd) — `block-beta`. Seven stacked components of the layered control model.
+- [Identity And Delegation Boundary](identity-delegation-boundary.mmd) — `sequenceDiagram`. Identity flow from user to agent to sub-agent to credential broker to tool, with scope narrowing at every hand-off.
+- [Approval Gate](approval-gate.mmd) — `stateDiagram-v2`. Lifecycle of an approval request from Requested through EvidenceAssembled, UnderReview, and a logged terminal decision.
+- [Observability And Audit Trail](observability-audit-trail.mmd) — `erDiagram`. Trace identifier bound to prompt, context, decision, credential, approval, tool-call, memory, output, and downstream records.
 
 ### Pattern diagrams
 
@@ -42,6 +45,7 @@ The full selection rule set is documented at the top of the diagram review notes
 - [Secure MCP Boundaries](secure-mcp-boundaries.mmd) — `block-beta`. Three layers: agent host, trust boundary, MCP servers.
 - [Memory Security Flow](memory-security-flow.mmd) — `stateDiagram-v2`. Lifecycle of a memory entry from proposed to expired, blocked, or quarantined.
 - [Credential And Token Boundaries](credential-token-boundaries.mmd) — `stateDiagram-v2`. Lifecycle of a credential from requested to expired, revoked, or denied.
+- [Sandboxed Code Execution](sandboxed-code-execution.mmd) — `stateDiagram-v2` with composite states. Lifecycle of generated code or commands across pre-execution checks, sandboxed bounded run, and post-execution disposition (committed, rolled back, quarantined, or denied).
 
 ### Navigation, lifecycle, and library-index diagrams
 
@@ -49,13 +53,6 @@ The full selection rule set is documented at the top of the diagram review notes
 - [Chain Library Index](chain-library-index.mmd) — `mindmap`. The ten attack-chain stubs grouped by progressive-breach-model stage.
 - [Case-Study Lifecycle](case-study-lifecycle.mmd) — `stateDiagram-v2`. Lifecycle of an incident case study from detected to closed.
 - [Open-Research Framing](open-research-framing.mmd) — `stateDiagram-v2`. Lifecycle of a research question from failure mode to revision.
-
-## Planned Coverage
-
-Future visuals will cover:
-
-- Sandboxing and code execution boundaries.
-- Multi-agent communication and delegated authority boundaries.
 
 ## Diagram Standard
 
