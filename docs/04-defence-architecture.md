@@ -39,7 +39,19 @@ These capabilities should not be isolated systems. Observation without interpret
 
 ## AI Defense Plane
 
-The AI Defense Plane organises controls into three operating layers: Discover, Protect, and Govern. The reusable Mermaid source is available in [ai-defense-plane.mmd](../visuals/ai-defense-plane.mmd).
+The AI Defense Plane organises controls into three operating layers: Discover, Protect, and Govern. The diagram below uses block syntax because the goal is to show the three layers as a stacked, conceptual architecture wrapping the agentic execution system, not to chart a process.
+
+```mermaid
+block-beta
+columns 3
+  Discover["Discover\nInventory and ownership"]
+  Protect["Protect\nRuntime decisions and controls"]
+  Govern["Govern\nAuthority, evidence, accountability"]
+  System["Agentic execution system: agents, context, tools, memory, authority, downstream"]:3
+  Evidence["Audit and assurance evidence"]:3
+```
+
+Source: [ai-defense-plane.mmd](../visuals/ai-defense-plane.mmd).
 
 | Layer | Responsibility | Examples |
 | --- | --- | --- |
@@ -65,7 +77,21 @@ A secure agentic architecture needs several control layers that share context. E
 | Human approval | Require informed review for sensitive, irreversible, ambiguous, or high-impact actions. | Does the reviewer see enough evidence to approve the action responsibly? | Source context, risk summary, parameters, identity, expected effect, approver, timestamp, and decision. |
 | Outcome control | Limit, verify, reverse, or contain downstream effects after action is attempted. | Did the result match the approved intent and acceptable impact? | Final state, validation result, notification, rollback, containment, and business owner record. |
 
-The reusable Mermaid source for a reference model is available in [secure-agent-reference-architecture.mmd](../visuals/secure-agent-reference-architecture.mmd).
+The reference architecture below shows the same layered control model as seven stacked components. The [agent, tool, and memory attack flow](../visuals/agent-tool-memory-attack-flow.mmd) sequence diagram already covers ordering.
+
+```mermaid
+block-beta
+columns 1
+  Inputs["Inputs: user goal, retrieved context, memory"]
+  Agent["Agent reasoning"]
+  Decision["Policy decision and approval gate"]
+  Brokers["Tool broker and credential broker"]
+  Execution["Tool runtime, MCP, or workflow"]
+  Outcome["Outcome control and downstream system"]
+  Audit["Observability and audit"]
+```
+
+Source: [secure-agent-reference-architecture.mmd](../visuals/secure-agent-reference-architecture.mmd).
 
 ## How The Layers Work Together
 
@@ -148,6 +174,24 @@ Use these questions when reviewing an agentic system:
 10. Do evaluations test multi-step behaviour across tools, memory, approvals, and downstream systems?
 
 If these answers are weak, the architecture may appear controlled at the model boundary while remaining exposed across the execution system.
+
+## Engineering Patterns Per Control Layer
+
+Each control layer above is the architectural placeholder for one or more secure engineering patterns. The patterns describe the same controls at the boundary, decision, audit, and deny or revise level engineers can build to. Use the [secure engineering patterns overview](07-secure-engineering-patterns.md) for the full map; the table below is the quick lookup.
+
+| Layer | Pattern(s) that implement it |
+| --- | --- |
+| Identity and access | [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+| Policy decision | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), [Secure Tool Calling](../patterns/secure-tool-calling.md) |
+| Runtime guardrail | [Secure Agent Runtime](../patterns/secure-agent-runtime.md) |
+| Tool broker | [Secure Tool Calling](../patterns/secure-tool-calling.md), [Secure MCP](../patterns/secure-mcp.md) |
+| Credential broker | [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+| Memory and context | [Memory Security](../patterns/memory-security.md) |
+| Observability and audit | [Secure Agent Runtime](../patterns/secure-agent-runtime.md); audit evidence sections in all five patterns |
+| Human approval | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), [Secure Tool Calling](../patterns/secure-tool-calling.md), [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+| Outcome control | [Secure Tool Calling](../patterns/secure-tool-calling.md), [Secure Agent Runtime](../patterns/secure-agent-runtime.md) |
+
+The [secure engineering patterns overview diagram](../visuals/secure-engineering-patterns-overview.mmd) shows the same composition on a single picture: where this layered model places the decision points, the patterns name the engineering boundary that owns them.
 
 ## Relationship To The Field Guide
 

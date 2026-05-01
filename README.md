@@ -6,6 +6,28 @@
 
 The security boundary has moved from the model to the agentic execution system.
 
+```mermaid
+flowchart TB
+    UP["User prompt"]
+    RD["Retrieved context"]
+    SR["System rules"]
+    AR["<b>Agentic reasoning</b><br/>Goals emerge at runtime;<br/>static review cannot inspect them"]
+    IK["Internal knowledge"]
+    EA["External APIs"]
+    OT["Operational tools"]
+    Risk["<b>Risk accumulation</b><br/>Each step passes a local check;<br/>the composed outcome may exceed approved scope"]
+
+    UP --> AR
+    RD --> AR
+    SR --> AR
+    AR -->|permitted step| IK
+    AR -->|permitted step| EA
+    AR -->|permitted step| OT
+    IK --> Risk
+    EA --> Risk
+    OT --> Risk
+```
+
 Awesome Agentic AI Security is a curated, structured, and continuously updated map of security risks, controls, benchmarks, architectures, and research for agentic, multi-agent, tool-using, self-improving AI systems.
 
 AI systems that act cannot be secured with isolated controls. They need security systems that can see, understand, and govern actions as they unfold. They need controls that observe, interpret, and constrain AI behaviour across prompts, context, tools, memory, credentials, code execution, delegated authority, and multi-agent workflows.
@@ -73,6 +95,42 @@ Prompt injection
 ```
 
 The defensive task is to recognise those paths early, break them deliberately, and make the system's authority and outcomes governable.
+
+```mermaid
+mindmap
+  root((Defence in depth))
+    Environment engineering
+      Refusal tokens
+    Secure protocols
+      Commitments
+      Zero-knowledge proofs
+      Multi-party computation
+    Monitoring and firewalls
+      Layered
+      Dynamic
+    Containment and isolation
+      Sandboxing
+      Trusted execution environments
+      Zero-trust
+    Attribution
+      Provenance
+      Causal inference
+    Cross-cutting
+      Multimodality
+      Chain-of-thought
+      Tool use
+    Adversarial testing
+      Benchmarks
+      Simulations
+    Sociotechnical defences
+      Standards
+      Governance
+      Transparency
+    Trade-offs
+      Security
+      Performance
+      Coordination
+```
 
 ## Security That Governs Action
 

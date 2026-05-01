@@ -4,6 +4,20 @@ The security boundary for agentic AI is the execution system around the model: t
 
 This landscape map gives readers a common frame before moving into the [threat model](01-threat-model.md). It treats agentic systems as execution environments, not as isolated model endpoints.
 
+The diagram below shows the agentic execution system as five stacked layers, with the control posture wrapping every layer. 
+
+```mermaid
+block-beta
+columns 1
+  Posture["Control posture: Observe → Interpret → Constrain → Audit"]
+  Inputs["Inputs: instructions, retrieved context, memory"]
+  Agent["Agent reasoning"]
+  Action["Action layer: tools, MCP, code, credentials, approvals"]
+  Outcome["Downstream systems and assurance evidence"]
+```
+
+Source: [agentic-execution-landscape.mmd](../visuals/agentic-execution-landscape.mmd).
+
 ## The Protected Object
 
 In a model-centred system, the protected object is often the prompt, the completion, or the data sent to and from the model. In an agentic system, the protected object is broader: it is the system of action that forms around language, tools, state, identity, and authority.

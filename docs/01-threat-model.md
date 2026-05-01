@@ -6,6 +6,31 @@ It is a defensive taxonomy, not an exploit guide. The goal is to help teams ask 
 
 For the broader system map, start with the [landscape map](00-landscape-map.md).
 
+The mindmap below groups the ten failure modes into six families. 
+
+```mermaid
+mindmap
+  root((Failure modes))
+    Influence
+      Prompt injection
+      Goal hijacking
+      Context poisoning
+    Authority
+      Tool misuse
+      Credential misuse
+    State
+      Memory poisoning
+    Capability
+      MCP and extension compromise
+    Propagation
+      Multi-agent propagation
+    Outcome
+      Unsafe autonomous action
+      Monitoring blind spots
+```
+
+Source: [failure-mode-taxonomy.mmd](../visuals/failure-mode-taxonomy.mmd).
+
 ## Scope And Assumptions
 
 This model applies to systems where an AI component can do one or more of the following:
@@ -213,6 +238,25 @@ Control questions:
 - Can reviewers reconstruct the full action path from instruction to outcome?
 - Do evaluations test tools, memory, autonomy, multi-agent communication, and approval gates?
 - Are logs and traces designed for security review, not only debugging?
+
+## Engineering Patterns For Each Failure Mode
+
+Each failure mode above maps to one or more secure engineering patterns. The patterns describe the boundaries, decision points, audit edges, and deny or revise branches that engineers can build to. Use the [secure engineering patterns overview](07-secure-engineering-patterns.md) for the full map; the table below is the quick lookup.
+
+| Failure mode | Primary pattern | Supporting patterns |
+| --- | --- | --- |
+| 1. Prompt and instruction attacks | [Secure Agent Runtime](../patterns/secure-agent-runtime.md) | [Memory Security](../patterns/memory-security.md), [Secure MCP](../patterns/secure-mcp.md) |
+| 2. Goal hijacking | [Secure Agent Runtime](../patterns/secure-agent-runtime.md) | [Secure Tool Calling](../patterns/secure-tool-calling.md) |
+| 3. Tool misuse and unsafe composition | [Secure Tool Calling](../patterns/secure-tool-calling.md) | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+| 4. Credential and token misuse | [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) | [Secure Tool Calling](../patterns/secure-tool-calling.md), [Memory Security](../patterns/memory-security.md) |
+| 5. Context poisoning | [Memory Security](../patterns/memory-security.md) for recall path; planned context-poisoning pattern | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), [Secure MCP](../patterns/secure-mcp.md) |
+| 6. Memory poisoning | [Memory Security](../patterns/memory-security.md) | [Secure Agent Runtime](../patterns/secure-agent-runtime.md) |
+| 7. MCP, skill, and extension compromise | [Secure MCP](../patterns/secure-mcp.md) | [Secure Tool Calling](../patterns/secure-tool-calling.md), [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+| 8. Multi-agent propagation | Planned multi-agent pattern | [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md), [Memory Security](../patterns/memory-security.md) |
+| 9. Unsafe autonomous action | [Secure Agent Runtime](../patterns/secure-agent-runtime.md) | [Secure Tool Calling](../patterns/secure-tool-calling.md), [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+| 10. Monitoring and evaluation blind spots | [Secure Agent Runtime](../patterns/secure-agent-runtime.md) end-to-end trace | Audit evidence sections in all five patterns |
+
+
 
 ## Common Action Paths
 
