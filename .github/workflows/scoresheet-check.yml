@@ -1,0 +1,54 @@
+name: Scoresheet Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  scoresheet-check:
+    name: Verify scoresheet presence for new tracked artefacts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check that new tracked artefacts have a scoresheet
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE=$(git merge-base origin/main HEAD)
+          ADDED=$(git diff --name-only --diff-filter=A "$BASE"...HEAD || true)
+
+          # Tracked artefact additions:
+          # - new chain stubs under docs/agentic-attack-chains/ (excluding README and template)
+          # - new files under future case-studies/ or benchmarks/ top-level directories (forward-compatible)
+          tracked=$(printf '%s\n' "$ADDED" \
+            | grep -E '^(docs/agentic-attack-chains|case-studies|benchmarks)/[^/]+\.md$' \
+            | grep -v -E '/(README|attack-chain-template)\.md$' \
+            || true)
+
+          # Scoresheet additions: any new file under rubrics/scoresheets/ except its README.
+          scoresheets=$(printf '%s\n' "$ADDED" \
+            | grep -E '^rubrics/scoresheets/[^/]+\.md$' \
+            | grep -v -E '/README\.md$' \
+            || true)
+
+          if [ -n "$tracked" ] && [ -z "$scoresheets" ]; then
+            echo "::error::This PR adds the following tracked artefact(s) without a corresponding scoresheet under rubrics/scoresheets/:"
+            printf '%s\n' "$tracked" | sed 's/^/  - /'
+            echo ""
+            echo "Pick the right rubric in rubrics/README.md, copy its scoresheet template, score the artefact, and add the scoresheet to this PR."
+            echo "See rubrics/scoresheets/README.md for the naming convention and worked examples."
+            exit 1
+          fi
+
+          if [ -n "$tracked" ]; then
+            echo "Tracked artefact(s) added with corresponding scoresheet(s):"
+            printf '%s\n' "$tracked" | sed 's/^/  - /'
+            echo "Scoresheet(s) added:"
+            printf '%s\n' "$scoresheets" | sed 's/^/  - /'
+          else
+            echo "No new tracked artefacts in this PR; scoresheet check skipped."
+          fi

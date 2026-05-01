@@ -32,3 +32,4 @@ What would you like reviewers to check most closely?
 - [ ] No unnecessary operational exploit detail is included.
 - [ ] No copied source material is included when a summary and link would be enough.
 - [ ] No generated outputs, built documentation, logs, traces, screenshots, reports, exports, or local artefacts are included.
+- [ ] If this PR adds a new resource, case study, or benchmark, a corresponding scoresheet under `rubrics/scoresheets/` is included (see [rubrics/README.md](../rubrics/README.md)).
