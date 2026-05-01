@@ -1,0 +1,9 @@
+stateDiagram-v2
+  [*] --> FailureMode
+  FailureMode --> Pattern : map to existing pattern
+  Pattern --> Gap : identify control gap
+  Gap --> Question : frame research question
+  Question --> Eval : propose evaluation
+  Eval --> Evidence : produce results
+  Evidence --> Revision : new pattern or revision
+  Revision --> [*]

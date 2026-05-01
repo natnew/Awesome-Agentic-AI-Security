@@ -19,6 +19,32 @@ An attack surface in an agentic system should be reviewed as a boundary with fou
 
 A surface becomes high risk when untrusted influence can reach meaningful authority without enough interpretation, constraint, or audit evidence.
 
+The mindmap below groups the twelve surfaces into five families: inputs, action, state, governance, and cross-system. 
+
+```mermaid
+mindmap
+  root((Attack surfaces))
+    Inputs
+      Instructions
+      Context and retrieval
+    Action
+      Tools
+      MCP and extensions
+      Code and automation
+      Credentials
+    State
+      Memory
+    Governance
+      Approvals
+      Policy decisions
+      Observability
+    Cross-system
+      Multi-agent
+      Downstream
+```
+
+Source: [surface-boundary-map.mmd](../visuals/surface-boundary-map.mmd).
+
 ## Surface Map
 
 | Surface | What is exposed | Why it matters | Defensive evidence |
@@ -133,6 +159,27 @@ Review these controls:
 3. Link prompts, retrieved context, tool calls, memory changes, approvals, outputs, and downstream actions.
 4. Test multi-step workflows, not only single prompts or final responses.
 5. Use audit evidence for assurance and continuous improvement, not only debugging.
+
+## Engineering Patterns Per Surface
+
+Each surface above maps to one or more secure engineering patterns. The patterns describe the boundaries, decision points, audit edges, and deny or revise branches that engineers can build to. Use the [secure engineering patterns overview](07-secure-engineering-patterns.md) for the full map; the table below is the quick lookup.
+
+| Surface | Pattern(s) that address it |
+| --- | --- |
+| Instruction sources | [Secure Agent Runtime](../patterns/secure-agent-runtime.md) |
+| Context and retrieval | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), planned context-poisoning pattern |
+| Tool interfaces | [Secure Tool Calling](../patterns/secure-tool-calling.md) |
+| Credential boundaries | [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+| Memory and state | [Memory Security](../patterns/memory-security.md) |
+| Code and automation | Planned sandboxing pattern; partially [Secure Tool Calling](../patterns/secure-tool-calling.md) |
+| MCP, skills, and extensions | [Secure MCP](../patterns/secure-mcp.md) |
+| Human approvals | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), [Secure Tool Calling](../patterns/secure-tool-calling.md), [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+| Policy decisions | [Secure Agent Runtime](../patterns/secure-agent-runtime.md) |
+| Observability and evaluation | [Secure Agent Runtime](../patterns/secure-agent-runtime.md) end-to-end trace; audit evidence sections in all five patterns |
+| Multi-agent communication | Planned multi-agent pattern |
+| Downstream systems | [Secure Tool Calling](../patterns/secure-tool-calling.md) outcome control, [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+
+
 
 ## Composition Review
 

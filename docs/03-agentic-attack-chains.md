@@ -21,7 +21,22 @@ Untrusted language or data
 -> organisational impact
 ```
 
-The reusable Mermaid source for this flow is available in [progressive-breach-model.mmd](../visuals/progressive-breach-model.mmd).
+The breach progression is shown below as a timeline because the model is fundamentally chronological — each stage marks a step further along the path from untrusted input to organisational impact.
+
+```mermaid
+timeline
+  title Progressive breach progression
+  Influence : Untrusted language or data
+  Intent : Goal compromise
+  Action : Tool, workflow, or code
+  Authority : Credential or delegated authority
+  State : Memory or context change
+  Propagation : Across agents or systems
+  Autonomy : Unsafe autonomous action
+  Impact : Organisational impact
+```
+
+Source: [progressive-breach-model.mmd](../visuals/progressive-breach-model.mmd).
 
 Not every incident follows every stage. Some chains stop at unsafe disclosure or misleading advice. Others skip memory or multi-agent propagation. The model is useful because it makes defenders ask where influence becomes action and where action becomes durable impact.
 
@@ -142,8 +157,53 @@ For any proposed agentic workflow, ask where the chain would be interrupted:
 
 If the answer is unclear, the system is difficult to govern even if the model appears safe in isolation.
 
+## Engineering Patterns That Implement Each Interruption
+
+Each interruption question above maps to one or more secure engineering patterns. The patterns describe the boundaries, decision points, audit edges, and deny or revise branches that engineers can build to. Use the [secure engineering patterns overview](07-secure-engineering-patterns.md) for the full map; the table below is the quick lookup.
+
+| Interruption question | Pattern(s) |
+| --- | --- |
+| Can untrusted language be prevented from becoming control instruction? | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), [Memory Security](../patterns/memory-security.md), [Secure MCP](../patterns/secure-mcp.md) |
+| Can goal alignment be checked before a risky tool call? | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), [Secure Tool Calling](../patterns/secure-tool-calling.md) |
+| Can policy decisions evaluate intent, authority, data sensitivity, and likely impact together? | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), [Secure Tool Calling](../patterns/secure-tool-calling.md) |
+| Can credentials be scoped to the task and revoked after use? | [Credential And Token Boundaries](../patterns/credential-and-token-boundaries.md) |
+| Can memory writes be reviewed, expired, corrected, and traced? | [Memory Security](../patterns/memory-security.md) |
+| Can cross-agent messages preserve origin, trust level, and delegated scope? | Planned multi-agent pattern |
+| Can humans see enough evidence before approving sensitive action? | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), [Secure Tool Calling](../patterns/secure-tool-calling.md) |
+| Can the full path from influence to outcome be reconstructed after the fact? | [Secure Agent Runtime](../patterns/secure-agent-runtime.md), audit evidence sections in all five patterns |
+
+
 ## Relationship To Defence Architecture
 
 These chains show where controls need to operate. The [defence architecture](04-defence-architecture.md) organises those controls into layers for identity, policy decisions, runtime guardrails, tool brokering, credential brokering, memory and context controls, observability, human approval, audit, outcome control, and governance.
 
-The reusable Mermaid source for the agent, tool, memory, credential, and observability interaction model is available in [agent-tool-memory-attack-flow.mmd](../visuals/agent-tool-memory-attack-flow.mmd).
+The interaction between agent, policy, tool broker, tools, memory, and audit is shown below as a sequence diagram. The diagram is about who calls whom and in what order.
+
+```mermaid
+sequenceDiagram
+  participant U as User
+  participant A as Agent
+  participant P as Policy
+  participant B as Tool broker
+  participant T as Tool or MCP
+  participant M as Memory
+  participant L as Audit
+
+  U->>A: Goal
+  M-->>A: Retrieved memory
+  A->>P: Proposed plan
+  alt Allowed
+    P->>B: Allow
+    B->>T: Scoped call
+    T-->>A: Result
+  else Denied
+    P-->>A: Deny or revise
+  end
+  A->>M: Memory write
+  P->>L: Trace
+  B->>L: Trace
+  T->>L: Trace
+  M->>L: Trace
+```
+
+Source: [agent-tool-memory-attack-flow.mmd](../visuals/agent-tool-memory-attack-flow.mmd).

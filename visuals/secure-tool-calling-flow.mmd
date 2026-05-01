@@ -1,0 +1,23 @@
+sequenceDiagram
+  participant A as Agent
+  participant B as Tool broker
+  participant P as Policy
+  participant C as Credential broker
+  participant T as Tool runtime
+  participant L as Audit
+
+  A->>B: Call request
+  B->>B: Allowlist and schema check
+  alt Valid
+    B->>P: Policy decision
+    P->>C: Allow
+    C->>T: Scoped token
+    T-->>B: Result
+    B-->>A: Validated result
+  else Invalid or denied
+    B-->>A: Denied or revised
+  end
+  B->>L: Trace
+  P->>L: Trace
+  C->>L: Trace
+  T->>L: Trace

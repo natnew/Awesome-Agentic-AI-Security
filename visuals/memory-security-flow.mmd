@@ -1,0 +1,16 @@
+stateDiagram-v2
+  [*] --> Proposed
+  Proposed --> Classified : classify
+  Classified --> Blocked : secret or instruction
+  Classified --> ReviewPending : needs review
+  ReviewPending --> Blocked : rejected
+  ReviewPending --> Tagged : approved
+  Classified --> Tagged : auto-allow
+  Tagged --> Stored
+  Stored --> Retrieved : read policy passes
+  Retrieved --> Stored
+  Stored --> Quarantined : anomaly detected
+  Stored --> Expired : expiry or deletion
+  Expired --> [*]
+  Blocked --> [*]
+  Quarantined --> [*]

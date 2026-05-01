@@ -2,6 +2,22 @@
 
 This section collects actionable, relevant open research questions for the field of agentic execution security. Each question is linked to prior phases and resources where possible.
 
+The state diagram below shows the lifecycle each question moves through: from a failure mode in the threat model, through pattern alignment, gap identification, question framing, evaluation, evidence, and pattern revision. 
+
+```mermaid
+stateDiagram-v2
+  [*] --> FailureMode
+  FailureMode --> Pattern : map to existing pattern
+  Pattern --> Gap : identify control gap
+  Gap --> Question : frame research question
+  Question --> Eval : propose evaluation
+  Eval --> Evidence : produce results
+  Evidence --> Revision : new pattern or revision
+  Revision --> [*]
+```
+
+Source: [open-research-framing.mmd](../visuals/open-research-framing.mmd).
+
 ## Example Questions
 
 1. **How can agentic systems reliably distinguish between benign and malicious tool use in ambiguous contexts?**

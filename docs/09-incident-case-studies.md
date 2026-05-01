@@ -2,6 +2,23 @@
 
 This section presents real-world and plausible hypothetical case studies of agentic AI security incidents, using a consistent, evidence-labelled template. Each case is designed to be clear, comparable, and useful for learning.
 
+The state diagram below shows the lifecycle each case study walks through: from detected to closed.
+
+```mermaid
+stateDiagram-v2
+  [*] --> Detected
+  Detected --> Reconstructed : trace and surface review
+  Reconstructed --> Mapped : align to attack chain
+  Mapped --> Analysed : controls failed and would have helped
+  Analysed --> PatternUpdated : update or extend pattern
+  Analysed --> EvalAdded : add evaluation or red-team test
+  PatternUpdated --> Closed
+  EvalAdded --> Closed
+  Closed --> [*]
+```
+
+Source: [case-study-lifecycle.mmd](../visuals/case-study-lifecycle.mmd).
+
 ## Case Study Template
 
 - **Title:**

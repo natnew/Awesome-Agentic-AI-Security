@@ -1,0 +1,10 @@
+stateDiagram-v2
+  [*] --> Detected
+  Detected --> Reconstructed : trace and surface review
+  Reconstructed --> Mapped : align to attack chain
+  Mapped --> Analysed : controls failed and would have helped
+  Analysed --> PatternUpdated : update or extend pattern
+  Analysed --> EvalAdded : add evaluation or red-team test
+  PatternUpdated --> Closed
+  EvalAdded --> Closed
+  Closed --> [*]
