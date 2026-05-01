@@ -208,6 +208,16 @@ Substantial entries should explain:
 
 The repository favours fewer, better-labelled entries over a large unstructured catalogue.
 
+## Related Projects
+
+Companion field guides by the same maintainer covering adjacent areas of AI. Read alongside this repository for broader context on how agentic AI is being built and applied beyond the security boundary.
+
+| Repository | Focus |
+| --- | --- |
+| [Awesome Agentic Engineering](https://github.com/natnew/Awesome-Agentic-Engineering) | Engineering practices, patterns, and tooling for building agentic AI systems. |
+| [Awesome AI Scientists](https://github.com/natnew/awesome-ai-scientists) | AI for scientific research, discovery, and AI-as-scientist tooling. |
+| [Awesome Physical AI](https://github.com/natnew/awesome-physical-ai) | Physical AI: robotics, embodied agents, and sensor-driven systems. |
+
 ## Licence
 
 This project is released under the [MIT License](LICENSE).
