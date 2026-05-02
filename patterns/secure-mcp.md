@@ -53,7 +53,7 @@ columns 1
   Audit["Observability and audit"]
 ```
 
-Source: [secure-mcp-boundaries.mmd](../visuals/secure-mcp-boundaries.mmd). A block diagram is used because the point is the trust boundary between three layers (host, boundary, servers), not the temporal flow. The picture clarifies that capabilities are not transparent extensions of the host: there is a layer of checks between them.
+Source: [secure-mcp-boundaries.mmd](../visuals/secure-mcp-boundaries.mmd). The picture clarifies that capabilities are not transparent extensions of the host: there is a layer of checks between them.
 
 ## Implementation Notes
 

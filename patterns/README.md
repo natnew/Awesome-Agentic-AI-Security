@@ -23,7 +23,7 @@ mindmap
       Limitations
 ```
 
-Source: [pattern-shape.mmd](../visuals/pattern-shape.mmd). A mindmap is used because the pattern shape is a conceptual taxonomy of sections, not a process — readers should see the standard structure at a glance.
+Source: [pattern-shape.mmd](../visuals/pattern-shape.mmd).
 
 ## Planned Coverage
 

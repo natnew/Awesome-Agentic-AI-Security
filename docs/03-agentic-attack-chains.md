@@ -21,7 +21,7 @@ Untrusted language or data
 -> organisational impact
 ```
 
-The breach progression is shown below as a timeline because the model is fundamentally chronological — each stage marks a step further along the path from untrusted input to organisational impact.
+The breach progression below shows eight chronological stages from untrusted input to organisational impact.
 
 ```mermaid
 timeline
