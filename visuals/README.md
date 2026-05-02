@@ -64,7 +64,7 @@ Every diagram should:
 - Use short, concise labels.
 - Avoid unexplained acronyms.
 - Render correctly in GitHub Markdown and MkDocs Material.
-- Have a short caption above the embedded block explaining what it shows and why this syntax was chosen.
+- Have a short caption above the embedded block explaining what it shows.
 
 ## Use In The Field Guide
 

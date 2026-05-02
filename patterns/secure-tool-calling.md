@@ -69,7 +69,7 @@ sequenceDiagram
   T->>L: Trace
 ```
 
-Source: [secure-tool-calling-flow.mmd](../visuals/secure-tool-calling-flow.mmd). A sequence diagram is used because tool calling is a step-by-step exchange between named participants (agent, broker, policy, credential broker, tool runtime, audit). The diagram is the canonical picture of "the agent never reaches the tool runtime directly".
+Source: [secure-tool-calling-flow.mmd](../visuals/secure-tool-calling-flow.mmd). The diagram is the canonical picture of "the agent never reaches the tool runtime directly".
 
 ## Implementation Notes
 

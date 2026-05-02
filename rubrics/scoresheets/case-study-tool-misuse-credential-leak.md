@@ -1,7 +1,7 @@
 ---
 rubric: case-study-rubric.md
 artefact: Tool Misuse Exposes Cloud Credentials
-artefact_path: docs/09-incident-case-studies.md (section "Example Case Study: Tool Misuse Leading to Credential Leak")
+artefact_path: 'docs/09-incident-case-studies.md (Example Case Study — Tool Misuse Leading to Credential Leak)'
 scored_by: maintainer (worked example)
 scored_on: 2026-05-01
 rater_count: 1
