@@ -223,3 +223,16 @@ Companion field guides by the same maintainer covering adjacent areas of AI. Rea
 ## Licence
 
 This project is released under the [MIT License](LICENSE).
+
+<h2 align="center">Contributing</h2>
+
+<p align="center">
+  <img alt="We love Contributors" src="assets/We%20love%20Contributors%20%E2%80%94%20section%20title%20banner.png">
+</p>
+
+<p align="center">Thrilled to have you here.<br/>
+Whether it's a quick typo fix, a fresh resource,<br/>
+a doc polish, or a sweeping overhaul — every contribution helps this list grow.<br/>
+Jump in and join the community — PRs of every size are welcome.</p>
+
+<p align="center">📝 <a href="CONTRIBUTING.md">Read the contributing guide</a> · 🐛 <a href="https://github.com/natnew/Awesome-Agentic-AI-Security/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good first issues</a></p>
