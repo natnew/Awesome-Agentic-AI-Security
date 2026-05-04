@@ -1,10 +1,12 @@
-# Awesome Agentic AI Security
+<h1 align="center">Awesome Agentic AI Security</h1>
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-![Map: Security Risks And Controls](https://img.shields.io/badge/map-security%20risks%20and%20controls-blue.svg)
-![Focus: Agentic AI](https://img.shields.io/badge/focus-agentic%20AI-2ea44f.svg)
+<p align="center">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-green.svg"></a>
+  <img alt="Map: Security Risks And Controls" src="https://img.shields.io/badge/map-security%20risks%20and%20controls-blue.svg">
+  <img alt="Focus: Agentic AI" src="https://img.shields.io/badge/focus-agentic%20AI-2ea44f.svg">
+</p>
 
-The security boundary has moved from the model to the agentic execution system.
+<p align="center">The security boundary has moved from the model to the agentic execution system.</p>
 
 ```mermaid
 flowchart TB
@@ -28,11 +30,11 @@ flowchart TB
     OT --> Risk
 ```
 
-Awesome Agentic AI Security is a curated, structured, and continuously updated map of security risks, controls, benchmarks, architectures, and research for agentic, multi-agent, tool-using, self-improving AI systems.
+<p align="center">Awesome Agentic AI Security is a curated, structured, and continuously updated map of security risks, controls, benchmarks, architectures, and research for agentic, multi-agent, tool-using, self-improving AI systems.</p>
 
-AI systems that act cannot be secured with isolated controls. They need security systems that can see, understand, and govern actions as they unfold. They need controls that observe, interpret, and constrain AI behaviour across prompts, context, tools, memory, credentials, code execution, delegated authority, and multi-agent workflows.
+<p align="center">AI systems that act cannot be secured with isolated controls. They need security systems that can see, understand, and govern actions as they unfold. They need controls that observe, interpret, and constrain AI behaviour across prompts, context, tools, memory, credentials, code execution, delegated authority, and multi-agent workflows.</p>
 
-Language is now part of the execution layer. Instructions can shape tool calls, trigger workflows, update memory, write code, route data, and influence decisions across enterprise systems. That changes the security equation: securing agentic AI means securing the system of action around the model, not only the model interface.
+<p align="center">Language is now part of the execution layer. Instructions can shape tool calls, trigger workflows, update memory, write code, route data, and influence decisions across enterprise systems. That changes the security equation: securing agentic AI means securing the system of action around the model, not only the model interface.</p>
 
 ## Core Question
 
