@@ -101,48 +101,36 @@ Prompt injection
 The defensive task is to recognise those paths early, break them deliberately, and make the system's authority and outcomes governable.
 
 ```mermaid
-flowchart LR
+flowchart TB
     root(("Defence in depth"))
 
-    root --> env["Environment engineering"]
-    env --> refusal["Refusal tokens"]
+    root --> control["Control environment"]
+    root --> execution["Execution security"]
+    root --> evidence["Evidence and attribution"]
+    root --> testing["Adversarial validation"]
+    root --> governance["Governance and trade-offs"]
 
-    root --> protocols["Secure protocols"]
-    protocols --> commitments["Commitments"]
-    protocols --> zkp["Zero-knowledge proofs"]
-    protocols --> mpc["Multi-party computation"]
+    control --> env["Environment engineering"]
+    control --> refusal["Refusal tokens"]
+    control --> monitoring["Monitoring and firewalls"]
 
-    root --> monitoring["Monitoring and firewalls"]
-    monitoring --> layered["Layered"]
-    monitoring --> dynamic["Dynamic"]
+    execution --> protocols["Secure protocols"]
+    execution --> containment["Containment and isolation"]
+    execution --> sandboxing["Sandboxing"]
+    execution --> tee["Trusted execution environments"]
+    execution --> zerotrust["Zero-trust"]
 
-    root --> containment["Containment and isolation"]
-    containment --> sandboxing["Sandboxing"]
-    containment --> tee["Trusted execution environments"]
-    containment --> zerotrust["Zero-trust"]
+    evidence --> attribution["Attribution"]
+    evidence --> provenance["Provenance"]
+    evidence --> causal["Causal inference"]
 
-    root --> attribution["Attribution"]
-    attribution --> provenance["Provenance"]
-    attribution --> causal["Causal inference"]
-
-    root --> crosscutting["Cross-cutting"]
-    crosscutting --> multimodality["Multimodality"]
-    crosscutting --> cot["Chain-of-thought"]
-    crosscutting --> tooluse["Tool use"]
-
-    root --> testing["Adversarial testing"]
     testing --> benchmarks["Benchmarks"]
     testing --> simulations["Simulations"]
 
-    root --> sociotechnical["Sociotechnical defences"]
-    sociotechnical --> standards["Standards"]
-    sociotechnical --> governance["Governance"]
-    sociotechnical --> transparency["Transparency"]
-
-    root --> tradeoffs["Trade-offs"]
-    tradeoffs --> security["Security"]
-    tradeoffs --> performance["Performance"]
-    tradeoffs --> coordination["Coordination"]
+    governance --> standards["Standards"]
+    governance --> transparency["Transparency"]
+    governance --> sociotechnical["Sociotechnical defences"]
+    governance --> tradeoffs["Security / performance / coordination"]
 ```
 
 ## Security That Governs Action
