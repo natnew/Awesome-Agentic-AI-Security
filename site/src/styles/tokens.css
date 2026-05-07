@@ -1,0 +1,42 @@
+/* Design tokens — dark default, single blue accent, mono headers */
+:root {
+  --aas-bg: #0b0d10;
+  --aas-bg-elev: #11151a;
+  --aas-bg-card: #0f141a;
+  --aas-fg: #e6edf3;
+  --aas-fg-dim: #b8c2cc;
+  --aas-muted: #8b97a3;
+  --aas-faint: #5a6573;
+  --aas-accent: #4f8cff;
+  --aas-accent-strong: #6aa1ff;
+  --aas-accent-soft: rgba(79, 140, 255, 0.12);
+  --aas-accent-line: rgba(79, 140, 255, 0.35);
+  --aas-danger: #ff6a6a;
+  --aas-warn: #ffb84d;
+  --aas-good: #5fd29a;
+  --aas-border: #1c232c;
+  --aas-border-strong: #2a323d;
+  --aas-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  --aas-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --aas-radius: 10px;
+  --aas-radius-sm: 6px;
+  --aas-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 12px 40px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* Map Starlight tokens to ours so docs pages match */
+:root[data-theme='dark'],
+:root {
+  --sl-color-bg: var(--aas-bg);
+  --sl-color-bg-nav: var(--aas-bg);
+  --sl-color-bg-sidebar: var(--aas-bg);
+  --sl-color-bg-inline-code: var(--aas-bg-elev);
+  --sl-color-text: var(--aas-fg);
+  --sl-color-text-accent: var(--aas-accent);
+  --sl-color-accent: var(--aas-accent);
+  --sl-color-accent-high: var(--aas-accent-strong);
+  --sl-color-hairline: var(--aas-border);
+  --sl-color-hairline-light: var(--aas-border);
+  --sl-color-hairline-shade: var(--aas-border-strong);
+  --sl-font: var(--aas-sans);
+  --sl-font-mono: var(--aas-mono);
+}

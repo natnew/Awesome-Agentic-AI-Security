@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import SectionBand from '../../components/SectionBand.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+const base = import.meta.env.BASE_URL;
+const url = (p: string) => `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
+---
+<StarlightPage frontmatter={{ title: 'Attack chains', description: 'Multi-step paths from intent compromise to organisational impact.', template: 'splash', hero: { title: ' ', tagline: ' ' }, pagefind: false, tableOfContents: false }} hasSidebar={false}>
+  <div class="aas-page">
+    <SectionBand variant="hero" eyebrow="ATTACK CHAINS" heading="Walk a breach chain end to end." lede="Each chain shows the local checks that pass at each step and the composed outcome that exceeds approved scope." >
+      <div class="aas-grid aas-grid--3" style="margin-top:2rem">
+        <FeatureCard tag="LIBRARY" title="Chain library index" body="Browse all chains by surface, tactic, and impact." href={url('chains/')} />
+        <FeatureCard tag="ENTRY" title="Agentic attack chains" body="The umbrella catalogue of multi-step agentic compromise paths." href={url('guide/agentic-attack-chains/')} />
+        <FeatureCard tag="SURFACES" title="Attack surfaces" body="Map the surfaces a chain has to traverse before it lands." href={url('guide/attack-surfaces/')} />
+      </div>
+    </SectionBand>
+  </div>
+</StarlightPage>

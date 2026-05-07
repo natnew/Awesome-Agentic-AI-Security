@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import SectionBand from '../../components/SectionBand.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+const base = import.meta.env.BASE_URL;
+const url = (p: string) => `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
+---
+<StarlightPage frontmatter={{ title: 'Start here', description: 'The conceptual foundation for agentic AI security.', template: 'splash', hero: { title: ' ', tagline: ' ' }, pagefind: false, tableOfContents: false }} hasSidebar={false}>
+  <div class="aas-page">
+    <SectionBand variant="hero" eyebrow="START HERE" heading="The conceptual foundation." lede="Read these in order to acquire the shared vocabulary the rest of the map assumes." >
+      <div class="aas-grid aas-grid--3" style="margin-top:2rem">
+        <FeatureCard tag="01" title="Landscape map" body="The terrain — what agentic systems are, where their risk lives, and how this map is organised." href={url('guide/landscape-map/')} />
+        <FeatureCard tag="02" title="Threat model" body="The threat model that drives the rest of the catalogue." href={url('guide/threat-model/')} />
+        <FeatureCard tag="03" title="Attack surfaces" body="The surfaces an agent exposes — prompts, context, tools, memory, credentials, code, approvals, agents." href={url('guide/attack-surfaces/')} />
+      </div>
+    </SectionBand>
+  </div>
+</StarlightPage>

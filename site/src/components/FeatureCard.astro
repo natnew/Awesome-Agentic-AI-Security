@@ -1,0 +1,16 @@
+---
+interface Props {
+  tag?: string;
+  title: string;
+  body: string;
+  href: string;
+  link?: string;
+}
+const { tag, title, body, href, link = 'Read →' } = Astro.props;
+---
+<a class="aas-card" href={href}>
+  {tag && <span class="aas-card__tag">{tag}</span>}
+  <h3 class="aas-card__title">{title}</h3>
+  <p class="aas-card__body">{body}</p>
+  <span class="aas-card__link">{link}</span>
+</a>

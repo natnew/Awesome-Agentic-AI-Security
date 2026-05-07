@@ -1,0 +1,22 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import SectionBand from '../../components/SectionBand.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+const base = import.meta.env.BASE_URL;
+const url = (p: string) => `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
+---
+<StarlightPage frontmatter={{ title: 'Resources', description: 'A curated catalogue of standards, papers, tools, benchmarks, and vendor research.', template: 'splash', hero: { title: ' ', tagline: ' ' }, pagefind: false, tableOfContents: false }} hasSidebar={false}>
+  <div class="aas-page">
+    <SectionBand variant="hero" eyebrow="RESOURCES" heading="Evidence, not endorsement." lede="A curated catalogue with consistent metadata, relevance notes, and explicit proof limits — public-ready and continuously refreshed." />
+    <SectionBand eyebrow="CATALOGUE" heading="Browse by type.">
+      <div class="aas-grid aas-grid--3" style="margin-top:1rem">
+        <FeatureCard tag="STANDARDS" title="Standards & frameworks" body="Public standards, frameworks, and reference models worth adopting or aligning to." href={url('resources/standards-and-frameworks/')} />
+        <FeatureCard tag="RESEARCH" title="Papers" body="Peer-reviewed and pre-print research relevant to agentic AI security." href={url('resources/papers/')} />
+        <FeatureCard tag="TOOLS" title="Tools" body="Tooling worth knowing about — with proof limits stated." href={url('resources/tools/')} />
+        <FeatureCard tag="BENCHMARKS" title="Benchmarks" body="Benchmarks scored against the benchmark-quality rubric." href={url('resources/benchmarks/')} />
+        <FeatureCard tag="VENDOR" title="Vendor research" body="Vendor research read with care — claims separated from evidence." href={url('resources/vendor-research/')} />
+        <FeatureCard tag="META" title="Quality bar" body="The rubrics that gate every entry into the catalogue." href={url('evaluation/rubrics/')} />
+      </div>
+    </SectionBand>
+  </div>
+</StarlightPage>

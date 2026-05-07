@@ -1,6 +1,9 @@
 site_name: Awesome Agentic AI Security
 site_description: A curated, structured, and continuously updated map of security risks, controls, benchmarks, architectures, and research for agentic, multi-agent, tool-using, self-improving AI systems.
-site_url: https://github.com/natnew/Awesome-Agentic-AI-Security
+site_url: https://natnew.github.io/Awesome-Agentic-AI-Security/
+# The public site is now built by Astro Starlight (see /site). This MkDocs config
+# is retained for transitional validation only; output goes to _mkdocs_site/.
+site_dir: _mkdocs_site
 repo_url: https://github.com/natnew/Awesome-Agentic-AI-Security
 repo_name: natnew/Awesome-Agentic-AI-Security
 edit_uri: edit/main/docs/

@@ -6,6 +6,8 @@
   <img alt="Focus: Agentic AI" src="https://img.shields.io/badge/focus-agentic%20AI-2ea44f.svg">
 </p>
 
+<p align="center"><a href="https://natnew.github.io/Awesome-Agentic-AI-Security/"><b>↗ Open the site</b></a> · <a href="site/">site source</a></p>
+
 <p align="center">The security boundary has moved from the model to the agentic execution system.</p>
 
 ```mermaid
@@ -99,39 +101,48 @@ Prompt injection
 The defensive task is to recognise those paths early, break them deliberately, and make the system's authority and outcomes governable.
 
 ```mermaid
-mindmap
-  root((Defence in depth))
-    Environment engineering
-      Refusal tokens
-    Secure protocols
-      Commitments
-      Zero-knowledge proofs
-      Multi-party computation
-    Monitoring and firewalls
-      Layered
-      Dynamic
-    Containment and isolation
-      Sandboxing
-      Trusted execution environments
-      Zero-trust
-    Attribution
-      Provenance
-      Causal inference
-    Cross-cutting
-      Multimodality
-      Chain-of-thought
-      Tool use
-    Adversarial testing
-      Benchmarks
-      Simulations
-    Sociotechnical defences
-      Standards
-      Governance
-      Transparency
-    Trade-offs
-      Security
-      Performance
-      Coordination
+flowchart LR
+    root(("Defence in depth"))
+
+    root --> env["Environment engineering"]
+    env --> refusal["Refusal tokens"]
+
+    root --> protocols["Secure protocols"]
+    protocols --> commitments["Commitments"]
+    protocols --> zkp["Zero-knowledge proofs"]
+    protocols --> mpc["Multi-party computation"]
+
+    root --> monitoring["Monitoring and firewalls"]
+    monitoring --> layered["Layered"]
+    monitoring --> dynamic["Dynamic"]
+
+    root --> containment["Containment and isolation"]
+    containment --> sandboxing["Sandboxing"]
+    containment --> tee["Trusted execution environments"]
+    containment --> zerotrust["Zero-trust"]
+
+    root --> attribution["Attribution"]
+    attribution --> provenance["Provenance"]
+    attribution --> causal["Causal inference"]
+
+    root --> crosscutting["Cross-cutting"]
+    crosscutting --> multimodality["Multimodality"]
+    crosscutting --> cot["Chain-of-thought"]
+    crosscutting --> tooluse["Tool use"]
+
+    root --> testing["Adversarial testing"]
+    testing --> benchmarks["Benchmarks"]
+    testing --> simulations["Simulations"]
+
+    root --> sociotechnical["Sociotechnical defences"]
+    sociotechnical --> standards["Standards"]
+    sociotechnical --> governance["Governance"]
+    sociotechnical --> transparency["Transparency"]
+
+    root --> tradeoffs["Trade-offs"]
+    tradeoffs --> security["Security"]
+    tradeoffs --> performance["Performance"]
+    tradeoffs --> coordination["Coordination"]
 ```
 
 ## Security That Governs Action

@@ -1,0 +1,18 @@
+---
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  lede?: string;
+  variant?: 'default' | 'hero';
+}
+const { eyebrow, heading, lede, variant = 'default' } = Astro.props;
+const klass = variant === 'hero' ? 'aas-band aas-band--hero' : 'aas-band';
+---
+<section class={klass}>
+  <div class="aas-container">
+    {eyebrow && <span class="aas-eyebrow">{eyebrow}</span>}
+    {heading && (variant === 'hero' ? <h1 class="aas-h1">{heading}</h1> : <h2 class="aas-h2">{heading}</h2>)}
+    {lede && <p class="aas-lede">{lede}</p>}
+    <slot />
+  </div>
+</section>

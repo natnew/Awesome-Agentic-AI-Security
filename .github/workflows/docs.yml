@@ -32,9 +32,11 @@ jobs:
         run: |
           pip install markdown-link-check
           find . -name '*.md' -not -path './site/*' -exec markdown-link-check -q {} \;
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+      # Pages deploy is now handled by .github/workflows/site.yml (Astro Starlight).
+      # The MkDocs build+lint above is kept for transitional validation only.
+      # - name: Deploy to GitHub Pages
+      #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./site

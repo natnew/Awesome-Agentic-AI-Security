@@ -1,0 +1,27 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import SectionBand from '../../components/SectionBand.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+const base = import.meta.env.BASE_URL;
+const url = (p: string) => `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
+---
+<StarlightPage frontmatter={{ title: 'Evaluation', description: 'Benchmarks and rubrics for testing agentic behaviour and control effectiveness.', template: 'splash', hero: { title: ' ', tagline: ' ' }, pagefind: false, tableOfContents: false }} hasSidebar={false}>
+  <div class="aas-page">
+    <SectionBand variant="hero" eyebrow="EVALUATION" heading="Test behaviour, not just answers." lede="Benchmarks and rubrics for tool use, autonomy, memory, multi-agent control effectiveness — and the proof limits of each." />
+    <SectionBand eyebrow="METHODS" heading="Methods and benchmarks.">
+      <div class="aas-grid aas-grid--3" style="margin-top:1rem">
+        <FeatureCard tag="METHOD" title="Red teaming & evaluation" body="Adversarial testing methods that scale from single-step prompts to multi-step agentic behaviour." href={url('evaluation/red-teaming/')} />
+        <FeatureCard tag="CATALOGUE" title="Benchmarks" body="Curated benchmarks with relevance, maturity, and proof-limit metadata." href={url('evaluation/benchmarks/')} />
+        <FeatureCard tag="INDEX" title="Rubrics" body="The full rubric set used to keep the catalogue evidence-led." href={url('evaluation/rubrics/')} />
+      </div>
+    </SectionBand>
+    <SectionBand eyebrow="RUBRICS" heading="Score before you ship.">
+      <div class="aas-grid aas-grid--4" style="margin-top:1rem">
+        <FeatureCard tag="RUBRIC" title="Agent security readiness" body="A scorecard for agent systems pre-launch." href={url('evaluation/agent-security-readiness/')} />
+        <FeatureCard tag="RUBRIC" title="Benchmark quality" body="Tests benchmarks on coverage, realism, proof limits." href={url('evaluation/benchmark-quality/')} />
+        <FeatureCard tag="RUBRIC" title="Case study" body="Standardises incident reports for evidence value." href={url('evaluation/case-study/')} />
+        <FeatureCard tag="RUBRIC" title="Resource quality" body="Bar for standards, papers, tools, and vendor research." href={url('evaluation/resource-quality/')} />
+      </div>
+    </SectionBand>
+  </div>
+</StarlightPage>

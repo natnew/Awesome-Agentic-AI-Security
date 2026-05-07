@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import SectionBand from '../../components/SectionBand.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+const base = import.meta.env.BASE_URL;
+const url = (p: string) => `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
+---
+<StarlightPage frontmatter={{ title: 'Operate', description: 'Incident case studies and open research questions.', template: 'splash', hero: { title: ' ', tagline: ' ' }, pagefind: false, tableOfContents: false }} hasSidebar={false}>
+  <div class="aas-page">
+    <SectionBand variant="hero" eyebrow="OPERATE" heading="Learn from incidents. Track what is unsolved." lede="Run the loop: detect, contain, learn — and feed open questions back into the map." />
+    <SectionBand eyebrow="EVIDENCE" heading="Cases and questions.">
+      <div class="aas-grid aas-grid--2" style="margin-top:1rem">
+        <FeatureCard tag="CASES" title="Incident case studies" body="Standardised incident reports for evidence value. Follow the case-study rubric to contribute." href={url('operate/case-studies/')} />
+        <FeatureCard tag="OPEN" title="Open research questions" body="Tracking the questions the field has not answered yet — with the gaps explicit." href={url('operate/open-questions/')} />
+      </div>
+    </SectionBand>
+  </div>
+</StarlightPage>

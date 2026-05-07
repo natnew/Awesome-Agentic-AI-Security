@@ -1,0 +1,41 @@
+---
+// Breach chain: 7 horizontal stages with a flowing token.
+const stages = [
+  'Prompt injection',
+  'Intent compromise',
+  'Tool misuse',
+  'Credential abuse',
+  'Memory poisoning',
+  'Cross-agent propagation',
+  'Unsafe action',
+];
+---
+<svg class="aas-svg" viewBox="0 0 980 160" role="img" aria-label="Breach chain progression">
+  <g>
+    {stages.map((s, i) => {
+      const x = 10 + i * 138;
+      // Wrap labels longer than what fits in 130px at 10px font (~16 chars).
+      const words = s.split(' ');
+      const tooLong = s.length > 16 && words.length >= 2;
+      const line1 = tooLong ? words[0] : s;
+      const line2 = tooLong ? words.slice(1).join(' ') : '';
+      return (
+        <g>
+          <rect class={i === stages.length - 1 ? 'node-accent' : 'node'} x={x} y={50} width={130} height={60} rx={8}/>
+          <text x={x + 65} y={72} text-anchor="middle" font-size="10" font-family="var(--aas-mono)" fill="var(--aas-muted)" letter-spacing="0.06em">{`STAGE ${i + 1}`}</text>
+          <text x={x + 65} y={line2 ? 90 : 96} text-anchor="middle" font-size="10" fill="var(--aas-fg)">{line1}</text>
+          {line2 && <text x={x + 65} y={102} text-anchor="middle" font-size="10" fill="var(--aas-fg)">{line2}</text>}
+        </g>
+      );
+    })}
+  </g>
+  <!-- flow line -->
+  <path class="edge-accent flow" d="M140 80 H 148 M278 80 H 286 M416 80 H 424 M554 80 H 562 M692 80 H 700 M830 80 H 838" marker-end="url(#aas-arrow-bc)"/>
+  <defs>
+    <marker id="aas-arrow-bc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor" style="color: var(--aas-accent)"/>
+    </marker>
+  </defs>
+  <text x="490" y="32" text-anchor="middle" font-size="10" font-family="var(--aas-mono)" fill="var(--aas-muted)">RISKS COMPOSE · EACH STEP PASSES A LOCAL CHECK</text>
+  <text x="490" y="148" text-anchor="middle" font-size="10" font-family="var(--aas-mono)" fill="var(--aas-muted)">DEFENSES MUST BREAK THE CHAIN, NOT PATCH ENDPOINTS</text>
+</svg>

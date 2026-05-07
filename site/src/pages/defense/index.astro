@@ -1,0 +1,26 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import SectionBand from '../../components/SectionBand.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import DefensePlaneDiagram from '../../components/DefensePlaneDiagram.astro';
+const base = import.meta.env.BASE_URL;
+const url = (p: string) => `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
+---
+<StarlightPage frontmatter={{ title: 'Defense', description: 'Reference architecture and engineering patterns for the agentic execution system.', template: 'splash', hero: { title: ' ', tagline: ' ' }, pagefind: false, tableOfContents: false }} hasSidebar={false}>
+  <div class="aas-page">
+    <SectionBand variant="hero" eyebrow="DEFENSE" heading="Architecture and patterns that govern action." lede="Layered controls that observe, interpret, constrain, and audit behaviour as it unfolds — across the agent runtime." >
+      <div style="margin-top:2rem; border:1px solid var(--aas-border); border-radius:var(--aas-radius); padding:1.25rem; background:var(--aas-bg-card)"><DefensePlaneDiagram /></div>
+    </SectionBand>
+    <SectionBand eyebrow="PATTERNS" heading="Pick a pattern, ship a control.">
+      <div class="aas-grid aas-grid--3" style="margin-top:1rem">
+        <FeatureCard tag="ARCHITECTURE" title="Defense architecture" body="The reference architecture that connects the patterns below." href={url('defense/defense-architecture/')} />
+        <FeatureCard tag="RUNTIME" title="Secure agent runtime" body="Sandboxing, isolation, policy enforcement, and observability inside the loop." href={url('defense/secure-agent-runtime/')} />
+        <FeatureCard tag="TOOLS" title="Secure tool calling" body="Brokers, schemas, scopes, allow-lists, side-effect controls, approvals." href={url('defense/secure-tool-calling/')} />
+        <FeatureCard tag="MCP" title="Secure MCP" body="Trust boundaries, transport, capability scoping, untrusted-context handling." href={url('defense/secure-mcp/')} />
+        <FeatureCard tag="MEMORY" title="Memory security" body="Write paths, provenance, poisoning detection, retention controls." href={url('defense/memory-security/')} />
+        <FeatureCard tag="CREDENTIALS" title="Credential & token boundaries" body="Delegated authority, scoped tokens, credential brokers, least-privilege impersonation." href={url('defense/credential-and-token-boundaries/')} />
+        <FeatureCard tag="PATTERNS" title="Secure engineering patterns" body="Cross-cutting engineering patterns that hold the rest together." href={url('defense/secure-engineering-patterns/')} />
+      </div>
+    </SectionBand>
+  </div>
+</StarlightPage>

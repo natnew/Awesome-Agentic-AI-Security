@@ -1,0 +1,184 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import SectionBand from '../components/SectionBand.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import HeroDiagram from '../components/HeroDiagram.astro';
+import DefensePlaneDiagram from '../components/DefensePlaneDiagram.astro';
+import BreachChainDiagram from '../components/BreachChainDiagram.astro';
+
+const base = import.meta.env.BASE_URL;
+const url = (p: string) => `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
+---
+<StarlightPage
+  frontmatter={{
+    title: 'Awesome Agentic AI Security',
+    description: 'Secure the system of action — not just the model.',
+    template: 'splash',
+    hero: { title: ' ', tagline: ' ' },
+    pagefind: false,
+    tableOfContents: false,
+  }}
+  hasSidebar={false}
+>
+  <div class="aas-page">
+
+    <!-- 1. HERO -->
+    <SectionBand
+      variant="hero"
+      eyebrow="OPEN MAP · AGENTIC AI SECURITY"
+      heading="Secure the system of action — not just the model."
+      lede="The security boundary has moved from the model to the system that acts on its behalf. This is a living map of the risks, controls, benchmarks, and architectures that secure agentic, multi-agent, and tool-using AI in production."
+    >
+      <div class="aas-cta-row">
+        <a class="aas-btn aas-btn--primary" href="https://github.com/natnew/Awesome-Agentic-AI-Security">★ Star on GitHub</a>
+        <a class="aas-btn" href={url('guide/threat-model/')}>Read the threat model →</a>
+      </div>
+      <div class="aas-pill-row" style="margin-top:1.5rem">
+        <span class="aas-pill">Execution-first · not model-first</span>
+        <span class="aas-pill">Risks chain · defenses chain with them</span>
+        <span class="aas-pill">Evidence over endorsement</span>
+      </div>
+      <div style="margin-top:3rem; border:1px solid var(--aas-border); border-radius:var(--aas-radius); padding:1.25rem; background:var(--aas-bg-card)">
+        <HeroDiagram />
+      </div>
+    </SectionBand>
+
+    <!-- 2. DEFENSE PLANE -->
+    <SectionBand
+      eyebrow="THE AI DEFENSE PLANE"
+      heading="See, interpret, constrain, audit — every action."
+      lede="AI systems that act need controls that operate at runtime, not only at the model boundary. The Defense Plane is the operating model that makes that possible."
+    >
+      <div class="aas-grid aas-grid--2" style="margin-top:2rem; align-items:center">
+        <div><DefensePlaneDiagram /></div>
+        <div class="aas-grid aas-grid--2" style="gap:0.75rem">
+          <div class="aas-card"><span class="aas-card__tag">OBSERVE</span><p class="aas-card__body">Capture prompts, context, tool calls, memory, approvals, outputs, and downstream actions.</p></div>
+          <div class="aas-card"><span class="aas-card__tag">INTERPRET</span><p class="aas-card__body">Understand intent, authority, sensitivity, tool risk, policy fit, and likely impact.</p></div>
+          <div class="aas-card"><span class="aas-card__tag">CONSTRAIN</span><p class="aas-card__body">Limit actions through policy, tool brokers, credential brokers, sandboxing, and approval gates.</p></div>
+          <div class="aas-card"><span class="aas-card__tag">AUDIT</span><p class="aas-card__body">Preserve evidence for review, response, governance, assurance, and continuous improvement.</p></div>
+        </div>
+      </div>
+    </SectionBand>
+
+    <!-- 3. START WHERE YOU ARE -->
+    <SectionBand
+      eyebrow="START WHERE YOU ARE"
+      heading="Pick the entry point that matches your job."
+      lede="Each entry is a working map. Open one, follow its links, leave with a sharper picture of risk, controls, or evidence."
+    >
+      <div class="aas-grid aas-grid--4" style="margin-top:2rem">
+        <FeatureCard tag="THREAT MODEL" title="What changes when AI can act" body="The model that maps how language, tools, memory, and authority compose into real-world risk." href={url('guide/threat-model/')} link="Open map →" />
+        <FeatureCard tag="ATTACK CHAINS" title="How breaches actually compose" body="Multi-step paths from prompt injection through tool misuse, credential abuse, and unsafe action." href={url('chains/')} link="Walk a chain →" />
+        <FeatureCard tag="PATTERNS" title="Defenses you can implement" body="Secure runtime, tool calling, MCP, memory, credentials, approval, and observability patterns." href={url('defense/')} link="Browse patterns →" />
+        <FeatureCard tag="BENCHMARKS" title="Evaluate behaviour, not just answers" body="Benchmarks and rubrics for tool use, autonomy, memory, and multi-agent control effectiveness." href={url('evaluation/benchmarks/')} link="See benchmarks →" />
+      </div>
+    </SectionBand>
+
+    <!-- 4. MODEL → EXECUTION SECURITY -->
+    <SectionBand
+      eyebrow="THE SHIFT"
+      heading="Model security is necessary. It is no longer sufficient."
+      lede="Securing agentic AI means securing the system of action around the model — prompts, context, tools, memory, credentials, code execution, delegated authority, and multi-agent workflows."
+    >
+      <div style="margin-top:2rem; border:1px solid var(--aas-border); border-radius:var(--aas-radius); overflow:hidden">
+        <table class="aas-table">
+          <thead><tr><th>Model-centred security</th><th>Agentic execution security</th></tr></thead>
+          <tbody>
+            <tr><td>Protects prompts, completions, and model-facing data flows.</td><td>Protects the full system of action around the model.</td></tr>
+            <tr><td>Asks whether the model revealed something unsafe.</td><td>Asks what the system can do, who authorised it, and whether the outcome is controlled.</td></tr>
+            <tr><td>Treats language as input and output.</td><td>Treats language as part of the execution layer.</td></tr>
+            <tr><td>Evaluates single responses or short conversations.</td><td>Evaluates multi-step behaviour across context, tools, credentials, memory, approvals, and agents.</td></tr>
+            <tr><td>Relies on isolated controls around prompt and output.</td><td>Layered controls that observe, interpret, constrain, and govern behaviour as it unfolds.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </SectionBand>
+
+    <!-- 5. RISKS COMPOSE -->
+    <SectionBand
+      eyebrow="BREACH CHAINS"
+      heading="Risks chain together. Defenses have to chain with them."
+      lede="A single compromised instruction combines with tool permissions, retrieved context, stored memory, delegated authority, weak approvals, and poor observability into a breach chain. The defensive task is to break that chain deliberately."
+    >
+      <div style="margin-top:2.5rem; border:1px solid var(--aas-border); border-radius:var(--aas-radius); padding:1.25rem; background:var(--aas-bg-card)">
+        <BreachChainDiagram />
+      </div>
+      <div class="aas-cta-row" style="margin-top:1.75rem">
+        <a class="aas-btn" href={url('chains/')}>Walk through chains →</a>
+        <a class="aas-btn" href={url('guide/attack-surfaces/')}>Map attack surfaces →</a>
+      </div>
+    </SectionBand>
+
+    <!-- 6. PATTERNS, NOT POSTERS -->
+    <SectionBand
+      eyebrow="ENGINEERING PATTERNS"
+      heading="Patterns, not posters."
+      lede="Concrete, implementable patterns for the parts of an agent system most likely to break under adversarial pressure."
+    >
+      <div class="aas-grid aas-grid--3" style="margin-top:2rem">
+        <FeatureCard tag="RUNTIME" title="Secure agent runtime" body="Sandboxing, isolation, policy enforcement, and observability inside the execution loop." href={url('defense/secure-agent-runtime/')} />
+        <FeatureCard tag="TOOLS" title="Secure tool calling" body="Tool brokers, schemas, scopes, allow-lists, side-effect controls, and approval gates." href={url('defense/secure-tool-calling/')} />
+        <FeatureCard tag="MCP" title="Secure MCP" body="Trust boundaries, transport hardening, capability scoping, and untrusted-context handling." href={url('defense/secure-mcp/')} />
+        <FeatureCard tag="MEMORY" title="Memory security" body="Write paths, provenance, poisoning detection, and retention controls for agent memory." href={url('defense/memory-security/')} />
+        <FeatureCard tag="CREDENTIALS" title="Credential & token boundaries" body="Delegated authority, scoped tokens, credential brokers, and least-privilege impersonation." href={url('defense/credential-and-token-boundaries/')} />
+        <FeatureCard tag="ARCHITECTURE" title="Defense architecture" body="Reference architecture for runtime, gateway, observability, audit, and governance layers." href={url('defense/')} />
+      </div>
+    </SectionBand>
+
+    <!-- 7. EVIDENCE OVER ENDORSEMENT -->
+    <SectionBand
+      eyebrow="QUALITY BAR"
+      heading="Evidence over endorsement."
+      lede="Catalogue entries are evidence for security judgement, not endorsements. Every substantial entry passes a rubric before it lands in the map."
+    >
+      <div class="aas-grid aas-grid--2" style="margin-top:2rem; align-items:start">
+        <div style="border:1px solid var(--aas-border); border-radius:var(--aas-radius); padding:1.5rem; background:var(--aas-bg-card); font-family:var(--aas-mono); font-size:0.9rem">
+          <div style="display:flex; justify-content:space-between; color:var(--aas-muted); font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1rem">
+            <span>SCORESHEET · ENTRY</span><span style="color:var(--aas-good)">● PASS</span>
+          </div>
+          <ul style="list-style:none; padding:0; margin:0; display:grid; gap:0.6rem">
+            <li>✔ Type and producer identified</li>
+            <li>✔ Relevance to agentic AI security stated</li>
+            <li>✔ Risks / behaviours / controls covered</li>
+            <li>✔ Maturity level + limitations declared</li>
+            <li>✔ Last-checked date present</li>
+            <li style="color:var(--aas-muted)">○ Independent corroboration <span style="float:right">optional</span></li>
+          </ul>
+        </div>
+        <div class="aas-grid aas-grid--2" style="gap:0.75rem">
+          <FeatureCard tag="RUBRIC" title="Resource quality" body="Sets the bar for standards, papers, tools, and vendor research." href={url('evaluation/resource-quality/')} />
+          <FeatureCard tag="RUBRIC" title="Benchmark quality" body="Tests benchmarks on coverage, realism, and proof limits." href={url('evaluation/benchmark-quality/')} />
+          <FeatureCard tag="RUBRIC" title="Case study" body="Standardises incident reports for evidence value." href={url('evaluation/case-study/')} />
+          <FeatureCard tag="RUBRIC" title="Agent security readiness" body="A scorecard for agent systems before they ship." href={url('evaluation/agent-security-readiness/')} />
+        </div>
+      </div>
+    </SectionBand>
+
+    <!-- 8. BUILT FOR -->
+    <SectionBand
+      eyebrow="BUILT FOR"
+      heading="Five audiences. One shared map."
+    >
+      <div class="aas-grid aas-grid--4" style="margin-top:2rem">
+        <div class="aas-card"><span class="aas-card__tag">CTOs · LEADERS</span><p class="aas-card__body">How agentic systems change enterprise risk, architecture, and assurance.</p></div>
+        <div class="aas-card"><span class="aas-card__tag">AI ENGINEERS</span><p class="aas-card__body">Design safer runtimes, tools, memory, approvals, and evaluation loops.</p></div>
+        <div class="aas-card"><span class="aas-card__tag">SECURITY ENGINEERS</span><p class="aas-card__body">Map attack surfaces, breach chains, controls, and IR evidence.</p></div>
+        <div class="aas-card"><span class="aas-card__tag">GOVERNANCE</span><p class="aas-card__body">Connect delegated authority, accountability, audit, and assurance.</p></div>
+      </div>
+    </SectionBand>
+
+    <!-- 9. FINAL CTA -->
+    <SectionBand
+      eyebrow="MAP READY IN 30 MINUTES"
+      heading="Your agents deserve controlled action."
+      lede="Open the map. Walk a chain. Pick a pattern. Ship a control."
+    >
+      <div class="aas-cta-row">
+        <a class="aas-btn aas-btn--primary" href="https://github.com/natnew/Awesome-Agentic-AI-Security">★ Star on GitHub</a>
+        <a class="aas-btn" href={url('guide/landscape-map/')}>Open the landscape map →</a>
+        <a class="aas-btn" href={url('guide/threat-model/')}>Read the threat model →</a>
+      </div>
+    </SectionBand>
+
+  </div>
+</StarlightPage>

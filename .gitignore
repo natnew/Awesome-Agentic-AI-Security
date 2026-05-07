@@ -3,8 +3,14 @@ __pycache__/
 *.py[codz]
 *$py.class
 
-# MkDocs generated site output
-site/
+# MkDocs generated site output (relocated; see mkdocs.yml site_dir)
+_mkdocs_site/
+
+# Astro Starlight site (see /site)
+site/node_modules/
+site/dist/
+site/.astro/
+site/src/content/docs/
 
 # C extensions
 *.so
@@ -168,7 +174,7 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/site
+/_mkdocs_site
 
 # mypy
 .mypy_cache/
