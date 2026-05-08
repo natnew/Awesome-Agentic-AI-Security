@@ -36,9 +36,13 @@ function resolveTarget(fromHtml, href) {
   if (!pathPart) return null; // pure fragment, same-page anchor
   let target;
   if (pathPart.startsWith('/')) {
-    // Site-absolute. Strip configured base if present.
-    let p = pathPart;
-    if (p.startsWith(SITE_BASE)) p = p.slice(SITE_BASE.length) || '/';
+    // Site-absolute. Internal links MUST include the configured base, otherwise
+    // they 404 once the site is served from /<repo>/. Treat missing-base paths
+    // as broken rather than silently resolving them under dist/.
+    if (!pathPart.startsWith(SITE_BASE + '/') && pathPart !== SITE_BASE) {
+      return join(distDir, '__missing-base__', pathPart);
+    }
+    const p = pathPart.slice(SITE_BASE.length) || '/';
     target = join(distDir, p);
   } else {
     target = resolve(dirname(fromHtml), pathPart);

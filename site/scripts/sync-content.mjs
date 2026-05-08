@@ -14,6 +14,12 @@ const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, '..', '..');
 const contentRoot = resolve(here, '..', 'src', 'content', 'docs');
 
+// Site base path — must match `base` in astro.config.mjs.
+// Internal markdown links rewritten by this script need this prefix so they
+// resolve correctly under GitHub Pages (which serves the site at /<repo>/).
+const SITE_BASE = '/Awesome-Agentic-AI-Security';
+const withBase = (p) => `${SITE_BASE}${p}`;
+
 // [sourceRelPath, destRoute, slug]
 const filenameSlug = (file) => basename(file, extname(file)).replace(/^\d+-/, '').toLowerCase();
 
@@ -114,16 +120,16 @@ const BASENAME_ROUTES = {
 function rewriteLinks(md) {
   // 1. Rewrite resources/<slug>.md (handle ambiguity: resources/benchmarks vs evaluation/benchmarks).
   let out = md.replace(/\]\(([^)]*?)resources\/([\w-]+)\.md(#[^)]*)?\)/g,
-    (_m, _pre, slug, hash = '') => `](/resources/${slug}/${hash})`);
+    (_m, _pre, slug, hash = '') => `](${withBase(`/resources/${slug}/`)}${hash})`);
   // 2. Rewrite chains/<slug>.md
   out = out.replace(/\]\(([^)]*?)agentic-attack-chains\/([\w-]+)\.md(#[^)]*)?\)/g,
-    (_m, _pre, slug, hash = '') => `](/chains/${slug}/${hash})`);
+    (_m, _pre, slug, hash = '') => `](${withBase(`/chains/${slug}/`)}${hash})`);
   // 3. Generic: any .md link → look up by basename (strip leading digits).
   out = out.replace(/\]\(([^)\s]+\.md)(#[^)]*)?\)/g, (m, path, hash = '') => {
     const file = path.split('/').pop() || '';
     const base = file.replace(/\.md$/i, '').replace(/^\d+-/, '').toLowerCase();
     const route = BASENAME_ROUTES[base];
-    if (route) return `](${route}${hash})`;
+    if (route) return `](${withBase(route)}${hash})`;
     return m; // leave unknown .md links alone (will be flagged by checker)
   });
   // 4. Drop links to /visuals/*.mmd (the .mmd source files don't ship to the site)
@@ -135,11 +141,11 @@ function rewriteLinks(md) {
   const GH = 'https://github.com/natnew/Awesome-Agentic-AI-Security/tree/main';
   const GH_BLOB = 'https://github.com/natnew/Awesome-Agentic-AI-Security/blob/main';
   const dirMap = [
-    [/\]\((?:\.\.\/)*patterns\/\)/g, `](/defense/)`],
-    [/\]\((?:\.\.\/)*docs\/agentic-attack-chains\/\)/g, `](/guide/agentic-attack-chains/)`],
-    [/\]\((?:\.\.\/)*docs\/\)/g, `](/guide/)`],
-    [/\]\((?:\.\.\/)*resources\/\)/g, `](/resources/)`],
-    [/\]\((?:\.\.\/)*rubrics\/\)/g, `](/evaluation/rubrics/)`],
+    [/\]\((?:\.\.\/)*patterns\/\)/g, `](${withBase('/defense/')})`],
+    [/\]\((?:\.\.\/)*docs\/agentic-attack-chains\/\)/g, `](${withBase('/guide/agentic-attack-chains/')})`],
+    [/\]\((?:\.\.\/)*docs\/\)/g, `](${withBase('/guide/')})`],
+    [/\]\((?:\.\.\/)*resources\/\)/g, `](${withBase('/resources/')})`],
+    [/\]\((?:\.\.\/)*rubrics\/\)/g, `](${withBase('/evaluation/rubrics/')})`],
     [/\]\((?:\.\.\/)*visuals\/\)/g, `](${GH}/visuals)`],
     [/\]\((?:\.\.\/)*scoresheets\/(?:README\.md)?\)/g, `](${GH}/rubrics/scoresheets)`],
     [/\]\((?:\.\.\/)*CONTRIBUTING\.md\)/g, `](${GH_BLOB}/CONTRIBUTING.md)`],

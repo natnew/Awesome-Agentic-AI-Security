@@ -71,13 +71,13 @@ These surfaces overlap. A retrieved document can influence a tool call. A tool r
 
 Most agentic failures are not single events. They are paths across the execution system.
 
-```text
-Untrusted instruction
--> compromised intent
--> risky tool selection
--> delegated authority use
--> persistent state or downstream change
--> broader organisational impact
+```mermaid
+flowchart TD
+  A["Untrusted instruction"] --> B["Compromised intent"]
+  B --> C["Risky tool selection"]
+  C --> D["Delegated authority use"]
+  D --> E["Persistent state or downstream change"]
+  E --> F["Broader organisational impact"]
 ```
 
 Different systems will expose different paths, but the pattern is consistent: a weak boundary in one place becomes more serious when it is connected to tools, credentials, memory, automation, or other agents.

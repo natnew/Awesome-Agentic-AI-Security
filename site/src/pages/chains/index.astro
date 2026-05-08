@@ -9,9 +9,24 @@ const url = (p: string) => `${base.replace(/\/$/, '')}/${p.replace(/^\//, '')}`;
   <div class="aas-page">
     <SectionBand variant="hero" eyebrow="ATTACK CHAINS" heading="Walk a breach chain end to end." lede="Each chain shows the local checks that pass at each step and the composed outcome that exceeds approved scope." >
       <div class="aas-grid aas-grid--3" style="margin-top:2rem">
-        <FeatureCard tag="LIBRARY" title="Chain library index" body="Browse all chains by surface, tactic, and impact." href={url('chains/')} />
+        <FeatureCard tag="LIBRARY" title="Chain library index" body="Browse all chains by surface, tactic, and impact." href={url('chains/#library')} />
         <FeatureCard tag="ENTRY" title="Agentic attack chains" body="The umbrella catalogue of multi-step agentic compromise paths." href={url('guide/agentic-attack-chains/')} />
         <FeatureCard tag="SURFACES" title="Attack surfaces" body="Map the surfaces a chain has to traverse before it lands." href={url('guide/attack-surfaces/')} />
+      </div>
+    </SectionBand>
+    <SectionBand eyebrow="LIBRARY" heading="Chain library.">
+      <div id="library" class="aas-grid aas-grid--3" style="margin-top:1rem">
+        <FeatureCard tag="INFLUENCE" title="Prompt injection to tool misuse" body="Hidden directives in user input become attacker-chosen tool parameters before any policy check fires." href={url('chains/prompt-injection-tool-misuse/')} />
+        <FeatureCard tag="INFLUENCE" title="Poisoned retrieved context" body="A planted document is ranked highly and treated as authoritative evidence for a high-impact decision." href={url('chains/poisoned-retrieved-context/')} />
+        <FeatureCard tag="INFLUENCE" title="Hidden instruction in document ingestion" body="Concealed directives inside ingested documents override policy and invoke tools the user never asked for." href={url('chains/hidden-instruction-document-ingestion/')} />
+        <FeatureCard tag="ACTION" title="Code-execution side effects" body="Visible output looks fine while filesystem writes, network calls, and leaked secrets quietly accumulate." href={url('chains/code-execution-side-effects/')} />
+        <FeatureCard tag="AUTHORITY" title="Credential overreach" body="An over-broad token is reused to invoke an unrelated tool, expanding impact beyond the user's intent." href={url('chains/credential-overreach/')} />
+        <FeatureCard tag="STATE" title="Memory poisoning" body="A poisoned fact written in one session is later retrieved as trusted state and shapes a future decision." href={url('chains/memory-poisoning/')} />
+        <FeatureCard tag="CAPABILITY" title="Unsafe MCP / tool extension" body="A capability added without registry review or scope check opens a path to high-impact downstream actions." href={url('chains/unsafe-mcp-tool-extension/')} />
+        <FeatureCard tag="PROPAGATION" title="Agent-to-agent contamination" body="One agent's manipulated output flows through orchestration into another agent that treats it as trusted input." href={url('chains/agent-to-agent-contamination/')} />
+        <FeatureCard tag="GOVERNANCE" title="Fake approval loop" body="A polished summary hides the real tool parameters and diff, so the human approves a sentence, not the action." href={url('chains/fake-approval-loop/')} />
+        <FeatureCard tag="GOVERNANCE" title="Workflow automation abuse" body="Many in-policy steps compose into broad effective authority and an irreversible action no single step would allow." href={url('chains/workflow-automation-abuse/')} />
+        <FeatureCard tag="TEMPLATE" title="Attack chain template" body="The standard template every chain in this library is built from." href={url('chains/attack-chain-template/')} />
       </div>
     </SectionBand>
   </div>
