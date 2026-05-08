@@ -6,30 +6,16 @@ It is a defensive taxonomy, not an exploit guide. The goal is to help teams ask 
 
 For the broader system map, start with the [landscape map](00-landscape-map.md).
 
-The mindmap below groups the ten failure modes into six families. 
+The table below groups the ten failure modes into six families.
 
-```mermaid
-mindmap
-  root((Failure modes))
-    Influence
-      Prompt injection
-      Goal hijacking
-      Context poisoning
-    Authority
-      Tool misuse
-      Credential misuse
-    State
-      Memory poisoning
-    Capability
-      MCP and extension compromise
-    Propagation
-      Multi-agent propagation
-    Outcome
-      Unsafe autonomous action
-      Monitoring blind spots
-```
-
-Source: [failure-mode-taxonomy.mmd](../visuals/failure-mode-taxonomy.mmd).
+| Family | Failure modes |
+| --- | --- |
+| Influence | Prompt injection; Goal hijacking; Context poisoning |
+| Authority | Tool misuse; Credential misuse |
+| State | Memory poisoning |
+| Capability | MCP and extension compromise |
+| Propagation | Multi-agent propagation |
+| Outcome | Unsafe autonomous action; Monitoring blind spots |
 
 ## Scope And Assumptions
 
