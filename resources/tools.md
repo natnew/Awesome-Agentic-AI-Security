@@ -106,3 +106,14 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Evidence quality and maturity level: Commercial tooling with public documentation. Useful to study as an example control pattern.
 - Last checked: 2026-04-29.
 - Limitations or caveats: Product claims and effectiveness require independent validation in the target environment. Avoid relying on any single vendor control for complete agentic security.
+
+### APort
+
+- Resource type: Commercial runtime policy and verification layer for AI agents and MCP-connected tools.
+- Producer or publisher: APort.
+- Source link: <https://aport.io/>.
+- Relevance to agentic execution security: Maps to runtime policy enforcement, tool governance, and auditable control points around agent actions.
+- Coverage: Agent and MCP tool-use guardrails, policy decisions, runtime verification, and audit-oriented enforcement patterns.
+- Evidence quality and maturity level: Commercial tooling with public product documentation. Useful to track as an example of runtime governance for tool-using agents.
+- Last checked: 2026-05-17.
+- Limitations or caveats: Product claims and effectiveness require validation against the target agent architecture, tool set, and operational policy model.
