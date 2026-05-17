@@ -6,20 +6,65 @@
   <img alt="Focus: Agentic AI" src="https://img.shields.io/badge/focus-agentic%20AI-2ea44f.svg">
 </p>
 
-<p align="center"><a href="https://natnew.github.io/Awesome-Agentic-AI-Security/"><b>↗ Open the site</b></a> · <a href="site/">site source</a></p>
+<p align="center"><a href="https://natnew.github.io/Awesome-Agentic-AI-Security/"><b>&nearr; Open the site</b></a> &middot; <a href="site/">site source</a></p>
 
-<p align="center">The security boundary has moved from the model to the agentic execution system.</p>
+<p align="center"><b>The security boundary has moved from the model to the agentic execution system.</b></p>
+
+> A curated list of resources, standards, benchmarks, tools, threat models, architectures, and research for securing agentic, multi-agent, tool-using, memory-bearing, and cyber-capable AI systems.
+
+## Start Here
+
+- [Landscape Map](docs/00-landscape-map.md) - System-level map of prompts, context, tools, credentials, memory, approvals, and downstream action.
+- [Threat Model](docs/01-threat-model.md) - Failure modes, preconditions, impact paths, and control questions for agentic systems.
+- [Attack Surfaces](docs/02-attack-surfaces.md) - Where language, context, authority, state, tools, memory, and policies expose risk.
+- [Agentic Attack Chains](docs/03-agentic-attack-chains.md) - How local weaknesses compose into breach paths and where defenders can interrupt them.
+- [Defence Architecture](docs/04-defence-architecture.md) - Runtime control model for observing, interpreting, constraining, auditing, discovering, protecting, and governing agentic systems.
+- [Resource Catalogue](resources/README.md) - Standards, frameworks, research, tools, benchmarks, cyber-capable AI agents, and evidence requirements.
+- [Patterns](patterns/README.md) - Secure engineering patterns for runtime boundaries, tool calling, MCP, memory, credentials, and approval.
+- [Visuals](visuals/README.md) - Mermaid diagrams for execution boundaries, action paths, control points, and reference architectures.
+
+## Contents
+
+- [Core Concepts](#core-concepts)
+- [Standards and Frameworks](#standards-and-frameworks)
+- [Threat Models and Attack Surfaces](#threat-models-and-attack-surfaces)
+- [Prompt Injection and Instruction Attacks](#prompt-injection-and-instruction-attacks)
+- [Tool Use, MCP, and Runtime Security](#tool-use-mcp-and-runtime-security)
+- [Memory, State, and Context Security](#memory-state-and-context-security)
+- [Credentials, Identity, and Delegated Authority](#credentials-identity-and-delegated-authority)
+- [Benchmarks and Evaluations](#benchmarks-and-evaluations)
+- [Cyber-Capable AI Agents](#cyber-capable-ai-agents)
+- [Observability, Audit, and Forensics](#observability-audit-and-forensics)
+- [Governance and Assurance](#governance-and-assurance)
+- [Physical AI and Robotics Security](#physical-ai-and-robotics-security)
+- [Open-Weight and Frontier Capability Risks](#open-weight-and-frontier-capability-risks)
+- [Engineering Patterns](#engineering-patterns)
+- [Docs and Maps](#docs-and-maps)
+- [Quality Bar](#quality-bar)
+- [Related Projects](#related-projects)
+- [Licence](#licence)
+- [Contributing](#contributing)
+
+## Core Concepts
+
+Agentic systems behave less like isolated chat applications and more like distributed execution environments. Instructions can shape tool calls, trigger workflows, update memory, write code, route data, and influence decisions across enterprise systems.
+
+The central security question is:
+
+> What can this AI system do, under whose authority, with which tools, using which data, with what memory, and under what controls?
+
+Useful security for these systems must understand the relationship between intent, authority, action, context, and outcome.
 
 ```mermaid
 flowchart TB
     UP["User prompt"]
     RD["Retrieved context"]
     SR["System rules"]
-    AR["<b>Agentic reasoning</b><br/>Goals emerge at runtime;<br/>static review cannot inspect them"]
+    AR["Agentic reasoning<br/>Goals emerge at runtime"]
     IK["Internal knowledge"]
     EA["External APIs"]
     OT["Operational tools"]
-    Risk["<b>Risk accumulation</b><br/>Each step passes a local check;<br/>the composed outcome may exceed approved scope"]
+    Risk["Risk accumulation<br/>Composed outcomes may exceed approved scope"]
 
     UP --> AR
     RD --> AR
@@ -32,182 +77,132 @@ flowchart TB
     OT --> Risk
 ```
 
-<p align="center">Awesome Agentic AI Security is a curated, structured, and continuously updated map of security risks, controls, benchmarks, architectures, and research for agentic, multi-agent, tool-using, self-improving AI systems.</p>
+The repository organises controls around the AI Defense Plane: discover where agents, tools, prompts, data flows, credentials, memory, and autonomous workflows exist; protect tool use, memory writes, credentials, and actions; and govern evidence, audit trails, delegated authority, and risk acceptance. The fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 
-<p align="center">AI systems that act cannot be secured with isolated controls. They need security systems that can see, understand, and govern actions as they unfold. They need controls that observe, interpret, and constrain AI behaviour across prompts, context, tools, memory, credentials, code execution, delegated authority, and multi-agent workflows.</p>
+## Standards and Frameworks
 
-<p align="center">Language is now part of the execution layer. Instructions can shape tool calls, trigger workflows, update memory, write code, route data, and influence decisions across enterprise systems. That changes the security equation: securing agentic AI means securing the system of action around the model, not only the model interface.</p>
+- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/) - Security risks and mitigations for LLM applications, including prompt injection, sensitive information disclosure, unsafe output handling, excessive agency, and supply-chain concerns.
+- [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) - Agentic security taxonomy for autonomous systems that plan, act, use tools, and make workflow decisions.
+- [OWASP Securing Agentic Applications Guide 1.0](https://genai.owasp.org/resource/securing-agentic-applications-guide-1-0/) - Practical guidance for designing, developing, and deploying secure LLM-powered agentic applications.
+- [MITRE ATLAS](https://atlas.mitre.org/) - Knowledge base for adversary tactics and techniques against AI-enabled systems.
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) - Governance and risk-management framework for trustworthy AI systems.
+- [NIST AI RMF Generative AI Profile](https://doi.org/10.6028/NIST.AI.600-1) - Generative-AI-specific risk profile that can support governance for agentic applications.
+- [Full standards and frameworks catalogue](resources/standards-and-frameworks.md) - Metadata-labelled entries with relevance, coverage, maturity, and limitations.
 
-## Core Question
+## Threat Models and Attack Surfaces
 
-The central question for agentic AI security is:
+- [Agentic AI Threat Model](docs/01-threat-model.md) - Repository threat model for failure modes across prompts, tools, memory, credentials, approvals, and multi-agent workflows.
+- [Attack Surfaces: Agentic Execution Systems](docs/02-attack-surfaces.md) - Boundary map for language, context, authority, state, policies, tools, and downstream systems.
+- [Agentic Attack Chains](docs/03-agentic-attack-chains.md) - Defensive chain model for recognising and interrupting multi-step compromise paths.
+- [Agentic Attack Chain Library](docs/agentic-attack-chains/README.md) - Structured stubs for prompt injection, poisoned context, memory poisoning, unsafe MCP extensions, credential overreach, fake approvals, and related chain patterns.
+- [Lakera Progressive Breach Model](https://www.lakera.ai/blog/the-progressive-breach-model-behind-the-owasp-top-10-for-agentic-applications) - Vendor analysis of how agentic compromise can progress from manipulated intent to tool use, delegated authority, propagation, and containment failure.
 
-> What can this AI system do, under whose authority, with which tools, using which data, with what memory, and under what controls?
+## Prompt Injection and Instruction Attacks
 
-This repository helps AI leaders, CTOs, AI engineers, AI researchers, security engineers, and governance leaders reason about that question with clear maps, practical controls, quality benchmarks, and evidence-led research.
+- [Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/abs/2302.12173) - Foundational research on external content influencing LLM-integrated applications.
+- [AgentDojo](https://github.com/ethz-spylab/agentdojo) - Benchmark and evaluation environment for indirect prompt injection and defences in tool-using agents.
+- [Lakera Agent Breaker](https://gandalf.lakera.ai/agent-breaker) - Public challenge environment for learning about agentic prompt-injection, tool, browsing, memory, and data-exfiltration scenarios.
+- [OWASP GenAI Red Teaming Guide](https://genai.owasp.org/resource/genai-red-teaming-guide/) - Methodology for planning and running GenAI red teaming across model, implementation, infrastructure, and runtime layers.
+- [Prompt Injection to Tool Misuse](docs/agentic-attack-chains/prompt-injection-tool-misuse.md) - Defensive attack-chain stub for modelling instruction compromise through tool execution.
 
-## Why This Matters
+## Tool Use, MCP, and Runtime Security
 
-Agentic systems behave less like isolated chat applications and more like distributed execution environments. A single compromised instruction can combine with tool permissions, retrieved context, stored memory, delegated authority, weak approval paths, and poor observability to create a breach chain.
+- [Secure Tool Calling](patterns/secure-tool-calling.md) - Pattern for tool brokers, schemas, scopes, allow-lists, side-effect controls, and approval gates.
+- [Secure MCP](patterns/secure-mcp.md) - Pattern for trust boundaries, transport hardening, capability scoping, and untrusted-context handling in Model Context Protocol integrations.
+- [Secure Agent Runtime](patterns/secure-agent-runtime.md) - Pattern for sandboxing, isolation, policy enforcement, and observability inside the execution loop.
+- [OWASP Agentic Skills Top 10](https://owasp.org/www-project-agentic-skills-top-10/) - Emerging guidance for the security of reusable agent skills and extension ecosystems.
+- [NVIDIA NeMo Agent Toolkit Safety and Security Example](https://github.com/NVIDIA/NeMo-Agent-Toolkit/tree/develop/examples/safety_and_security/retail_agent) - Practical example of agent workflow red teaming and risk scoring.
+- [Tools catalogue](resources/tools.md) - Defensive tools for red teaming, evaluation, observability, inventory, and runtime control.
 
-Useful security for these systems must do more than filter inputs or scan outputs. It must understand the relationship between intent, authority, action, context, and outcome.
+## Memory, State, and Context Security
 
-The goal of this project is to map:
+- [Memory Security](patterns/memory-security.md) - Pattern for memory write paths, provenance, poisoning detection, retention controls, and audit evidence.
+- [AgentPoison](https://arxiv.org/abs/2407.12784) - Research on poisoning agent memory or knowledge bases to influence future behaviour.
+- [A Practical Memory Injection Attack Against LLM Agents](https://arxiv.org/html/2503.03704v2) - Research framing long-term memory as persistent, untrusted input.
+- [Poisoned Retrieved Context](docs/agentic-attack-chains/poisoned-retrieved-context.md) - Defensive chain stub for modelling malicious or misleading retrieved content.
+- [Memory Poisoning](docs/agentic-attack-chains/memory-poisoning.md) - Defensive chain stub for persistent state manipulation and delayed effects.
 
-- Security risks that emerge when AI systems can act.
-- Control patterns that constrain tools, memory, credentials, and delegated authority.
-- Benchmarks and evaluation methods that test agentic behaviour, not only model responses.
-- Architectures for runtime governance, observability, approval, policy enforcement, and audit.
-- Research and standards that help teams make evidence-led security decisions.
+## Credentials, Identity, and Delegated Authority
 
-## From Model Security To Execution Security
+- [Credential and Token Boundaries](patterns/credential-and-token-boundaries.md) - Pattern for delegated authority, scoped tokens, credential brokers, and least-privilege impersonation.
+- [Credential Overreach](docs/agentic-attack-chains/credential-overreach.md) - Defensive attack-chain stub for excessive authority and weak token boundaries.
+- [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) - Includes identity, privilege abuse, tool misuse, and excessive agency concerns for autonomous systems.
+- [Lakera: AI Gateways](https://www.lakera.ai/blog/ai-gateways-what-they-are-what-they-control-and-why-they-matter) - Architecture discussion of identity, routing, policy enforcement, telemetry, and tool governance at AI gateway layers.
+- [Lakera: From Access Control to Outcome Control](https://www.lakera.ai/blog/from-access-control-to-outcome-control-securing-ai-agents-with-check-point-and-google-cloud) - Vendor analysis that separates valid access from acceptable outcomes in agentic systems.
 
-| Model-centred security | Agentic execution security |
-| --- | --- |
-| Protects prompts, completions, and model-facing data flows. | Protects the full system of action around the model. |
-| Asks whether the model revealed, generated, or transformed something unsafe. | Asks what the system can do, who authorised it, and whether the outcome is controlled. |
-| Treats language mainly as input and output. | Treats language as part of the execution layer that can influence tools, memory, code, and workflows. |
-| Evaluates single responses or short conversation paths. | Evaluates multi-step behaviour across context, tools, credentials, memory, approvals, and agents. |
-| Relies heavily on isolated controls around prompt handling and output filtering. | Requires layered controls that observe, interpret, constrain, and govern behaviour as it unfolds. |
+## Benchmarks and Evaluations
 
-## Agentic Risk Map
+- [AgentDojo](https://github.com/ethz-spylab/agentdojo) - Evaluation environment for indirect prompt injection and defences in tool-using agents.
+- [CyberSecEval](https://github.com/meta-llama/PurpleLlama/tree/main/CybersecurityBenchmarks) - Cybersecurity benchmark suite for LLMs used in coding, analysis, and automation contexts.
+- [CyberGym](https://www.cybergym.io/) - Benchmark environment for real-world AI-agent vulnerability analysis, reproduction, and verification tasks.
+- [ExploitGym](https://rdi.berkeley.edu/blog/exploitgym/) - Capability benchmark for whether AI agents can turn known vulnerabilities into working exploits; use as a defensive risk signal, not operational guidance.
+- [Inspect AI](https://github.com/UKGovernmentBEIS/inspect_ai) - Evaluation framework from the UK AI Security Institute for structured tasks, solvers, scorers, and logs.
+- [Benchmark catalogue](resources/benchmarks.md) - Benchmarks, testbeds, and evaluation methods with proof limits and maturity notes.
 
-Agentic AI security needs to track how risks compose across the execution system. Core surfaces include:
+## Cyber-Capable AI Agents
 
-- Prompt and instruction attacks.
-- Retrieved context and data-flow compromise.
-- Tool misuse and unsafe tool composition.
-- Credential, token, and delegated-authority misuse.
-- Memory poisoning and persistent state manipulation.
-- Code execution, file-system access, and automation side effects.
-- Skill, extension, and Model Context Protocol (MCP) compromise.
-- Human approval gaps and weak hand-off controls.
-- Multi-agent communication and cross-agent propagation.
-- Monitoring, evaluation, and audit blind spots.
+This section tracks the defensive governance problem created by AI systems that can assist with vulnerability discovery, exploit-capability evaluation, patch verification, disclosure workflows, and forensic traceability. It does not provide exploitation instructions.
 
-These risks rarely stay isolated. They compose into action paths:
+- [Anthropic Mythos Preview](https://red.anthropic.com/2026/mythos-preview/) - Vendor technical capability report on autonomous vulnerability discovery, exploit-capability evaluation, benchmark saturation, and coordinated disclosure constraints.
+- [Project Glasswing](https://www.anthropic.com/glasswing) - Controlled defensive deployment programme for applying cyber-capable model access to critical software security work.
+- [Anthropic coordinated vulnerability disclosure](https://www.anthropic.com/coordinated-vulnerability-disclosure) - Operating principles for human-reviewed, AI-labelled, paced disclosure of AI-discovered vulnerabilities.
+- [Anthropic / Mozilla Firefox security collaboration](https://www.anthropic.com/news/mozilla-firefox-security) - Case study on maintainer needs for minimal test cases, candidate patches, task verifiers, and reproducible evidence.
+- [CyberGym](https://www.cybergym.io/) - Defensive evaluation environment for vulnerability reproduction, incomplete patch discovery, open-ended discovery, and sanitiser-backed validation.
+- [ExploitGym](https://rdi.berkeley.edu/blog/exploitgym/) - High-risk capability benchmark for exploit generation, useful for governance and defensive preparedness.
+- [Anthropic Frontier Safety Roadmap](https://www.anthropic.com/responsible-scaling-policy/roadmap) - Public roadmap for safeguards, cyber misuse detection, red teaming, model-weight security, and AI-assisted defence.
+- [METR common elements of frontier AI safety policies](https://metr.org/common-elements) - Cross-policy reference for dangerous capability thresholds, including offensive cybersecurity.
+- [UK NCSC frontier AI guidance](https://www.ncsc.gov.uk/blogs/why-cyber-defenders-need-to-be-ready-for-frontier-ai) - Public-sector guidance on defender readiness as frontier AI changes the cost, speed, and scale of cyber operations.
+- [CETaS / Alan Turing Institute Mythos analysis](https://cetas.turing.ac.uk/publications/claude-mythos-future-cybersecurity) - Independent analysis of Mythos, Project Glasswing, restricted access, open-weight risk, and defensive capacity.
+- [UK AI Security Institute Frontier AI Trends Report](https://www.aisi.gov.uk/frontier-ai-trends-report) - Public evidence on frontier model trends, including cyber tasks, autonomy, and capability evaluation.
+- [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html) - Sanitizer-based verification layer for memory-safety findings and patch validation.
+- [Cyber-capable AI agents catalogue](resources/cyber-capable-ai-agents.md) - Fuller defensive catalogue for Mythos, Glasswing, CyberGym, ExploitGym, disclosure, verification, frontier governance, and watch areas.
 
-```text
-Prompt injection
--> intent compromise
--> tool misuse
--> credential or token abuse
--> memory poisoning
--> cross-agent propagation
--> unsafe autonomous action
--> organisational impact
-```
+## Observability, Audit, and Forensics
 
-The defensive task is to recognise those paths early, break them deliberately, and make the system's authority and outcomes governable.
+- [Defence Architecture](docs/04-defence-architecture.md) - Control model for capturing prompts, context, tool calls, memory reads and writes, approvals, outputs, and downstream actions.
+- [Observability and Audit Trail Visual](visuals/observability-audit-trail.mmd) - Diagram source for evidence capture across agentic execution paths.
+- [Resource Quality Rubric](rubrics/resource-quality-rubric.md) - Criteria for treating catalogue entries as evidence for judgement rather than endorsements.
+- [Agent Security Readiness Rubric](rubrics/agent-security-readiness-rubric.md) - Scorecard for evaluating whether an agent system has credible controls and evidence before deployment.
+- [Anthropic coordinated vulnerability disclosure](https://www.anthropic.com/coordinated-vulnerability-disclosure) - Useful reference for evidence handling around AI-discovered vulnerabilities and maintainer workflows.
 
-```mermaid
-flowchart TB
-    root(("Defence in depth"))
+## Governance and Assurance
 
-    root --> control["Control environment"]
-    root --> execution["Execution security"]
-    root --> evidence["Evidence and attribution"]
-    root --> testing["Adversarial validation"]
-    root --> governance["Governance and trade-offs"]
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) - Governance framework for mapping, measuring, managing, and governing AI risk.
+- [NIST Center for AI Standards and Innovation](https://www.nist.gov/caisi) - U.S. public-sector work on AI evaluation, measurement science, standards, and frontier risk assessment.
+- [Anthropic Responsible Scaling Policy v3.0](https://www.anthropic.com/news/responsible-scaling-policy-v3) - Vendor policy for frontier capability monitoring, deployment safeguards, security levels, and public roadmaps.
+- [METR common elements of frontier AI safety policies](https://metr.org/common-elements) - Taxonomy reference for comparing frontier AI safety policies and dangerous capability thresholds.
+- [Open Research Questions](docs/10-open-research-questions.md) - Repository map of unresolved questions around agentic execution security, evaluation, governance, and assurance.
 
-    control --> env["Environment engineering"]
-    control --> refusal["Refusal tokens"]
-    control --> monitoring["Monitoring and firewalls"]
+## Physical AI and Robotics Security
 
-    execution --> protocols["Secure protocols"]
-    execution --> containment["Containment and isolation"]
-    execution --> sandboxing["Sandboxing"]
-    execution --> tee["Trusted execution environments"]
-    execution --> zerotrust["Zero-trust"]
+- [Awesome Physical AI](https://github.com/natnew/awesome-physical-ai) - Companion field guide for robotics, embodied agents, and sensor-driven systems.
+- [UK NCSC frontier AI guidance](https://www.ncsc.gov.uk/blogs/why-cyber-defenders-need-to-be-ready-for-frontier-ai) - Strategic guidance relevant to software-controlled, networked, and autonomous systems.
+- [Cyber-capable AI agents catalogue](resources/cyber-capable-ai-agents.md) - Includes a defensive note on robotics and physical AI implications where cyber capability affects software-controlled physical systems.
 
-    evidence --> attribution["Attribution"]
-    evidence --> provenance["Provenance"]
-    evidence --> causal["Causal inference"]
+## Open-Weight and Frontier Capability Risks
 
-    testing --> benchmarks["Benchmarks"]
-    testing --> simulations["Simulations"]
+- [CETaS / Alan Turing Institute Mythos analysis](https://cetas.turing.ac.uk/publications/claude-mythos-future-cybersecurity) - Independent analysis of restricted access, open-weight proliferation risk, defensive capacity, and governance trade-offs.
+- [UK NCSC frontier AI guidance](https://www.ncsc.gov.uk/blogs/why-cyber-defenders-need-to-be-ready-for-frontier-ai) - Notes the defensive implications of frontier capability transfer, open-weight models, and removed safeguards.
+- [METR common elements of frontier AI safety policies](https://metr.org/common-elements) - Reference for monitoring dangerous capabilities and thresholds across frontier AI policies.
+- [Open-weight cyber-capability watch areas](resources/cyber-capable-ai-agents.md#watch-areas-open-weight-cyber-capability-and-china) - Evidence-led catalogue section for tracking open-weight and frontier cyber-capability risk without unsupported claims.
 
-    governance --> standards["Standards"]
-    governance --> transparency["Transparency"]
-    governance --> sociotechnical["Sociotechnical defences"]
-    governance --> tradeoffs["Security / performance / coordination"]
-```
+## Engineering Patterns
 
-## Security That Governs Action
+- [Secure Agent Runtime](patterns/secure-agent-runtime.md) - Runtime boundaries, sandboxing, policy enforcement, and audit evidence.
+- [Secure Tool Calling](patterns/secure-tool-calling.md) - Tool schemas, brokers, scopes, side-effect controls, and approval gates.
+- [Secure MCP](patterns/secure-mcp.md) - Model Context Protocol boundaries, trust assumptions, and capability scoping.
+- [Memory Security](patterns/memory-security.md) - Memory write controls, provenance, poisoning detection, and retention.
+- [Credential and Token Boundaries](patterns/credential-and-token-boundaries.md) - Delegated authority, credential brokers, scoped tokens, and impersonation controls.
+- [Secure Engineering Patterns](docs/07-secure-engineering-patterns.md) - How the threat model, attack surfaces, and chain interruptions map to reusable implementation controls.
 
-AI systems that act need controls that can see and shape behaviour at runtime:
-
-| Capability | Security purpose |
-| --- | --- |
-| Observe | Capture prompts, context, tool calls, memory reads and writes, approvals, outputs, and downstream actions. |
-| Interpret | Understand intent, authority, data sensitivity, tool risk, policy fit, and likely impact. |
-| Constrain | Limit actions through policy decisions, tool brokers, credential brokers, sandboxing, approval gates, and outcome controls. |
-| Audit | Preserve evidence for review, incident response, governance, assurance, and continuous improvement. |
-
-This is the practical shift: security must operate across the agentic execution system, not only at the model boundary.
-
-## AI Defense Plane
-
-The repository organises controls around the AI Defense Plane:
-
-| Layer | Purpose | Example controls |
-| --- | --- | --- |
-| Discover | Know where AI systems, agents, tools, prompts, data flows, credentials, memory, and autonomous workflows exist. | Inventory, ownership, data-flow mapping, tool registry, agent catalogue. |
-| Protect | Control inputs, outputs, retrieved context, tool calls, memory writes, data transfers, and autonomous actions. | Runtime guardrails, policy decisions, tool brokers, credential brokers, memory controls, sandboxing, approval gates. |
-| Govern | Manage delegated authority, evidence, audit trails, risk acceptance, and compliance obligations. | Assurance records, evaluation evidence, audit logs, review cadences, exception handling, accountability paths. |
-
-The AI Defense Plane connects access control with outcome control. A secure agentic system needs to know not only who or what can call a tool, but why the action is being taken, which context shaped it, what authority it uses, and how the result is constrained.
-
-## Who This Is For
-
-| Audience | What this map helps with |
-| --- | --- |
-| AI leaders and CTOs | Understand how agentic systems change enterprise risk, architecture, and assurance expectations. |
-| AI engineers | Design safer agent runtimes, tool interfaces, memory systems, approval paths, and evaluation loops. |
-| Security engineers | Map attack surfaces, breach chains, controls, monitoring points, and incident response evidence. |
-| Governance leaders | Connect delegated authority, accountability, audit, compliance, and assurance evidence. |
-| AI researchers | Track open problems, benchmarks, emerging failure modes, and evidence quality. |
-
-## What The Map Covers
-
-This project is organised around five kinds of security knowledge:
-
-| Area | Coverage |
-| --- | --- |
-| Risks | Threat models, attack surfaces, breach chains, and failure modes for agentic systems. |
-| Controls | Runtime guardrails, policy enforcement, tool governance, credential boundaries, memory controls, and approval gates. |
-| Benchmarks | Evaluation methods for tool use, autonomy, memory, multi-agent behaviour, and control effectiveness. |
-| Architectures | Reference models for secure agent runtimes, AI gateways, observability, audit, and governance layers. |
-| Research | Standards, frameworks, papers, vendor research, independent analysis, and open research questions. |
-
-
-## Resource Catalogue Status
-
-The resource catalogue is now fully populated and public-ready. Each entry uses a consistent metadata format and includes a short explanation of relevance. Guidance has been added to clarify that catalogue entries are evidence for security judgement, not endorsements or proof of safety. Tool and benchmark pages now explicitly state their proof limits.
-
-The first section indexes are available here:
+## Docs and Maps
 
 | Section | Use it for |
 | --- | --- |
 | [Docs](docs/README.md) | Conceptual maps, threat models, breach chains, defence architecture, evaluation, governance, case studies, and open questions. |
-| [Resources](resources/README.md) | Curated standards, frameworks, vendor research, papers, tools, benchmarks, and evidence requirements. |
+| [Resources](resources/README.md) | Curated standards, frameworks, vendor research, papers, tools, benchmarks, cyber-capable AI agents, and evidence requirements. |
 | [Patterns](patterns/README.md) | Secure engineering patterns for agent runtimes, tool calling, MCP, memory, credentials, approval, sandboxing, observability, and policy enforcement. |
 | [Visuals](visuals/README.md) | Mermaid diagrams for execution boundaries, action paths, control points, and reference architectures. |
-
-Start with the [landscape map](docs/00-landscape-map.md), [threat model](docs/01-threat-model.md), [attack surfaces](docs/02-attack-surfaces.md), [agentic attack chains](docs/03-agentic-attack-chains.md), and [defence architecture](docs/04-defence-architecture.md) for the first conceptual foundation. The [resource catalogue](resources/README.md) now seeds the standards, research, tools, and benchmarks layer. More detailed topic pages will be added in focused phases, and the section indexes describe the intended structure without presenting planned files as complete.
-
-## Quality Bar
-
-Substantial entries should explain:
-
-- What type of resource, benchmark, control, or pattern it is.
-- Who produced it or owns it.
-- Why it matters for agentic AI security.
-- Which risks, behaviours, or controls it covers.
-- Its maturity level and important limitations.
-- When it was last checked.
-
-The repository favours fewer, better-labelled entries over a large unstructured catalogue.
 
 ## Related Projects
 
@@ -223,15 +218,15 @@ Companion field guides by the same maintainer covering adjacent areas of AI. Rea
 
 This project is released under the [MIT License](LICENSE).
 
-<h2 align="center">Contributing</h2>
+## Contributing
 
 <p align="center">
   <img alt="We love Contributors" src="assets/We%20love%20Contributors%20%E2%80%94%20section%20title%20banner.png">
 </p>
 
 <p align="center">Thrilled to have you here.<br/>
-Whether it's a quick typo fix, a fresh resource,<br/>
-a doc polish, or a sweeping overhaul — every contribution helps this list grow.<br/>
-Jump in and join the community — PRs of every size are welcome.</p>
+Whether it is a quick typo fix, a fresh resource,<br/>
+a doc polish, or a sweeping overhaul - every contribution helps this list grow.<br/>
+Jump in and join the community - PRs of every size are welcome.</p>
 
-<p align="center">📝 <a href="CONTRIBUTING.md">Read the contributing guide</a> · 🐛 <a href="https://github.com/natnew/Awesome-Agentic-AI-Security/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good first issues</a></p>
+<p align="center"><a href="CONTRIBUTING.md">Read the contributing guide</a> &middot; <a href="https://github.com/natnew/Awesome-Agentic-AI-Security/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good first issues</a></p>

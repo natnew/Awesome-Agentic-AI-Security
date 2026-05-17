@@ -11,6 +11,7 @@ The resource catalogue should help readers distinguish standards, frameworks, ve
 - [Papers](papers.md) collects academic, independent, and research-oriented work on agentic attacks, memory, prompt injection, evaluation, and system security.
 - [Tools](tools.md) lists defensive tools for red teaming, evaluation, observability, inventory, and runtime control.
 - [Benchmarks](benchmarks.md) collects benchmarks, testbeds, and evaluation methods relevant to agentic behaviour.
+- [Cyber-Capable AI Agents And Autonomous Vulnerability Discovery](cyber-capable-ai-agents.md) tracks Mythos / Glasswing, CyberGym, ExploitGym, disclosure, patch verification, sanitizers, open-weight risk, and the convergence of AI engineering with security engineering.
 
 ## Coverage Areas
 
@@ -21,6 +22,7 @@ The resource catalogue covers:
 - Independent research and papers.
 - Tools for securing, observing, testing, or governing agentic systems.
 - Benchmarks and evaluation harnesses.
+- Cyber-capable AI agents, autonomous vulnerability discovery, disclosure workflows, patch verification, and frontier cyber governance.
 
 ## Entry Quality
 

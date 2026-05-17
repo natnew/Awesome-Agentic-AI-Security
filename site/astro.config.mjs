@@ -67,6 +67,7 @@ export default defineConfig({
             { label: 'Papers', link: '/resources/papers/' },
             { label: 'Tools', link: '/resources/tools/' },
             { label: 'Benchmarks', link: '/resources/benchmarks/' },
+            { label: 'Cyber-capable AI agents', link: '/resources/cyber-capable-ai-agents/' },
             { label: 'Vendor research', link: '/resources/vendor-research/' },
           ],
         },

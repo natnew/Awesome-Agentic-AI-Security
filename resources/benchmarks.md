@@ -63,6 +63,28 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-04-29.
 - Limitations or caveats: It is not a full agentic execution benchmark. It should be paired with tests for real tools, credentials, memory, and workflow side effects.
 
+### CyberGym
+
+- Resource type: Benchmark and evaluation environment for real-world AI-agent cybersecurity capability.
+- Producer or publisher: UC Berkeley researchers.
+- Source link: <https://www.cybergym.io/>.
+- Relevance to agentic execution security: Tests whether AI agents can work through real-world vulnerability analysis tasks, including reproduction and open-ended discovery, in ways that require tool use, code inspection, generated test cases, and validation.
+- Coverage: Historical OSS-Fuzz-derived vulnerabilities, vulnerability reproduction, proof-of-concept generation, incomplete patch discovery, zero-day discovery, latest-codebase analysis, and sanitizer-backed validation.
+- Evidence quality and maturity level: Emerging but high-signal benchmark for cyber-capable agents.
+- Last checked: 2026-05-17.
+- Limitations or caveats: It measures bounded cyber tasks, not safe production deployment. Use alongside sandboxing, disclosure controls, human review, approval gates, and system-specific security testing.
+
+### ExploitGym
+
+- Resource type: Exploitation-focused benchmark for frontier AI agents.
+- Producer or publisher: Berkeley RDI-led collaboration with researchers from UC Berkeley, Max Planck Institute for Security and Privacy, UC Santa Barbara, Arizona State University, Anthropic, OpenAI, and Google.
+- Source link: <https://rdi.berkeley.edu/blog/exploitgym/>.
+- Relevance to agentic execution security: Tracks the shift from vulnerability finding and reproduction toward whether agents can produce working exploitation for real-world vulnerabilities, which is a serious capability threshold for governance and defensive preparedness.
+- Coverage: Userspace programs, Google V8 JavaScript engine tasks, Linux kernel tasks, mitigation-aware evaluation, intended-vulnerability success, and alternative-vulnerability discovery during attempts.
+- Evidence quality and maturity level: Emerging, high-risk capability benchmark.
+- Last checked: 2026-05-17.
+- Limitations or caveats: Treat as a risk and evaluation signal, not operational guidance. This repository should not reproduce exploit task procedures or payloads.
+
 ### OWASP GenAI Red Teaming Guide
 
 - Resource type: Red teaming methodology guide.

@@ -39,6 +39,8 @@ The table below summarises the public benchmarks and evaluation harnesses tracke
 | [Gandalf Agent Breaker](https://gandalf.lakera.ai/agent-breaker) | Lakera | Public testbed: RAG, browsing, tools, memory, prompt extraction, exfiltration | Medium |
 | [NVIDIA NeMo Agent Toolkit Red Teaming](https://github.com/NVIDIA/NeMo-Agent-Toolkit/tree/develop/examples/safety_and_security/retail_agent) | NVIDIA | End-to-end agent workflow evaluation with adversarial scenarios and risk scores | Practical example |
 | [CyberSecEval](https://github.com/meta-llama/PurpleLlama/tree/main/CybersecurityBenchmarks) | Meta Purple Llama | Cybersecurity knowledge, secure coding, abuse, prompt-injection-related tasks | Mature (model-level) |
+| [CyberGym](https://www.cybergym.io/) | UC Berkeley researchers | Real-world vulnerability reproduction, PoC generation, incomplete patch discovery, and open-ended discovery | Emerging, high-signal |
+| [ExploitGym](https://rdi.berkeley.edu/blog/exploitgym/) | Berkeley RDI-led collaboration | Real-world exploitation tasks across userspace, browser engine, and Linux kernel categories | Emerging, high-risk capability signal |
 | [OWASP GenAI Red Teaming Guide](https://genai.owasp.org/resource/genai-red-teaming-guide/) | OWASP GenAI Security Project | Methodology for model, implementation, infrastructure, and runtime testing | Mature (guide) |
 | [Q4 2025 AI Agent Security Trends Report](https://www.lakera.ai/ai-security-guides/q4-2025-ai-agent-security-trends) | Lakera | Vendor-observed production attack traffic against early agentic systems | Medium (vendor report) |
 
@@ -67,3 +69,4 @@ Even strong benchmarks have meaningful gaps when applied to real agentic deploym
 - [Red teaming and evaluation](05-red-teaming-and-evaluation.md) for evaluation methodology.
 - [Rubrics](../rubrics/) for scoring guides used across this repository.
 - [Resources: benchmarks catalogue](../resources/benchmarks.md) for the full per-entry metadata.
+- [Cyber-capable AI agents resource cluster](../resources/cyber-capable-ai-agents.md) for Mythos, CyberGym, ExploitGym, disclosure, patch verification, and frontier cyber-governance context.

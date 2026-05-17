@@ -55,6 +55,7 @@ const mappings = [
   { src: 'resources/papers.md', dest: 'resources/papers.md', title: 'Papers' },
   { src: 'resources/tools.md', dest: 'resources/tools.md', title: 'Tools' },
   { src: 'resources/benchmarks.md', dest: 'resources/benchmarks.md', title: 'Benchmarks (catalogue)' },
+  { src: 'resources/cyber-capable-ai-agents.md', dest: 'resources/cyber-capable-ai-agents.md', title: 'Cyber-capable AI agents' },
   { src: 'resources/vendor-research.md', dest: 'resources/vendor-research.md', title: 'Vendor research' },
 
   // Operate
@@ -107,6 +108,7 @@ const BASENAME_ROUTES = {
   'standards-and-frameworks': '/resources/standards-and-frameworks/',
   'papers': '/resources/papers/',
   'tools': '/resources/tools/',
+  'cyber-capable-ai-agents': '/resources/cyber-capable-ai-agents/',
   'vendor-research': '/resources/vendor-research/',
   // operate
   'incident-case-studies': '/operate/case-studies/',
