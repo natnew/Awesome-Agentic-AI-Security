@@ -237,9 +237,12 @@ specs/
 _private/
 
 # ai-readiness
-/agents
-/hooks
-/instructions
-/plugins
-/skills
-/workflows
+agents/
+hooks/
+instructions/
+plugins/
+skills/
+workflows/
+
+ # reports
+\reports
