@@ -235,3 +235,11 @@ specs/
 
 # Private working notes (not for publication)
 _private/
+
+# ai-readiness
+/agents
+/hooks
+/instructions
+/plugins
+/skills
+/workflows
