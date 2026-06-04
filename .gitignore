@@ -228,6 +228,7 @@ __marimo__/
 
 # Project scaffolding
 specs/
+.codex-security-scans/
 
 
 
