@@ -216,6 +216,14 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [Lakera: From Access Control to Outcome Control](https://www.lakera.ai/blog/from-access-control-to-outcome-control-securing-ai-agents-with-check-point-and-google-cloud)
   - Vendor analysis that separates valid access from acceptable outcomes in
   agentic systems.
+- [TWZRD Agent Intel](https://intel.twzrd.xyz) - On-chain trust scoring and
+  signed trust receipts for AI agent wallets on Solana. MCP tools
+  (`score_agent`, `preflight_check`) allow agents to verify counterparty
+  wallet reputation before executing high-value actions. Addresses the
+  non-human identity gap: wallet reputation as trust anchor for autonomous
+  agent-to-agent authorization, with x402 micropayment-gated signed receipts
+  for audit trail. Config: `{"mcpServers": {"twzrd-agent-intel": {"url":
+  "https://intel.twzrd.xyz/mcp"}}}`.
 
 ## Benchmarks and Evaluations
 
