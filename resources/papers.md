@@ -93,3 +93,14 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Evidence quality and maturity level: Emerging but influential benchmark environment.
 - Last checked: 2026-04-29.
 - Limitations or caveats: Benchmark performance does not guarantee production safety. Treat it as one source of evidence alongside architecture review, runtime controls, and system-specific red teaming.
+
+### Harness Handbook: Making Evolving Agent Harnesses Readable, Navigable, And Editable
+
+- Resource type: Academic paper.
+- Producer or publisher: Wang et al.
+- Source link: <https://arxiv.org/abs/2607.13285>.
+- Relevance to agentic execution security: Describes behaviour-to-code mapping for agent harnesses that construct prompts, manage state, invoke tools, and coordinate execution, which can support security review and change-impact analysis.
+- Coverage: Agent harnesses, behaviour localisation, source-code mapping, static analysis, LLM-assisted structuring, progressive disclosure, edit planning, and verification of candidate implementation locations.
+- Evidence quality and maturity level: Emerging academic research with experimental evaluation on modification requests from two open-source harnesses.
+- Last checked: 2026-07-20.
+- Limitations or caveats: The paper focuses on harness readability and edit planning rather than security controls directly. Security value depends on integrating the method into review, testing, policy, and audit workflows.
