@@ -106,3 +106,15 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Evidence quality and maturity level: Commercial tooling with public documentation. Useful to study as an example control pattern.
 - Last checked: 2026-04-29.
 - Limitations or caveats: Product claims and effectiveness require independent validation in the target environment. Avoid relying on any single vendor control for complete agentic security.
+
+### Humanbound
+
+-Resource type: Open-source adversarial testing engine, SDK, and CLI for AI agents.
+-Producer or publisher: Humanbound project.
+-Source link: https://github.com/humanbound/humanbound.
+-Relevance to agentic execution security: Runs tests against live agent endpoints across multi-turn conversations and tool use, then converts failed tests directly into guardrail rules, a loop that open source testing tools generally leave open.
+-Coverage: Endpoint configuration tests, multi-turn conversation tests, tool-abuse test cases, and scenarios mapped to the OWASP Top 10 for Agentic Applications (prompt injection and goal hijacking listed first), plus automated guardrail rule generation, CLI, and Python SDK.
+-Evidence quality and maturity level: Open source (Apache-2.0), actively developed, earlier-stage adoption than established evaluation frameworks.
+-Last checked: 2026-07-22.
+-Limitations or caveats: Newer project with a smaller community than mature eval tools. Strongest for agent-native execution testing (endpoints, multi-turn, tool abuse); pairs well with broader prompt and response evaluation tools for full-stack coverage.
+
