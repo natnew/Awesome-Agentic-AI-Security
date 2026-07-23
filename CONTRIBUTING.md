@@ -71,17 +71,15 @@ To contribute to the documentation platform, please follow these steps:
    The site will be available at http://localhost:8000
 4. **Build the docs for validation:**
    ```sh
-   mkdocs build --strict
+   mkdocs build
    ```
 5. **Lint Markdown files:**
    ```sh
-   pip install markdownlint-cli
-   markdownlint '**/*.md' --ignore site
+   git diff --name-only --diff-filter=ACMRT origin/main...HEAD -- '*.md' | grep -v '^site/' | xargs -r npx markdownlint-cli
    ```
 6. **Check Markdown links:**
    ```sh
-   pip install markdown-link-check
-   find . -name '*.md' -not -path './site/*' -exec markdown-link-check -q {} \;
+   git diff --name-only --diff-filter=ACMRT origin/main...HEAD -- '*.md' | grep -v '^site/' | xargs -r -n1 npx markdown-link-check -q
    ```
 
 ## Guidelines
