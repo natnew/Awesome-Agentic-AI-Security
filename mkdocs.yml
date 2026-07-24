@@ -52,7 +52,6 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.critic
   - pymdownx.saneheaders
-  - pymdownx.mermaid
 nav:
   - Home: README.md
   - Docs:
@@ -60,8 +59,8 @@ nav:
       - Threat Model: docs/01-threat-model.md
       - Attack Surfaces: docs/02-attack-surfaces.md
       - Agentic Attack Chains: docs/03-agentic-attack-chains.md
-        - Defence Architecture: docs/04-defence-architecture.md
-        - Agentic Attack Chain Library:
+      - Defence Architecture: docs/04-defence-architecture.md
+      - Agentic Attack Chain Library:
           - Attack Chain Stubs Index: docs/agentic-attack-chains/README.md
           - Prompt Injection to Tool Misuse: docs/agentic-attack-chains/prompt-injection-tool-misuse.md
           - Poisoned Retrieved Context: docs/agentic-attack-chains/poisoned-retrieved-context.md
@@ -74,10 +73,10 @@ nav:
           - Hidden Instruction in Document Ingestion: docs/agentic-attack-chains/hidden-instruction-document-ingestion.md
           - Workflow Automation Abuse: docs/agentic-attack-chains/workflow-automation-abuse.md
           - Attack Chain Template: docs/agentic-attack-chains/attack-chain-template.md
-        - Red Teaming & Evaluation: docs/05-red-teaming-and-evaluation.md
-        - Benchmarks: docs/06-benchmarks.md
-        - Incident Case Studies: docs/09-incident-case-studies.md
-        - Open Research Questions: docs/10-open-research-questions.md
+      - Red Teaming & Evaluation: docs/05-red-teaming-and-evaluation.md
+      - Benchmarks: docs/06-benchmarks.md
+      - Incident Case Studies: docs/09-incident-case-studies.md
+      - Open Research Questions: docs/10-open-research-questions.md
   - Patterns: patterns/README.md
   - Resources: resources/README.md
   - Visuals: visuals/README.md
