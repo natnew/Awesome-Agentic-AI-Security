@@ -96,6 +96,17 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-04-29.
 - Limitations or caveats: Scenarios are simplified and vendor-operated. Results should inform threat modelling and evaluation design, not replace testing against the actual production system.
 
+### Adrian
+
+- Resource type: Open-source runtime security monitoring and control engine for AI agents.
+- Producer or publisher: Secure Agentics.
+- Source link: <https://github.com/secureagentics/Adrian>.
+- Relevance to agentic execution security: Observes an agent's tool calls and reasoning traces at runtime and can intervene before an action executes, supporting detection and control of misaligned, out-of-remit, or injected behaviour during execution.
+- Coverage: Runtime monitoring, reasoning-trace analysis, prompt-injection and out-of-remit action detection, in-flight intervention (audit or block mode), LangChain/LangGraph and OpenAI Agents SDK integration, self-hosted/offline deployment.
+- Evidence quality and maturity level: Actively maintained open-source project (Apache-2.0); AARM-aligned. Suitable for evaluation and internal deployment; independent benchmarking still maturing.
+- Last checked: 2026-07-01.
+- Limitations or caveats: A runtime detection-and-control layer, not a complete governance stack. Reasoning-trace analysis depends on the agent exposing its reasoning, and detection is a bounded signal rather than proof that the full execution system is secure.
+
 ### Lakera Guard And Lakera Red
 
 - Resource type: Commercial runtime protection and red teaming products.
