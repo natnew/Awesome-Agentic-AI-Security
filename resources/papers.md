@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD013 -->
+
 # Papers
 
 This page collects academic, independent, and research-oriented work relevant to agentic AI security. Papers are included when they help explain attack surfaces, evaluation methods, memory risk, prompt injection, tool use, or system-level safety and security. Inclusion does not mean the paper is definitive.
@@ -104,3 +106,16 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Evidence quality and maturity level: Emerging academic research with experimental evaluation on modification requests from two open-source harnesses.
 - Last checked: 2026-07-20.
 - Limitations or caveats: The paper focuses on harness readability and edit planning rather than security controls directly. Security value depends on integrating the method into review, testing, policy, and audit workflows.
+
+### BlindGuard: Safeguarding LLM-based Multi-Agent Systems under Unknown Attacks
+
+- Resource type: Academic paper.
+- Producer or publisher: Miao et al., Association for Computational Linguistics (ACL 2026).
+- Source link: <https://aclanthology.org/2026.acl-long.1819/>.
+- Relevance to agentic execution security: Examines propagation vulnerability in multi-agent systems and proposes an unsupervised detection approach that does not require attack-specific labels.
+- Coverage: Multi-agent interaction security, malicious-agent detection, unknown-attack generalisation, propagation risk, interaction-pattern modelling, and contrastive learning over normal-behaviour signals.
+- Evidence quality and maturity level: Emerging peer-reviewed research (ACL long paper). High signal for multi-agent defence framing, but still a research result rather than a deployment standard.
+- Last checked: 2026-07-24.
+- Limitations or caveats: Reported performance is based on the paper's experimental settings. Real-world effectiveness depends on deployment context, communication topology, threat model fit, and operational integration with runtime controls.
+
+<!-- markdownlint-enable MD013 -->

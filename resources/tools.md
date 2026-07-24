@@ -85,6 +85,17 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-04-29.
 - Limitations or caveats: An AIBOM does not prove that an agent is secure. It supports inventory and review, but runtime authority, tool use, memory, and policy enforcement still require separate controls.
 
+### Armorer Guard
+
+- Resource type: Open-source runtime scanner and MCP proxy.
+- Producer or publisher: Armorer Labs.
+- Source link: <https://github.com/ArmorerLabs/Armorer-Guard>.
+- Relevance to agentic execution security: Provides a local hot-path control that can inspect untrusted text and MCP tool-call arguments before they become context, actions, memory writes, or outbound data.
+- Coverage: Prompt injection, credential leakage, data exfiltration requests, risky tool-call arguments, structured reasons, sanitized text, scan identifiers, and a local feedback overlay for deployment-specific policy corrections.
+- Evidence quality and maturity level: Early-stage open-source project with public code, MIT licence, local Rust runtime, CLI/MCP proxy interface, benchmark documentation, and active maintenance. Useful as an example of a lightweight runtime boundary control.
+- Last checked: 2026-06-22.
+- Limitations or caveats: It is not a complete proof of agent safety and should not replace least-privilege tool design, approval gates, sandboxing, observability, credential isolation, or system-specific red-team evaluation. Effectiveness should be validated against the target agent's actual tools, authority, and data flows.
+
 ### Lakera Agent Breaker
 
 - Resource type: Public red teaming playground and research testbed.
@@ -96,6 +107,17 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-04-29.
 - Limitations or caveats: Scenarios are simplified and vendor-operated. Results should inform threat modelling and evaluation design, not replace testing against the actual production system.
 
+### Adrian
+
+- Resource type: Open-source runtime security monitoring and control engine for AI agents.
+- Producer or publisher: Secure Agentics.
+- Source link: <https://github.com/secureagentics/Adrian>.
+- Relevance to agentic execution security: Observes an agent's tool calls and reasoning traces at runtime and can intervene before an action executes, supporting detection and control of misaligned, out-of-remit, or injected behaviour during execution.
+- Coverage: Runtime monitoring, reasoning-trace analysis, prompt-injection and out-of-remit action detection, in-flight intervention (audit or block mode), LangChain/LangGraph and OpenAI Agents SDK integration, self-hosted/offline deployment.
+- Evidence quality and maturity level: Actively maintained open-source project (Apache-2.0); AARM-aligned. Suitable for evaluation and internal deployment; independent benchmarking still maturing.
+- Last checked: 2026-07-01.
+- Limitations or caveats: A runtime detection-and-control layer, not a complete governance stack. Reasoning-trace analysis depends on the agent exposing its reasoning, and detection is a bounded signal rather than proof that the full execution system is secure.
+
 ### Lakera Guard And Lakera Red
 
 - Resource type: Commercial runtime protection and red teaming products.
@@ -106,3 +128,15 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Evidence quality and maturity level: Commercial tooling with public documentation. Useful to study as an example control pattern.
 - Last checked: 2026-04-29.
 - Limitations or caveats: Product claims and effectiveness require independent validation in the target environment. Avoid relying on any single vendor control for complete agentic security.
+
+### Humanbound
+
+-Resource type: Open-source adversarial testing engine, SDK, and CLI for AI agents.
+-Producer or publisher: Humanbound project.
+-Source link: https://github.com/humanbound/humanbound.
+-Relevance to agentic execution security: Runs tests against live agent endpoints across multi-turn conversations and tool use, then converts failed tests directly into guardrail rules, a loop that open source testing tools generally leave open.
+-Coverage: Endpoint configuration tests, multi-turn conversation tests, tool-abuse test cases, and scenarios mapped to the OWASP Top 10 for Agentic Applications (prompt injection and goal hijacking listed first), plus automated guardrail rule generation, CLI, and Python SDK.
+-Evidence quality and maturity level: Open source (Apache-2.0), actively developed, earlier-stage adoption than established evaluation frameworks.
+-Last checked: 2026-07-22.
+-Limitations or caveats: Newer project with a smaller community than mature eval tools. Strongest for agent-native execution testing (endpoints, multi-turn, tool abuse); pairs well with broader prompt and response evaluation tools for full-stack coverage.
+
