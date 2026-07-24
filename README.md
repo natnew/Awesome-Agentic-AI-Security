@@ -237,6 +237,11 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [Inspect AI](https://github.com/UKGovernmentBEIS/inspect_ai) - Evaluation
   framework from the UK AI Security Institute for structured tasks, solvers,
   scorers, and logs.
+- [MCP-Defense-Bench](https://github.com/Gowthaman90/mcp-defense-bench) - Vendor-neutral
+  benchmark scoring how much of the Model Context Protocol (MCP) attack surface security
+  proxies, gateways, and scanners actually defend (22-24 vectors), crosswalked to NIST AI
+  RMF and the OWASP LLM/Agentic Top 10; ships test fixtures, tool adapters, a live
+  leaderboard, and a citable DOI.
 - [Benchmark catalogue](resources/benchmarks.md) - Benchmarks, testbeds, and
   evaluation methods with proof limits and maturity notes.
 
