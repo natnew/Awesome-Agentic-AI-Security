@@ -44,24 +44,36 @@ jobs:
             echo EOF
           } >> "$GITHUB_OUTPUT"
 
+      - name: Install docs lint dependencies
+        if: steps.changed_markdown.outputs.files != ''
+        working-directory: site
+        run: npm ci
+
       - name: Lint changed Markdown
         if: steps.changed_markdown.outputs.files != ''
+        working-directory: site
         shell: bash
         run: |
           mapfile -t files <<'EOF'
 ${{ steps.changed_markdown.outputs.files }}
 EOF
-          npx markdownlint-cli "${files[@]}"
+          args=()
+          for file in "${files[@]}"; do
+            [ -n "$file" ] || continue
+            args+=("../$file")
+          done
+          npm run lint:docs -- "${args[@]}"
       - name: Build MkDocs site
         run: |
           mkdocs build
       - name: Check links in changed Markdown
         if: steps.changed_markdown.outputs.files != ''
+        working-directory: site
         shell: bash
         run: |
           while IFS= read -r file; do
             [ -n "$file" ] || continue
-            npx markdown-link-check -q "$file"
+            npm run lint:links -- "../$file"
           done <<'EOF'
 ${{ steps.changed_markdown.outputs.files }}
 EOF
