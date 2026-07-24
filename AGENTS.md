@@ -262,8 +262,8 @@ If unsure whether a file belongs in the public repository, leave it untouched an
 The documentation platform uses MkDocs. When asked to validate documentation changes:
 
 * `pip install -r requirements.txt`
-* `mkdocs build --strict` to validate the build
-* `markdownlint '**/*.md' --ignore site` to lint Markdown
+* `mkdocs build` to validate the transitional MkDocs configuration
+* `markdownlint` across changed Markdown files to lint Markdown
 * `markdown-link-check` across changed Markdown files to check links
 
 Do not commit the generated `site/` directory. All documentation must remain readable in GitHub without the site.

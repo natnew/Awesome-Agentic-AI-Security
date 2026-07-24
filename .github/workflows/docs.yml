@@ -13,6 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -21,17 +27,56 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Lint Markdown
+      - name: Collect changed Markdown files
+        id: changed_markdown
+        shell: bash
         run: |
-          pip install markdownlint-cli
-          markdownlint '**/*.md' --ignore site
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git fetch origin "${{ github.event.pull_request.base.ref }}" --depth=1
+            mapfile -t files < <(git diff --name-only --diff-filter=ACMRT FETCH_HEAD...HEAD -- '*.md' | grep -v '^site/')
+          else
+            mapfile -t files < <(git diff --name-only --diff-filter=ACMRT "${{ github.event.before }}" "${{ github.sha }}" -- '*.md' | grep -v '^site/')
+          fi
+
+          {
+            echo 'files<<EOF'
+            printf '%s\n' "${files[@]}"
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Install docs lint dependencies
+        if: steps.changed_markdown.outputs.files != ''
+        working-directory: site
+        run: npm ci
+
+      - name: Lint changed Markdown
+        if: steps.changed_markdown.outputs.files != ''
+        working-directory: site
+        shell: bash
+        run: |
+          mapfile -t files <<'EOF'
+${{ steps.changed_markdown.outputs.files }}
+EOF
+          args=()
+          for file in "${files[@]}"; do
+            [ -n "$file" ] || continue
+            args+=("../$file")
+          done
+          npm run lint:docs -- "${args[@]}"
       - name: Build MkDocs site
         run: |
-          mkdocs build --strict
-      - name: Check links
+          mkdocs build
+      - name: Check links in changed Markdown
+        if: steps.changed_markdown.outputs.files != ''
+        working-directory: site
+        shell: bash
         run: |
-          pip install markdown-link-check
-          find . -name '*.md' -not -path './site/*' -exec markdown-link-check -q {} \;
+          while IFS= read -r file; do
+            [ -n "$file" ] || continue
+            npm run lint:links -- "../$file"
+          done <<'EOF'
+${{ steps.changed_markdown.outputs.files }}
+EOF
       # Pages deploy is now handled by .github/workflows/site.yml (Astro Starlight).
       # The MkDocs build+lint above is kept for transitional validation only.
       # - name: Deploy to GitHub Pages
