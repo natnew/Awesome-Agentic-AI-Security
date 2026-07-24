@@ -9,6 +9,8 @@
     "start": "npm run sync && astro dev",
     "prebuild": "npm run sync",
     "build": "astro build",
+    "lint:docs": "remark --frail --quiet --use remark-preset-lint-recommended",
+    "lint:links": "markdown-link-check -q --config .markdown-link-check.json",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -16,5 +18,11 @@
     "@astrojs/starlight": "^0.30.3",
     "astro": "^5.1.1",
     "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "markdown-link-check": "^3.14.2",
+    "remark-cli": "^12.0.1",
+    "remark-mdx": "^3.1.1",
+    "remark-preset-lint-recommended": "^7.0.1"
   }
 }

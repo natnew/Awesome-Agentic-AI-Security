@@ -1,0 +1,7 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://cetas\\.turing\\.ac\\.uk/publications/claude-mythos-future-cybersecurity/?$"
+    }
+  ]
+}
