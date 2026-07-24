@@ -85,6 +85,17 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-04-29.
 - Limitations or caveats: An AIBOM does not prove that an agent is secure. It supports inventory and review, but runtime authority, tool use, memory, and policy enforcement still require separate controls.
 
+### Armorer Guard
+
+- Resource type: Open-source runtime scanner and MCP proxy.
+- Producer or publisher: Armorer Labs.
+- Source link: <https://github.com/ArmorerLabs/Armorer-Guard>.
+- Relevance to agentic execution security: Provides a local hot-path control that can inspect untrusted text and MCP tool-call arguments before they become context, actions, memory writes, or outbound data.
+- Coverage: Prompt injection, credential leakage, data exfiltration requests, risky tool-call arguments, structured reasons, sanitized text, scan identifiers, and a local feedback overlay for deployment-specific policy corrections.
+- Evidence quality and maturity level: Early-stage open-source project with public code, MIT licence, local Rust runtime, CLI/MCP proxy interface, benchmark documentation, and active maintenance. Useful as an example of a lightweight runtime boundary control.
+- Last checked: 2026-06-22.
+- Limitations or caveats: It is not a complete proof of agent safety and should not replace least-privilege tool design, approval gates, sandboxing, observability, credential isolation, or system-specific red-team evaluation. Effectiveness should be validated against the target agent's actual tools, authority, and data flows.
+
 ### Lakera Agent Breaker
 
 - Resource type: Public red teaming playground and research testbed.
