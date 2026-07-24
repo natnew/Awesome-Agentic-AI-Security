@@ -44,8 +44,8 @@ Claude must not:
 There is no application test suite. Validation is the CI gates, all triggered on PRs to `main`:
 
 * **Markdown (`docs.yml`)** — transitional validation kept alongside the deployed site:
-  * `markdownlint '**/*.md' --ignore site`
-  * `mkdocs build --strict`
+  * `markdownlint` across changed Markdown (excluding `site/`)
+  * `mkdocs build`
   * `markdown-link-check` across changed Markdown (excluding `site/`)
 * **Site (`site.yml`)** — the deployed site is Astro Starlight under `site/`, not MkDocs. Build with `npm ci` then `npm run build` inside `site/`.
 * **Scoresheet (`scoresheet-check.yml`)** — fails any PR that adds a tracked artefact (a new stub under `docs/agentic-attack-chains/`, or a new file under `case-studies/` or `benchmarks/`) without a matching scoresheet under `rubrics/scoresheets/`. See `rubrics/README.md` for the right rubric and naming convention.
