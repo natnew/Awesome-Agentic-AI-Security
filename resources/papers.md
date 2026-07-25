@@ -118,4 +118,15 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-07-24.
 - Limitations or caveats: Reported performance is based on the paper's experimental settings. Real-world effectiveness depends on deployment context, communication topology, threat model fit, and operational integration with runtime controls.
 
+### PerspectiveGap: A Benchmark for Multi-Agent Orchestration Prompting
+
+- Resource type: Academic benchmark paper and open dataset.
+- Producer or publisher: Sun et al., arXiv 2026.
+- Source link: <https://arxiv.org/abs/2606.08878> and <https://github.com/WhymustIhaveaname/PerspectiveGap>.
+- Relevance to agentic execution security: The first benchmark for multi-agent orchestration prompt writing measures whether each sub-agent receives only the information its role needs, making omissions and cross-role information leakage directly observable.
+- Coverage: Multi-agent orchestration, role-fragment assignment, prompt writing, information boundaries, 110 scenarios, 10 topologies, and 33 commercial models.
+- Evidence quality and maturity level: Emerging academic benchmark with public scenarios, deterministic scoring code, evaluation results, and a leaderboard.
+- Last checked: 2026-07-25.
+- Limitations or caveats: Evaluates prompt artefacts rather than downstream agent execution. It does not test tools, credentials, memory, or whether prompt-boundary errors cause production task failures.
+
 <!-- markdownlint-enable MD013 -->
