@@ -19,6 +19,17 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-04-29.
 - Limitations or caveats: Benchmark tasks are controlled scenarios. Production systems need custom tests for their own tools, data, memory, permissions, and approval flows.
 
+### ClawBench (Complementary general browser-agent evaluation)
+
+- Resource type: Browser-agent benchmark with safety-preserving submission interception.
+- Producer or publisher: ClawBench research team.
+- Source link: <https://arxiv.org/abs/2604.08523>, <https://github.com/reacher-z/ClawBench>, <https://claw-bench.com/>, and <https://huggingface.co/datasets/NAIL-Group/ClawBench>.
+- Relevance to agentic execution security: Provides production-website task-completion evidence while intercepting final submission requests, so realistic browser workflows can be evaluated without carrying out external side effects. This makes it a complementary control-path and outcome-evidence benchmark, not a substitute for adversarial security testing.
+- Coverage: V1 and V2 browser tasks across 163 live websites, multi-step navigation and form workflows, request-level interception, LLM-judge outcome scoring, and replayable action, screenshot, HTTP, and agent-message artefacts.
+- Evidence quality and maturity level: Open-source, primary-source benchmark with reproducible task definitions, public code, and downloadable data. Current corpus metadata was checked on 2026-07-28.
+- Last checked: 2026-07-28.
+- Limitations or caveats: ClawBench is not a security benchmark and does not model prompt injection, malicious websites, confidentiality loss, credential misuse, or adversarial tool behaviour. Its interception layer limits side effects during evaluation; security claims require dedicated threat models, controls, and red-team scenarios.
+
 ### Backbone Breaker Benchmark And AI Model Risk Index
 
 - Resource type: Agent security benchmark and model-risk index.
