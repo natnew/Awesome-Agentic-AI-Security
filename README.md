@@ -174,7 +174,10 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   execution.
 
 ## Tool Use, MCP, and Runtime Security
-
+- [NuGuard](https://github.com/NuGuardAI/nuguard) - Open-source toolkit that
+  builds an AI-SBOM from agent codebases, then red-teams tool use, MCP
+  integrations, and API surfaces for prompt injection and data exfiltration,
+  with automated remediation output.
 - [Secure Tool Calling](patterns/secure-tool-calling.md) - Pattern for tool
   brokers, schemas, scopes, allow-lists, side-effect controls, and approval
   gates.
