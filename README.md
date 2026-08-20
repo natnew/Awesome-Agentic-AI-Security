@@ -191,6 +191,12 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   - Practical example of agent workflow red teaming and risk scoring.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
+- [MandateGuard](https://github.com/ezequiellich44-cmd/MandateGuard) -
+  Deterministic payment policy enforcement for AI agents: pre-action gate
+  enforcing budgets, allowlists, denylists, rate limits, and signed Ed25519
+  payment mandates with zero LLM in the decision path (reproducible verdicts).
+  Tamper-evident SHA-256 chained audit ledger; official MCP server on the Model
+  Context Protocol Registry.
 
 ## Memory, State, and Context Security
 

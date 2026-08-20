@@ -140,3 +140,15 @@ Each entry uses the repository metadata format: resource type, producer, source,
 -Last checked: 2026-07-22.
 -Limitations or caveats: Newer project with a smaller community than mature eval tools. Strongest for agent-native execution testing (endpoints, multi-turn, tool abuse); pairs well with broader prompt and response evaluation tools for full-stack coverage.
 
+### MandateGuard
+
+- Resource type: Open-source deterministic payment policy enforcement engine for AI agents.
+- Producer or publisher: MandateGuard project.
+- Source link: <https://github.com/ezequiellich44-cmd/MandateGuard>.
+- Relevance to agentic execution security: Provides a pre-action gate that deterministically enforces budgets, allowlists, denylists, rate limits, and signed Ed25519 payment mandates before an agent action executes, with zero LLM in the decision path, so verdicts are reproducible and cannot be re-prompted.
+- Coverage: Payment policy enforcement, budget and rate limits, tool and recipient allowlists/denylists, signed payment mandates, tamper-evident SHA-256 chained audit ledger, MCP server on the Model Context Protocol Registry.
+- Evidence quality and maturity level: Actively maintained open-source project (Apache-2.0); official MCP server registered on the Model Context Protocol Registry.
+- Last checked: 2026-08-19.
+- Limitations or caveats: It is a payment and spend-policy control layer, not a complete governance stack. Other runtime risks (prompt injection, memory poisoning, credential exposure) still require separate controls and least-privilege tool design.
+
+
