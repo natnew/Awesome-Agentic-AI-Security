@@ -118,4 +118,15 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-07-24.
 - Limitations or caveats: Reported performance is based on the paper's experimental settings. Real-world effectiveness depends on deployment context, communication topology, threat model fit, and operational integration with runtime controls.
 
+### Bounded Agents: Delegation Security For Multi-Agent AI Systems
+
+- Resource type: Academic paper and reference implementation.
+- Producer or publisher: Xabier Muruaga.
+- Source link: <https://arxiv.org/abs/2608.15888>.
+- Relevance to agentic execution security: Proposes the Agentic Principal Chain (APC), an authorisation architecture enforced outside the model that carries delegated authority through multi-agent chains, narrowing scope and budgets at every hop and evaluating proposed actions against accumulated session state rather than in isolation.
+- Coverage: Delegated authority, multi-agent delegation chains, composition closure, blast radius containment, intent binding, and compromised-model evaluation.
+- Evidence quality and maturity level: Emerging research with an open reference implementation and an evaluation of 3,154 instances across AgentDojo, InjecAgent, ASB, delegation-chain scenarios, and adaptive attacks.
+- Last checked: 2026-08-22.
+- Limitations or caveats: Composition Soundness depends on a complete restriction set and serialised admission. APC does not cover parameter-level validation, cross-session composition tracking, or production hardening.
+
 <!-- markdownlint-enable MD013 -->
