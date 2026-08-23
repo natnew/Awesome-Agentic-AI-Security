@@ -184,6 +184,7 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [Secure Agent Runtime](patterns/secure-agent-runtime.md) - Pattern for
   sandboxing, isolation, policy enforcement, and observability inside the
   execution loop.
+- [HOL Guard](https://github.com/hashgraph-online/hol-guard) - Local-first runtime control for AI coding agents (shell, secret-file reads, MCP server change, plugin/skill install). Not a complete prompt-injection preventer. Apache-2.0. [docs](https://hol.org/guard)
 - [OWASP Agentic Skills Top 10](https://owasp.org/www-project-agentic-skills-top-10/)
   - Emerging guidance for the security of reusable agent skills and extension
   ecosystems.
