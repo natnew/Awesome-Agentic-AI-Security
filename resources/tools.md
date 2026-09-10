@@ -140,3 +140,14 @@ Each entry uses the repository metadata format: resource type, producer, source,
 -Last checked: 2026-07-22.
 -Limitations or caveats: Newer project with a smaller community than mature eval tools. Strongest for agent-native execution testing (endpoints, multi-turn, tool abuse); pairs well with broader prompt and response evaluation tools for full-stack coverage.
 
+### Little Canary
+
+- Resource type: Open-source inbound prompt-injection preflight sensor for AI agents.
+- Producer or publisher: Hermes Labs.
+- Source link: <https://github.com/hermes-labs-ai/little-canary> and <https://littlecanary.ai>.
+- Relevance to agentic execution security: Routes untrusted input through a separate, powerless sacrificial model before it reaches the primary tool-using agent, then inspects that model's response for compromise residue (persona adoption, refusal collapse, prompt leakage) rather than relying on pattern matching alone. Returns a PASS, FLAG, or BLOCK routing disposition with an explicit coverage state.
+- Coverage: Structural preflight checks, powerless sacrificial-model probing, behavioural response-residue analysis, and disposition routing ahead of tool or action execution.
+- Evidence quality and maturity level: Actively maintained open-source project (Apache-2.0), CI-gated, published to PyPI (`little-canary`, v0.3.6, 2026-09-09). Its own technical note explicitly does not claim universal detection, formal security, or aggregate accuracy for the current release.
+- Last checked: 2026-09-10.
+- Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
+
