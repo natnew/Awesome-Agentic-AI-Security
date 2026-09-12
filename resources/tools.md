@@ -118,6 +118,17 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-07-01.
 - Limitations or caveats: A runtime detection-and-control layer, not a complete governance stack. Reasoning-trace analysis depends on the agent exposing its reasoning, and detection is a bounded signal rather than proof that the full execution system is secure.
 
+### Gram
+
+- Resource type: Open-source AI control plane for agents and MCPs.
+- Producer or publisher: Speakeasy.
+- Source link: <https://github.com/speakeasy-api/gram>.
+- Relevance to agentic execution security: Connects agents to MCPs with policy enforcement and granular access control, supporting runtime boundaries over tool access and associated audit visibility.
+- Coverage: MCP connections; agent, server, and tool permissions; policy enforcement; threat detection; token and cost observability; and searchable records of tool calls, permission changes, and access events.
+- Evidence quality and maturity level: Public AGPL-3.0 source repository with implementation and documentation. Features are described by the project and should be verified in the target deployment.
+- Last checked: 2026-09-12.
+- Limitations or caveats: The reviewed repository does not establish independent effectiveness across all threat models. Policy coverage, identity integration, and event retention need deployment-specific validation and do not replace least-privilege design, approval gates, sandboxing, or testing.
+
 ### Lakera Guard And Lakera Red
 
 - Resource type: Commercial runtime protection and red teaming products.
@@ -139,4 +150,3 @@ Each entry uses the repository metadata format: resource type, producer, source,
 -Evidence quality and maturity level: Open source (Apache-2.0), actively developed, earlier-stage adoption than established evaluation frameworks.
 -Last checked: 2026-07-22.
 -Limitations or caveats: Newer project with a smaller community than mature eval tools. Strongest for agent-native execution testing (endpoints, multi-turn, tool abuse); pairs well with broader prompt and response evaluation tools for full-stack coverage.
-
