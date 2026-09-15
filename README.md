@@ -308,6 +308,15 @@ provide exploitation instructions.
 - [Anthropic coordinated vulnerability disclosure](https://www.anthropic.com/coordinated-vulnerability-disclosure)
   - Useful reference for evidence handling around AI-discovered vulnerabilities
   and maintainer workflows.
+- [agent-evidence-vectors](https://github.com/astrogilda/agent-evidence-vectors) -
+  Conformance corpus and reference verifier for agent execution evidence. 461
+  vectors across eight corpora at v0.10.1 cover the in-toto
+  adversarial-execution-evidence and ai-agent-action predicates, SCITT and COSE
+  carriage, an anchor stream, an artefact-binding contract, a cross-run record
+  contract, and ACI deployments. One Go verifier judges every corpus and
+  recomputes each outcome from the bytes the statement carries, so a consumer
+  can reject a producer whose own verdict is false. Apache-2.0, Zenodo DOI
+  10.5281/zenodo.22758687, last checked 2026-09-15.
 
 ## Governance and Assurance
 
