@@ -140,3 +140,14 @@ Each entry uses the repository metadata format: resource type, producer, source,
 -Last checked: 2026-07-22.
 -Limitations or caveats: Newer project with a smaller community than mature eval tools. Strongest for agent-native execution testing (endpoints, multi-turn, tool abuse); pairs well with broader prompt and response evaluation tools for full-stack coverage.
 
+
+### SourceryKit
+
+- Resource type: Source-available Python SDK for verifying an agent's outbound requests at runtime.
+- Producer or publisher: Provably.
+- Source link: <https://github.com/ProvablyAI/sourcerykit>.
+- Relevance to agentic execution security: Checks an agent's outbound HTTP requests and MCP handoffs against a source of truth before they leave, using a zero-knowledge proof so a call only goes out if the agent's claims about it hold, which targets truthful-looking but tampered actions that a destination allow-list alone does not catch.
+- Coverage: Outbound request and MCP tool-call verification against a source of truth, a zero-knowledge proof of the claims, trusted-endpoint allow-listing, blocking of non-allowlisted or unverified calls, and logging of every outbound call for audit. Hooks the HTTP libraries the agent already uses.
+- Evidence quality and maturity level: Early-stage, source-available under BSL 1.1 (not an OSI open-source licence); published on PyPI as `sourcerykit`. Suitable for evaluation; independent benchmarking still maturing.
+- Last checked: 2026-07-27.
+- Limitations or caveats: Not fully offline - the zero-knowledge proof and source-of-truth check run against a backend/API, so it pairs a source-available SDK with a hosted service rather than running entirely locally. It is a per-request verification and egress control, not a complete governance stack, and someone has to define the source of truth for each flow it protects.
