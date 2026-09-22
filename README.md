@@ -53,6 +53,7 @@
 - [Related Projects](#related-projects)
 - [Licence](#licence)
 - [Contributing](#contributing)
+- [Contributors](#contributors)
 
 ## Core Concepts
 
@@ -154,6 +155,9 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   - ACL 2026 paper proposing an unsupervised defence for detecting malicious
   agents via interaction-pattern modelling, with emphasis on propagation risk
   in multi-agent systems.
+- [PerspectiveGap](https://arxiv.org/abs/2606.08878) - Research benchmark for
+  omissions and cross-role information leakage in multi-agent orchestration
+  prompts. Evaluates prompt artefacts rather than downstream execution.
 
 ## Prompt Injection and Instruction Attacks
 
@@ -173,8 +177,13 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [Prompt Injection to Tool Misuse](docs/agentic-attack-chains/prompt-injection-tool-misuse.md)
   - Defensive attack-chain stub for modelling instruction compromise through tool
   execution.
+- [Little Canary](https://github.com/hermes-labs-ai/little-canary) -
+  Prompt-injection preflight sensor that probes untrusted input with a
+  powerless model before it reaches a tool-using agent. Provides risk signals
+  that require application-level enforcement.
 
 ## Tool Use, MCP, and Runtime Security
+
 - [NuGuard](https://github.com/NuGuardAI/nuguard) - Open-source toolkit that
   builds an AI-SBOM from agent codebases, then red-teams tool use, MCP
   integrations, and API surfaces for prompt injection and data exfiltration,
@@ -194,6 +203,12 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   ecosystems.
 - [NVIDIA NeMo Agent Toolkit Safety and Security Example](https://github.com/NVIDIA/NeMo-Agent-Toolkit/tree/develop/examples/safety_and_security/retail_agent)
   - Practical example of agent workflow red teaming and risk scoring.
+- [SourceryKit](https://github.com/ProvablyAI/sourcerykit) - Source-available
+  SDK for checking outbound requests and MCP handoffs against a configured
+  source of truth, using a hosted verification backend.
+- [TraceFold](https://github.com/TraceFold/tracefold) - Experimental engine
+  for checking inverses before supported agent actions and issuing signed
+  audit receipts. Coverage of reversible effects is partial.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
 
@@ -226,6 +241,10 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [Lakera: From Access Control to Outcome Control](https://www.lakera.ai/blog/from-access-control-to-outcome-control-securing-ai-agents-with-check-point-and-google-cloud)
   - Vendor analysis that separates valid access from acceptable outcomes in
   agentic systems.
+- [Bounded Agents](https://arxiv.org/abs/2608.15888) - Research on enforcing
+  delegated scope, budgets, and action-composition restrictions outside the
+  model in multi-agent systems. Guarantees depend on policy completeness
+  and serialised admission.
 
 ## Benchmarks and Evaluations
 
@@ -247,6 +266,9 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   proxies, gateways, and scanners actually defend (22-24 vectors), crosswalked to NIST AI
   RMF and the OWASP LLM/Agentic Top 10; ships test fixtures, tool adapters, a live
   leaderboard, and a citable DOI.
+- [ClawBench](https://arxiv.org/abs/2604.08523) - Complementary browser-agent
+  workflow benchmark with submission interception and recorded outcome
+  evidence. Does not evaluate adversarial security threats.
 - [Benchmark catalogue](resources/benchmarks.md) - Benchmarks, testbeds, and
   evaluation methods with proof limits and maturity notes.
 
@@ -419,3 +441,37 @@ doc polish, or a sweeping overhaul - every contribution helps this list grow.
 Jump in and join the community - PRs of every size are welcome.
 
 [Read the contributing guide](CONTRIBUTING.md) &middot; [good first issues](https://github.com/natnew/Awesome-Agentic-AI-Security/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+
+## Contributors
+
+Thank you to the community members who contributed resources to this field
+guide. Select a profile to visit the contributor's GitHub page, or the book
+icon to view their merged contribution.
+
+<!-- markdownlint-disable MD013 MD033 -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/armorer-labs"><img src="https://avatars.githubusercontent.com/u/280571201?v=4&amp;s=100" width="100" height="100" alt="Armorer (armorer-labs)" /><br /><sub><b>Armorer</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/11" title="Resource contribution by armorer-labs">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/astrogilda"><img src="https://avatars.githubusercontent.com/u/23521054?v=4&amp;s=100" width="100" height="100" alt="Sankalp Gilda (astrogilda)" /><br /><sub><b>Sankalp Gilda</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/33" title="Resource contribution by astrogilda">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/aural-psynapse"><img src="https://avatars.githubusercontent.com/u/77997183?v=4&amp;s=100" width="100" height="100" alt="aural-psynapse (aural-psynapse)" /><br /><sub><b>aural-psynapse</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/21" title="Resource contribution by aural-psynapse">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Dark-Moon-X"><img src="https://avatars.githubusercontent.com/u/53473126?v=4&amp;s=100" width="100" height="100" alt="Mehdi BOUTAYEB (Dark-Moon-X)" /><br /><sub><b>Mehdi BOUTAYEB</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/23" title="Resource contribution by Dark-Moon-X">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/gladstomych-sa"><img src="https://avatars.githubusercontent.com/u/280714619?v=4&amp;s=100" width="100" height="100" alt="gladstomych-sa (gladstomych-sa)" /><br /><sub><b>gladstomych-sa</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/14" title="Resource contribution by gladstomych-sa">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Gowthaman90"><img src="https://avatars.githubusercontent.com/u/17447557?v=4&amp;s=100" width="100" height="100" alt="Gowthaman Arumugam (Gowthaman90)" /><br /><sub><b>Gowthaman Arumugam</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/15" title="Resource contribution by Gowthaman90">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/KanishkThamman"><img src="https://avatars.githubusercontent.com/u/94818167?v=4&amp;s=100" width="100" height="100" alt="kanishk thamman (KanishkThamman)" /><br /><sub><b>kanishk thamman</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/24" title="Resource contribution by KanishkThamman">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kantorcodes"><img src="https://avatars.githubusercontent.com/u/6068672?v=4&amp;s=100" width="100" height="100" alt="Michael Kantor (kantorcodes)" /><br /><sub><b>Michael Kantor</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/27" title="Resource contribution by kantorcodes">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mahirhir"><img src="https://avatars.githubusercontent.com/u/246701683?v=4&amp;s=100" width="100" height="100" alt="Mahiro Hirakawa (mahirhir)" /><br /><sub><b>Mahiro Hirakawa</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/28" title="Resource contribution by mahirhir">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/reacher-z"><img src="https://avatars.githubusercontent.com/u/68239571?v=4&amp;s=100" width="100" height="100" alt="Yuxuan Zhang (reacher-z)" /><br /><sub><b>Yuxuan Zhang</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/22" title="Resource contribution by reacher-z">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/roli-lpci"><img src="https://avatars.githubusercontent.com/u/244266141?v=4&amp;s=100" width="100" height="100" alt="Roli Bosch (roli-lpci)" /><br /><sub><b>Roli Bosch</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/30" title="Resource contribution by roli-lpci">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sofaliferi-humabound"><img src="https://avatars.githubusercontent.com/u/300931696?v=4&amp;s=100" width="100" height="100" alt="Sofia-Humanbound (sofaliferi-humabound)" /><br /><sub><b>Sofia-Humanbound</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/17" title="Resource contribution by sofaliferi-humabound">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/WhymustIhaveaname"><img src="https://avatars.githubusercontent.com/u/38423345?v=4&amp;s=100" width="100" height="100" alt="Youran (WhymustIhaveaname)" /><br /><sub><b>Youran</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/20" title="Resource contribution by WhymustIhaveaname">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/xmuruaga"><img src="https://avatars.githubusercontent.com/u/17816550?v=4&amp;s=100" width="100" height="100" alt="Xabier (xmuruaga)" /><br /><sub><b>Xabier</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/26" title="Resource contribution by xmuruaga">📖</a></td>
+    </tr>
+  </tbody>
+</table>
+<!-- markdownlint-enable MD013 MD033 -->
+
+See the [full contributor history](https://github.com/natnew/Awesome-Agentic-AI-Security/graphs/contributors)
+for contributions across the repository.
