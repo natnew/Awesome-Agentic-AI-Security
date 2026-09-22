@@ -140,6 +140,29 @@ Each entry uses the repository metadata format: resource type, producer, source,
 -Last checked: 2026-07-22.
 -Limitations or caveats: Newer project with a smaller community than mature eval tools. Strongest for agent-native execution testing (endpoints, multi-turn, tool abuse); pairs well with broader prompt and response evaluation tools for full-stack coverage.
 
+
+### SourceryKit
+
+- Resource type: Source-available Python SDK for verifying an agent's outbound requests at runtime.
+- Producer or publisher: Provably.
+- Source link: <https://github.com/ProvablyAI/sourcerykit>.
+- Relevance to agentic execution security: Checks an agent's outbound HTTP requests and MCP handoffs against a source of truth before they leave, using a zero-knowledge proof so a call only goes out if the agent's claims about it hold, which targets truthful-looking but tampered actions that a destination allow-list alone does not catch.
+- Coverage: Outbound request and MCP tool-call verification against a source of truth, a zero-knowledge proof of the claims, trusted-endpoint allow-listing, blocking of non-allowlisted or unverified calls, and logging of every outbound call for audit. Hooks the HTTP libraries the agent already uses.
+- Evidence quality and maturity level: Early-stage, source-available under BSL 1.1 (not an OSI open-source licence); published on PyPI as `sourcerykit`. Suitable for evaluation; independent benchmarking still maturing.
+- Last checked: 2026-07-27.
+- Limitations or caveats: Not fully offline - the zero-knowledge proof and source-of-truth check run against a backend/API, so it pairs a source-available SDK with a hosted service rather than running entirely locally. It is a per-request verification and egress control, not a complete governance stack, and someone has to define the source of truth for each flow it protects.
+
+### TraceFold
+
+- Resource type: Open-source verified transformation calculus and undo engine for AI agent tool executions and filesystem mutations, written in Rust.
+- Producer or publisher: TraceFold project (independent, single maintainer).
+- Source link: <https://github.com/TraceFold/tracefold>.
+- Relevance to agentic execution security: Escrows a verified pre-commit inverse for an agent's proposed effect (filesystem write, MCP tool call) before the effect lands, or refuses the effect if no inverse can be verified, giving a governance layer a checkpoint before an irreversible action executes.
+- Coverage: Pre-commit inverse verification, effect escrow, MCP tool-call and filesystem mutation coverage, signed offline-verifiable DSSE receipts, Merkle tile logs for tamper-evident audit trails.
+- Evidence quality and maturity level: Early-stage open-source project (v0.1.1-alpha), Apache-2.0 licence, single maintainer, 14 GitHub stars as of September 2026. CI is not currently reporting a status badge; the README discloses this rather than showing an unearned status.
+- Last checked: 2026-09-01.
+- Limitations or caveats: Alpha software; APIs and receipt formats may still change. Coverage of effect types (which mutations have verified inverses) is partial and documented in the repository's own limits file rather than implied by this entry. Addresses the escrow and verification-before-commit step specifically, not policy definition, approval routing, or credential isolation.
+
 ### Little Canary
 
 - Resource type: Open-source inbound prompt-injection preflight sensor for AI agents.

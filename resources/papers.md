@@ -118,4 +118,26 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-07-24.
 - Limitations or caveats: Reported performance is based on the paper's experimental settings. Real-world effectiveness depends on deployment context, communication topology, threat model fit, and operational integration with runtime controls.
 
+### PerspectiveGap: A Benchmark for Multi-Agent Orchestration Prompting
+
+- Resource type: Academic benchmark paper and open dataset.
+- Producer or publisher: Sun et al., arXiv 2026.
+- Source link: <https://arxiv.org/abs/2606.08878> and <https://github.com/WhymustIhaveaname/PerspectiveGap>.
+- Relevance to agentic execution security: The first benchmark for multi-agent orchestration prompt writing measures whether each sub-agent receives only the information its role needs, making omissions and cross-role information leakage directly observable.
+- Coverage: Multi-agent orchestration, role-fragment assignment, prompt writing, information boundaries, 110 scenarios, 10 topologies, and 33 commercial models.
+- Evidence quality and maturity level: Emerging academic benchmark with public scenarios, deterministic scoring code, evaluation results, and a leaderboard.
+- Last checked: 2026-07-25.
+- Limitations or caveats: Evaluates prompt artefacts rather than downstream agent execution. It does not test tools, credentials, memory, or whether prompt-boundary errors cause production task failures.
+
+### Bounded Agents: Delegation Security For Multi-Agent AI Systems
+
+- Resource type: Academic paper and reference implementation.
+- Producer or publisher: Xabier Muruaga.
+- Source link: <https://arxiv.org/abs/2608.15888>.
+- Relevance to agentic execution security: Proposes the Agentic Principal Chain (APC), an authorisation architecture enforced outside the model that carries delegated authority through multi-agent chains, narrowing scope and budgets at every hop and evaluating proposed actions against accumulated session state rather than in isolation.
+- Coverage: Delegated authority, multi-agent delegation chains, composition closure, blast radius containment, intent binding, and compromised-model evaluation.
+- Evidence quality and maturity level: Emerging research with an open reference implementation and an evaluation of 3,154 instances across AgentDojo, InjecAgent, ASB, delegation-chain scenarios, and adaptive attacks.
+- Last checked: 2026-08-22.
+- Limitations or caveats: Composition Soundness depends on a complete restriction set and serialised admission. APC does not cover parameter-level validation, cross-session composition tracking, or production hardening.
+
 <!-- markdownlint-enable MD013 -->
