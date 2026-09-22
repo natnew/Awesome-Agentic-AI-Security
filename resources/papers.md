@@ -140,4 +140,15 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-08-22.
 - Limitations or caveats: Composition Soundness depends on a complete restriction set and serialised admission. APC does not cover parameter-level validation, cross-session composition tracking, or production hardening.
 
+### MAGS: Multi-agent Auto-formalization Guarantees Safety for Agentic Outputs
+
+- Resource type: Research preprint.
+- Producer or publisher: Albert Wu et al., arXiv.
+- Source link: <https://arxiv.org/abs/2609.19391>.
+- Relevance to agentic execution security: Studies verification of agent-produced code against frozen, human-audited safety specifications before execution.
+- Coverage: Multi-agent auto-formalisation, Dafny verification, verifier-guided repair, CUDA kernels, terminal programs, and robotic control.
+- Evidence quality and maturity level: Emerging research evaluated on 220 programs and tasks; results are author-reported and have not been independently reproduced for this catalogue.
+- Last checked: 2026-09-22.
+- Limitations or caveats: Guarantees depend on specification coverage and faithful API mapping. Despite successful verification, only 82/100 terminal outputs pass separate security tests; robotic functional preservation reaches 11/20 after mitigation. See the [resource scoresheet](../rubrics/scoresheets/resource-mags.md).
+
 <!-- markdownlint-enable MD013 -->

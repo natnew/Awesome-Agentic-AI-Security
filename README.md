@@ -209,6 +209,10 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [TraceFold](https://github.com/TraceFold/tracefold) - Experimental engine
   for checking inverses before supported agent actions and issuing signed
   audit receipts. Coverage of reversible effects is partial.
+- [MAGS](https://arxiv.org/abs/2609.19391) - Research on multi-agent
+  auto-formalisation and Dafny verification of agent-produced code against
+  frozen safety specifications. Guarantees depend on specification coverage
+  and faithful API mapping; verification does not ensure task success.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
 
