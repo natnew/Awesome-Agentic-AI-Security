@@ -445,25 +445,33 @@ Jump in and join the community - PRs of every size are welcome.
 ## Contributors
 
 Thank you to the community members who contributed resources to this field
-guide. Profiles are listed alphabetically by GitHub username, with links to
-the merged contributions.
+guide. Select a profile to visit the contributor's GitHub page, or the book
+icon to view their merged contribution.
 
-| Contributor | Contribution |
-| --- | --- |
-| [armorer-labs](https://github.com/armorer-labs) | [Armorer Guard (#11)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/11) |
-| [astrogilda](https://github.com/astrogilda) | [agent-evidence-vectors (#33)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/33) |
-| [aural-psynapse](https://github.com/aural-psynapse) | [SourceryKit (#21)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/21) |
-| [Dark-Moon-X](https://github.com/Dark-Moon-X) | [Darkmoon (#23)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/23) |
-| [gladstomych-sa](https://github.com/gladstomych-sa) | [Adrian (#14)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/14) |
-| [Gowthaman90](https://github.com/Gowthaman90) | [MCP-Defense-Bench (#15)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/15) |
-| [KanishkThamman](https://github.com/KanishkThamman) | [NuGuard (#24)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/24) |
-| [kantorcodes](https://github.com/kantorcodes) | [HOL Guard (#27)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/27) |
-| [mahirhir](https://github.com/mahirhir) | [TraceFold (#28)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/28) |
-| [reacher-z](https://github.com/reacher-z) | [ClawBench (#22)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/22) |
-| [roli-lpci](https://github.com/roli-lpci) | [Little Canary (#30)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/30) |
-| [sofaliferi-humabound](https://github.com/sofaliferi-humabound) | [Humanbound (#17)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/17) |
-| [WhymustIhaveaname](https://github.com/WhymustIhaveaname) | [PerspectiveGap (#20)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/20) |
-| [xmuruaga](https://github.com/xmuruaga) | [Bounded Agents (#26)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/26) |
+<!-- markdownlint-disable MD013 MD033 -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/armorer-labs"><img src="https://avatars.githubusercontent.com/u/280571201?v=4&amp;s=100" width="100" height="100" alt="Armorer (armorer-labs)" /><br /><sub><b>Armorer</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/11" title="Resource contribution by armorer-labs">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/astrogilda"><img src="https://avatars.githubusercontent.com/u/23521054?v=4&amp;s=100" width="100" height="100" alt="Sankalp Gilda (astrogilda)" /><br /><sub><b>Sankalp Gilda</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/33" title="Resource contribution by astrogilda">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/aural-psynapse"><img src="https://avatars.githubusercontent.com/u/77997183?v=4&amp;s=100" width="100" height="100" alt="aural-psynapse (aural-psynapse)" /><br /><sub><b>aural-psynapse</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/21" title="Resource contribution by aural-psynapse">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Dark-Moon-X"><img src="https://avatars.githubusercontent.com/u/53473126?v=4&amp;s=100" width="100" height="100" alt="Mehdi BOUTAYEB (Dark-Moon-X)" /><br /><sub><b>Mehdi BOUTAYEB</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/23" title="Resource contribution by Dark-Moon-X">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/gladstomych-sa"><img src="https://avatars.githubusercontent.com/u/280714619?v=4&amp;s=100" width="100" height="100" alt="gladstomych-sa (gladstomych-sa)" /><br /><sub><b>gladstomych-sa</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/14" title="Resource contribution by gladstomych-sa">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Gowthaman90"><img src="https://avatars.githubusercontent.com/u/17447557?v=4&amp;s=100" width="100" height="100" alt="Gowthaman Arumugam (Gowthaman90)" /><br /><sub><b>Gowthaman Arumugam</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/15" title="Resource contribution by Gowthaman90">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/KanishkThamman"><img src="https://avatars.githubusercontent.com/u/94818167?v=4&amp;s=100" width="100" height="100" alt="kanishk thamman (KanishkThamman)" /><br /><sub><b>kanishk thamman</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/24" title="Resource contribution by KanishkThamman">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kantorcodes"><img src="https://avatars.githubusercontent.com/u/6068672?v=4&amp;s=100" width="100" height="100" alt="Michael Kantor (kantorcodes)" /><br /><sub><b>Michael Kantor</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/27" title="Resource contribution by kantorcodes">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mahirhir"><img src="https://avatars.githubusercontent.com/u/246701683?v=4&amp;s=100" width="100" height="100" alt="Mahiro Hirakawa (mahirhir)" /><br /><sub><b>Mahiro Hirakawa</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/28" title="Resource contribution by mahirhir">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/reacher-z"><img src="https://avatars.githubusercontent.com/u/68239571?v=4&amp;s=100" width="100" height="100" alt="Yuxuan Zhang (reacher-z)" /><br /><sub><b>Yuxuan Zhang</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/22" title="Resource contribution by reacher-z">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/roli-lpci"><img src="https://avatars.githubusercontent.com/u/244266141?v=4&amp;s=100" width="100" height="100" alt="Roli Bosch (roli-lpci)" /><br /><sub><b>Roli Bosch</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/30" title="Resource contribution by roli-lpci">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sofaliferi-humabound"><img src="https://avatars.githubusercontent.com/u/300931696?v=4&amp;s=100" width="100" height="100" alt="Sofia-Humanbound (sofaliferi-humabound)" /><br /><sub><b>Sofia-Humanbound</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/17" title="Resource contribution by sofaliferi-humabound">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/WhymustIhaveaname"><img src="https://avatars.githubusercontent.com/u/38423345?v=4&amp;s=100" width="100" height="100" alt="Youran (WhymustIhaveaname)" /><br /><sub><b>Youran</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/20" title="Resource contribution by WhymustIhaveaname">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/xmuruaga"><img src="https://avatars.githubusercontent.com/u/17816550?v=4&amp;s=100" width="100" height="100" alt="Xabier (xmuruaga)" /><br /><sub><b>Xabier</b></sub></a><br /><a href="https://github.com/natnew/Awesome-Agentic-AI-Security/pull/26" title="Resource contribution by xmuruaga">📖</a></td>
+    </tr>
+  </tbody>
+</table>
+<!-- markdownlint-enable MD013 MD033 -->
 
 See the [full contributor history](https://github.com/natnew/Awesome-Agentic-AI-Security/graphs/contributors)
 for contributions across the repository.
