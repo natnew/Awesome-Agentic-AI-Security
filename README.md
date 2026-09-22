@@ -160,6 +160,7 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection](https://arxiv.org/abs/2302.12173)
   - Foundational research on external content influencing LLM-integrated
   applications.
+- [Darkmoon](https://github.com/ASCIT31/Dark-Moon) - Open source (GPL-3.0) autonomous AI penetration testing platform covering web, API, Active Directory and Kubernetes, orchestrating offensive tools as an MCP host with proof of exploitation and a local privacy gateway.
 - [AgentDojo](https://github.com/ethz-spylab/agentdojo) - Benchmark and
   evaluation environment for indirect prompt injection and defences in
   tool-using agents.
