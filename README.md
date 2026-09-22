@@ -53,6 +53,7 @@
 - [Related Projects](#related-projects)
 - [Licence](#licence)
 - [Contributing](#contributing)
+- [Contributors](#contributors)
 
 ## Core Concepts
 
@@ -154,6 +155,9 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   - ACL 2026 paper proposing an unsupervised defence for detecting malicious
   agents via interaction-pattern modelling, with emphasis on propagation risk
   in multi-agent systems.
+- [PerspectiveGap](https://arxiv.org/abs/2606.08878) - Research benchmark for
+  omissions and cross-role information leakage in multi-agent orchestration
+  prompts. Evaluates prompt artefacts rather than downstream execution.
 
 ## Prompt Injection and Instruction Attacks
 
@@ -173,8 +177,13 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [Prompt Injection to Tool Misuse](docs/agentic-attack-chains/prompt-injection-tool-misuse.md)
   - Defensive attack-chain stub for modelling instruction compromise through tool
   execution.
+- [Little Canary](https://github.com/hermes-labs-ai/little-canary) -
+  Prompt-injection preflight sensor that probes untrusted input with a
+  powerless model before it reaches a tool-using agent. Provides risk signals
+  that require application-level enforcement.
 
 ## Tool Use, MCP, and Runtime Security
+
 - [NuGuard](https://github.com/NuGuardAI/nuguard) - Open-source toolkit that
   builds an AI-SBOM from agent codebases, then red-teams tool use, MCP
   integrations, and API surfaces for prompt injection and data exfiltration,
@@ -194,6 +203,12 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   ecosystems.
 - [NVIDIA NeMo Agent Toolkit Safety and Security Example](https://github.com/NVIDIA/NeMo-Agent-Toolkit/tree/develop/examples/safety_and_security/retail_agent)
   - Practical example of agent workflow red teaming and risk scoring.
+- [SourceryKit](https://github.com/ProvablyAI/sourcerykit) - Source-available
+  SDK for checking outbound requests and MCP handoffs against a configured
+  source of truth, using a hosted verification backend.
+- [TraceFold](https://github.com/TraceFold/tracefold) - Experimental engine
+  for checking inverses before supported agent actions and issuing signed
+  audit receipts. Coverage of reversible effects is partial.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
 
@@ -226,6 +241,10 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [Lakera: From Access Control to Outcome Control](https://www.lakera.ai/blog/from-access-control-to-outcome-control-securing-ai-agents-with-check-point-and-google-cloud)
   - Vendor analysis that separates valid access from acceptable outcomes in
   agentic systems.
+- [Bounded Agents](https://arxiv.org/abs/2608.15888) - Research on enforcing
+  delegated scope, budgets, and action-composition restrictions outside the
+  model in multi-agent systems. Guarantees depend on policy completeness
+  and serialised admission.
 
 ## Benchmarks and Evaluations
 
@@ -247,6 +266,9 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   proxies, gateways, and scanners actually defend (22-24 vectors), crosswalked to NIST AI
   RMF and the OWASP LLM/Agentic Top 10; ships test fixtures, tool adapters, a live
   leaderboard, and a citable DOI.
+- [ClawBench](https://arxiv.org/abs/2604.08523) - Complementary browser-agent
+  workflow benchmark with submission interception and recorded outcome
+  evidence. Does not evaluate adversarial security threats.
 - [Benchmark catalogue](resources/benchmarks.md) - Benchmarks, testbeds, and
   evaluation methods with proof limits and maturity notes.
 
@@ -419,3 +441,29 @@ doc polish, or a sweeping overhaul - every contribution helps this list grow.
 Jump in and join the community - PRs of every size are welcome.
 
 [Read the contributing guide](CONTRIBUTING.md) &middot; [good first issues](https://github.com/natnew/Awesome-Agentic-AI-Security/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+
+## Contributors
+
+Thank you to the community members who contributed resources to this field
+guide. Profiles are listed alphabetically by GitHub username, with links to
+the merged contributions.
+
+| Contributor | Contribution |
+| --- | --- |
+| [armorer-labs](https://github.com/armorer-labs) | [Armorer Guard (#11)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/11) |
+| [astrogilda](https://github.com/astrogilda) | [agent-evidence-vectors (#33)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/33) |
+| [aural-psynapse](https://github.com/aural-psynapse) | [SourceryKit (#21)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/21) |
+| [Dark-Moon-X](https://github.com/Dark-Moon-X) | [Darkmoon (#23)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/23) |
+| [gladstomych-sa](https://github.com/gladstomych-sa) | [Adrian (#14)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/14) |
+| [Gowthaman90](https://github.com/Gowthaman90) | [MCP-Defense-Bench (#15)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/15) |
+| [KanishkThamman](https://github.com/KanishkThamman) | [NuGuard (#24)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/24) |
+| [kantorcodes](https://github.com/kantorcodes) | [HOL Guard (#27)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/27) |
+| [mahirhir](https://github.com/mahirhir) | [TraceFold (#28)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/28) |
+| [reacher-z](https://github.com/reacher-z) | [ClawBench (#22)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/22) |
+| [roli-lpci](https://github.com/roli-lpci) | [Little Canary (#30)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/30) |
+| [sofaliferi-humabound](https://github.com/sofaliferi-humabound) | [Humanbound (#17)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/17) |
+| [WhymustIhaveaname](https://github.com/WhymustIhaveaname) | [PerspectiveGap (#20)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/20) |
+| [xmuruaga](https://github.com/xmuruaga) | [Bounded Agents (#26)](https://github.com/natnew/Awesome-Agentic-AI-Security/pull/26) |
+
+See the [full contributor history](https://github.com/natnew/Awesome-Agentic-AI-Security/graphs/contributors)
+for contributions across the repository.
