@@ -174,3 +174,14 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+### AI-Infra-Guard
+
+- Resource type: Open-source AI red teaming and scanning platform.
+- Producer or publisher: Tencent Zhuque Lab.
+- Source link: <https://github.com/Tencent/AI-Infra-Guard>.
+- Relevance to agentic execution security: Scans MCP servers and agent skills for insecure coding patterns and supply-chain risk before they are given execution authority, and separately probes AI infrastructure components (inference servers, orchestration frameworks) for known CVEs and runs jailbreak evaluations against target models.
+- Coverage: MCP server and agent-skill static scanning across a fixed set of risk categories (source or remote-URL input), AI infrastructure CVE scanning across 140+ components, multi-turn jailbreak evaluation, and an "Agent Scan" mode for auditing agent workflows on platforms such as Dify and Coze.
+- Evidence quality and maturity level: Actively maintained open-source project (Apache-2.0), Docker/CLI/Web UI distribution, adopted as part of the OpenClaw project's official Skill-scanning stack for the ClawHub marketplace as of September 2026. Reported detection scores (e.g. an F1 figure on the maintainer's own SkillTrustBench dataset) are vendor-published and have not been independently reproduced.
+- Last checked: 2026-09-23.
+- Limitations or caveats: Static and infra-level scanning does not evaluate runtime tool-call authority, memory, or credential flows once an agent is executing; pair with runtime controls for full coverage. Benchmark numbers come from a dataset curated by the same team that built the scanner, so treat them as a vendor-reported signal rather than independent evidence.
+
