@@ -339,7 +339,7 @@ provide exploitation instructions.
 - [Anthropic coordinated vulnerability disclosure](https://www.anthropic.com/coordinated-vulnerability-disclosure)
   - Useful reference for evidence handling around AI-discovered vulnerabilities
   and maintainer workflows.
-- [agent-evidence-vectors](https://github.com/astrogilda/agent-evidence-vectors) -
+- [agent-evidence-vectors](https://github.com/probityai/agent-evidence-vectors) -
   Conformance corpus and reference verifier for agent execution evidence. 461
   vectors across eight corpora at v0.10.1 cover the in-toto
   adversarial-execution-evidence and ai-agent-action predicates, SCITT and COSE
