@@ -42,4 +42,3 @@ or a maintainer acceptance decision.
 [readme]: https://github.com/patronus-protect/patronus-security/blob/5a5f7b4129c139cf121845d8c55a5a49e01c90b0/README.md
 [threat]: https://github.com/patronus-protect/patronus-security/blob/5a5f7b4129c139cf121845d8c55a5a49e01c90b0/docs/concepts/threat-model.md
 [commit]: https://github.com/patronus-protect/patronus-security/commit/5a5f7b4129c139cf121845d8c55a5a49e01c90b0
-
