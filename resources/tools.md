@@ -174,3 +174,14 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+### Patronus Ark
+
+- Resource type: Open-source local security scanning library with a Rust core and Python bindings.
+- Producer or publisher: Casdo Labs GmbH.
+- Source link: <https://github.com/patronus-protect/patronus-security>.
+- Relevance to agentic execution security: Inspects untrusted text at prompt, tool-output, and outgoing tool-call boundaries. Returns detection signals for application-enforced blocking, routing, or approval decisions.
+- Coverage: Prompt injection, secrets, PII, sensitive documents, and agentic tool-risk classification; native rules and optional local model-backed scanning.
+- Evidence quality and maturity level: Early-stage implementation with public source, installation examples, and a documented threat model. GPL-3.0-only with a commercial licensing option. This entry does not establish independently validated detection effectiveness.
+- Last checked: 2026-09-26.
+- Limitations or caveats: False positives and missed attacks are possible. It does not track information flow across an agent trajectory, sandbox tool execution, or enforce application policy. Model-backed scanning requires cached assets; callers must handle degraded results and readiness failures.
+
