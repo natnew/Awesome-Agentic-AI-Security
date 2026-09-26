@@ -174,3 +174,13 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+### Sunglasses
+
+- Resource type: Open-source local input scanner and Claude Code tool-call hook for AI agents.
+- Producer or publisher: sunglasses-dev.
+- Source link: <https://github.com/sunglasses-dev/sunglasses> and <https://pypi.org/project/sunglasses/>.
+- Relevance to agentic execution security: Scans the text and files an agent is about to read (tool results, web pages, documents, repository files) for prompt injection, credential leaks and data exfiltration attempts before the agent acts on them. A Claude Code PreToolUse hook blocks tool calls that touch credential paths or break a user-written policy, and `sunglasses pin` records a SHA-256 of every MCP tool descriptor so a later change to a tool description is reported.
+- Coverage: Pattern and keyword matching over 1,554 patterns in 118 categories, exposed as a CLI, a Python API, an MCP server (`scan_text`, `scan_file`, `scanner_info`) and a Claude Code hook. Runs locally with no network calls. Content it cannot read (an archive, an image without OCR, input past the size cap) is reported as not inspected rather than clean.
+- Evidence quality and maturity level: Actively maintained open-source project (MIT), published to PyPI (`sunglasses`, v0.6.0, 2026-09-26) with 30 GitHub releases since 2026-03-30, a test suite, a changelog with a known issues section and a security policy.
+- Last checked: 2026-09-26.
+- Limitations or caveats: A detector, not a sandbox or a security guarantee. A clean result means nothing matched in the part that was inspected. Coverage is English-first, with two dedicated patterns each in 13 other languages. Pattern matching can miss novel or paraphrased attacks, so it does not replace least-privilege tool design, approval gates or system-specific red-team evaluation.
