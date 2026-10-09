@@ -174,3 +174,13 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+### SkillTotal
+
+- Resource type: Open-source command-line tool under the Apache-2.0 licence, also available as a GitHub Action, an MCP server and a Claude Code plugin.
+- Producer or publisher: Independent open-source project, maintained by its author (GitHub: pezhik).
+- Source link: <https://github.com/pezhik/skilltotal>.
+- Relevance to agentic execution security: Checks an AI component before it is installed or connected to an agent. It reports what the code can do (shell execution, network access, file access, dynamic code), where prompt injection could enter, and whether embedded secrets or exfiltration paths are present. The Claude Code plugin runs this check before the agent installs a package.
+- Coverage: MCP servers, agent skills and plugins, npm and PyPI packages, and git repositories. It also reports hidden Unicode and install hooks. Findings map to the OWASP Agentic Skills Top 10 (AST01 to AST05 only), and behaviour traits map to CSA agentic traits, MAESTRO layers and MITRE ATLAS where applicable. Output is JSON or SARIF 2.1.0.
+- Evidence quality and maturity level: Detection is deterministic (regex and Python AST, no LLM). The tool does not execute the code it analyses, has no runtime dependencies and runs offline. Each finding includes the file, line and snippet it rests on. Detection is measured on a labelled corpus, with results published at <https://www.skilltotal.ai/detection-benchmark>. The project is at an early stage: the repository was created in June 2026 and had 6 stars when checked. It is distributed on PyPI and through npx.
+- Last checked: 2026-10-09.
+- Limitations or caveats: Static analysis only, so behaviour that appears only at runtime is not visible. Behaviour detection covers Python and JavaScript/TypeScript. Go, Rust, Java, Ruby and PHP get only secret, sensitive-path and hidden-Unicode checks, and the report states this. This entry was submitted by the project's author.
