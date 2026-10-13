@@ -174,3 +174,14 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+### aaesverify
+
+- Resource type: Open-source offline verifier for agent-action evidence exports.
+- Producer or publisher: AAES.
+- Source link: <https://github.com/aaes-ai/aaesverify>.
+- Relevance to agentic execution security: Supports review of retained action evidence by checking the integrity of exported commitments without contacting the producer's service.
+- Coverage: Canonical entry hashes, hash chains, Merkle roots, Ed25519 head signatures, anchors, and separately reported witness or timestamp independence against supplied trust material.
+- Evidence quality and maturity level: Early-stage Apache-2.0 Go project with public source, synthetic test vectors, and v0.2.0 release binaries. Vendor-maintained; no independent adoption or security assessment is established by this entry.
+- Last checked: 2026-10-13.
+- Limitations or caveats: Accepts the documented AAES export profile only. Integrity does not establish complete capture, truthful inputs, correct authorisation, provider execution, or the absence of conflicting histories. The public sample has zero independent witnesses and timestamps; a successful ordinary check is not independent attestation. The verifier shares hash and type code with the producer and is separate from the proprietary AAES platform.
+
