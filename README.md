@@ -281,6 +281,10 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [ClawBench](https://arxiv.org/abs/2604.08523) - Complementary browser-agent
   workflow benchmark with submission interception and recorded outcome
   evidence. Does not evaluate adversarial security threats.
+- [Behavior Beyond Text: Evaluating Refusal Transfer Failure in LLM Agents](https://neurips.cc/virtual/2026/168146)
+  - Evaluation of refusal transfer failure, where models that refuse harmful
+  requests in text still make the unsafe tool call; a refusal direction in
+  internal activations explains only part of the gap.
 - [Benchmark catalogue](resources/benchmarks.md) - Benchmarks, testbeds, and
   evaluation methods with proof limits and maturity notes.
 
