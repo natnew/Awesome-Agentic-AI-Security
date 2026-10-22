@@ -217,6 +217,10 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   provenance-aware, argument-level authorisation for agent tool calls, enforced
   by a deterministic monitor outside the model. Evaluated on AgentDojo without
   adaptive attacks; no code is released.
+- [AgentPolicyForge](https://arxiv.org/abs/2610.28989) - Research on building
+  executable environments, a policy-violation benchmark (PolicyGym), and trained
+  policy guards that lower attack success more than placing the policy in the
+  prompt.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
 
