@@ -236,6 +236,10 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   artefact-mediated propagation, where injected content persists in one
   assistant's memory and spreads to other assistants through shared documents.
   Evaluated in simulated multi-agent worlds; effective payloads are withheld.
+- [PerMIT](https://arxiv.org/abs/2610.28987) - Research on a persistent agent
+  memory architecture with integrity guarantees proven in Lean 4: content from
+  the environment cannot trigger a sensitive action without passing a
+  confirmation gate. Also proposes community endorsements for shared knowledge.
 
 ## Credentials, Identity, and Delegated Authority
 
