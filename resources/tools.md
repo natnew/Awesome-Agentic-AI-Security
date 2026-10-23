@@ -174,3 +174,13 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+### Hyperconsciousness
+
+- Resource type: Open-source knowledge store with grant-scoped MCP access.
+- Producer or publisher: Louis (louis030195), Hyperconsciousness project.
+- Source link: <https://github.com/louis030195/hyperconsciousness>.
+- Relevance to agentic execution security: Provides a concrete implementation of restricted memory access through expiring grants, with record-kind, tag and sensitivity filters and separately enabled write access.
+- Coverage: MCP memory read and write permissions, grant revocation, encrypted append-only records and signed device records.
+- Evidence quality and maturity level: MIT-licensed Rust developer alpha with public source, setup examples and documented constraints. This entry describes the implementation; no independent security audit or measured protection effectiveness is established.
+- Last checked: 2026-09-30.
+- Limitations or caveats: Grants constrain server responses and do not sandbox processes that can access the owner's OS account, files or keys. Hosted model providers can see returned plaintext. Append-only storage does not by itself detect memory poisoning, verify the truth of recorded content or provide a complete retention and deletion policy.
