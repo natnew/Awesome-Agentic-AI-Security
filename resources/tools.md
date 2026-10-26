@@ -174,3 +174,23 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+### Speakeasy control plane
+
+- Resource type: Open-source MCP gateway and agent governance platform.
+- Producer or publisher: Speakeasy.
+- Source link: <https://github.com/speakeasy-api/gram>.
+- Relevance to agentic execution security: Connects enterprise identity to MCP
+  tool access, allowing teams to restrict which tools an agent or user can reach
+  and retain a record of calls.
+- Coverage: OAuth authentication, role-based server and tool permissions,
+  gateway policy configuration, and tool-call logging.
+- Evidence quality and maturity level: Maintained AGPL-3.0 source with a
+  documented local development setup and a commercial hosted service with public
+  technical documentation. This entry is based on documentation and source
+  review, not an independent deployment or security benchmark.
+- Last checked: 2026-10-26.
+- Limitations or caveats: Gateway controls cover traffic routed through the
+  gateway. Direct network access, agent code execution, and downstream tool side
+  effects need separate controls. Detection effectiveness and
+  deployment-specific permission boundaries require independent testing;
+  inclusion is not a security endorsement.
