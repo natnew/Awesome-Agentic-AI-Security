@@ -184,6 +184,11 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 
 ## Tool Use, MCP, and Runtime Security
 
+- [Tollgate](https://github.com/kkU1444/tollgate) - Zero-dependency governance gateway
+  that treats the LLM as an untrusted component: 16-ring deterministic enforcement
+  chain, canary-token injection fence, budget reserve with Ed25519-signed human
+  approval, 24h escrow and clawback, hash-chained audit. Also fronts any third-party
+  stdio MCP server as a governed upstream proxy.
 - [NuGuard](https://github.com/NuGuardAI/nuguard) - Open-source toolkit that
   builds an AI-SBOM from agent codebases, then red-teams tool use, MCP
   integrations, and API surfaces for prompt injection and data exfiltration,
