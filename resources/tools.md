@@ -174,3 +174,14 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+### whatileaked
+
+- Resource type: Open-source local scanner for credentials in AI coding agent transcripts and instruction files.
+- Producer or publisher: Selan (selan-ai).
+- Source link: <https://github.com/selan-ai/whatileaked>.
+- Relevance to agentic execution security: Scans local Claude Code, Codex and Cursor transcripts for credentials already sent to the model, using the gitleaks rule set. Instruction and memory files such as `CLAUDE.md` and `AGENTS.md` are scanned too, because an agent re-reads them at the start of every session, so a credential in one keeps reaching the model provider until the file is edited.
+- Coverage: Credential detection in agent session history, prompt history and instruction files; findings reported as a rule name and a one-way fingerprint rather than the value; an optional, explicitly confirmed `wipe` that redacts findings in place while keeping the files readable by the agent.
+- Evidence quality and maturity level: Early-stage open-source project (MIT), CI-gated, published to npm (`whatileaked`, v0.5.3, 2026-10-20). No network requests and zero runtime dependencies, so its behaviour can be checked by reading the source.
+- Last checked: 2026-10-22.
+- Limitations or caveats: A detection and clean-up step after the fact, not a runtime control: a credential it finds has already left the machine and must be rotated. Detection is pattern-based, so test fixtures can appear as findings, and some stores (such as Cursor's older Ask-mode chats) are not yet scanned. Published by a vendor that also sells a redacting proxy, which the project discloses.
+
