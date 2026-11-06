@@ -30,6 +30,17 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-07-28.
 - Limitations or caveats: ClawBench is not a security benchmark and does not model prompt injection, malicious websites, confidentiality loss, credential misuse, or adversarial tool behaviour. Its interception layer limits side effects during evaluation; security claims require dedicated threat models, controls, and red-team scenarios.
 
+### EC²-Bench (EC2-Bench) (Edge-cloud agent collaboration and privacy exposure)
+
+- Resource type: Executable agent benchmark and systematic analysis of edge-cloud collaboration in long-horizon agent execution.
+- Producer or publisher: Huang et al.; code released under the OpenBMB GitHub organisation.
+- Source link: <https://arxiv.org/abs/2610.17816>, <https://github.com/OpenBMB/EC2-Bench>, <https://passionate11.github.io/ec2-bench-project-page/>, and <https://huggingface.co/datasets/chengpingan/EC2-Bench>.
+- Relevance to agentic execution security: When a small on-device (edge) agent routes steps to, delegates to, or seeks advice from a cloud model mid-trajectory, every cloud call is a channel through which workspace data leaves the device. EC²-Bench measures that exposure alongside task performance and cloud cost, and reports that as edge models get stronger, collaboration strategies converge in performance but still differ greatly in privacy exposure.
+- Coverage: 128 executable digital-workspace tasks, 100 with privacy annotations; four collaboration strategies (query routing, per-step routing, edge-controlled delegation, and edge-controlled advisory); joint reporting of task performance, cloud cost, and privacy exposure.
+- Evidence quality and maturity level: Recent primary-source research preprint (arXiv, 2026) with public code and dataset.
+- Last checked: 2026-11-06.
+- Limitations or caveats: The privacy metric captures data exposure to the cloud model during ordinary collaborative execution, measured against the benchmark's own sensitivity annotations; it is not an attack-and-defence benchmark and does not test credential boundaries, tool brokers, or exfiltration by an adversary.
+
 ### Backbone Breaker Benchmark And AI Model Risk Index
 
 - Resource type: Agent security benchmark and model-risk index.
