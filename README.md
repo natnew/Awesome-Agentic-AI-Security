@@ -181,6 +181,11 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   Prompt-injection preflight sensor that probes untrusted input with a
   powerless model before it reaches a tool-using agent. Provides risk signals
   that require application-level enforcement.
+- [Decision Model Guard](https://github.com/patronus-protect/decision-model-guard) -
+  Model-agnostic guard for the classifiers, LLM judges and extraction models
+  inside agents: erases untrusted pieces one at a time so claims planted in tool
+  output or retrieved content cannot steer the verdict. Provides decisions and
+  risk signals that require application-level enforcement.
 
 ## Tool Use, MCP, and Runtime Security
 
