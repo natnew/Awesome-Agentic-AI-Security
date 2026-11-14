@@ -221,6 +221,11 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   executable environments, a policy-violation benchmark (PolicyGym), and trained
   policy guards that lower attack success more than placing the policy in the
   prompt.
+- [WebMCP Explorer](https://github.com/CorsenAI/webmcp-explorer) - Chrome
+  extension from Corsen AI that reviews the WebMCP tools a web page exposes to
+  agents for tool-poisoning indicators, read-only claims contradicted by the
+  tool's own code, and contract changes. Findings are heuristic signals, not
+  proof that a tool is safe.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
 
