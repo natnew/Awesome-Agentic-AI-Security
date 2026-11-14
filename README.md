@@ -293,6 +293,11 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   - Evaluation of refusal transfer failure, where models that refuse harmful
   requests in text still make the unsafe tool call; a refusal direction in
   internal activations explains only part of the gap.
+- [EC²-Bench (EC2-Bench)](https://arxiv.org/abs/2610.17816) - Executable
+  benchmark for edge-cloud collaborative agents that scores task performance,
+  cloud cost, and privacy exposure, i.e. how much annotated sensitive workspace
+  data becomes visible to the cloud model. Measures exposure in ordinary
+  collaborative execution rather than adversarial attacks.
 - [Benchmark catalogue](resources/benchmarks.md) - Benchmarks, testbeds, and
   evaluation methods with proof limits and maturity notes.
 
