@@ -265,6 +265,11 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   delegated scope, budgets, and action-composition restrictions outside the
   model in multi-agent systems. Guarantees depend on policy completeness
   and serialised admission.
+- [sshleash](https://github.com/hamarshehmhmd/sshleash) - Open-source
+  ssh-agent proxy that limits which SSH keys and destination hosts forwarded
+  agents, sandboxes, and AI coding tools can use, with confirmation prompts and
+  a per-signature log. New (v0.1.0) and single-maintainer; forwarding detection
+  needs OpenSSH 8.9+ clients. AGPL-3.0.
 
 ## Benchmarks and Evaluations
 
