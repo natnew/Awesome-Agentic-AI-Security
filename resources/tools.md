@@ -174,3 +174,13 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+### Memory Poisoning Lab
+
+- Resource type: Open-source memory-security teaching tool.
+- Producer or publisher: Rishabh Pande, project maintainer and submitting author.
+- Source link: <https://github.com/RishabhPande/memory-poison-lab>.
+- Relevance to agentic execution security: Makes the boundary between untrusted memory writes, storage labels and recorded source origin inspectable before those memories influence later decisions.
+- Coverage: Direct injection, summary laundering, repetition, laundered imports, retrieval flooding and preference grafting; write screening, origin-aware recall and conflict-scoped repair. Includes a dependency-free reference store and optional ChromaDB and sqlite-vec adapters.
+- Evidence quality and maturity level: Early teaching implementation with public code, scenario assertions and backend conformance tests. Supplied scenarios use synthetic targets and a scripted deterministic agent, not measured LLM behaviour.
+- Last checked: 2026-11-14.
+- Limitations or caveats: Not a production guardrail or a measure of hosted memory-service safety. Pre-import source provenance cannot be recovered. Repair alone cannot remove a grafted preference where no owner policy exists. ChromaDB initially downloads an embedding model; sqlite-vec uses hashed bag-of-words, not a semantic-quality benchmark. Known-scenario outcomes do not establish general defence coverage.
