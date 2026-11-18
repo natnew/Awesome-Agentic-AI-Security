@@ -221,6 +221,9 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   executable environments, a policy-violation benchmark (PolicyGym), and trained
   policy guards that lower attack success more than placing the policy in the
   prompt.
+- [Speakeasy control plane](https://github.com/speakeasy-api/gram) - MCP gateway
+  for identity-based tool permissions and tool-call audit logs; governs traffic
+  routed through it rather than isolating the agent execution environment.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
 
