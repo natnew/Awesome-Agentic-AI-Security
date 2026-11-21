@@ -158,6 +158,13 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [PerspectiveGap](https://arxiv.org/abs/2606.08878) - Research benchmark for
   omissions and cross-role information leakage in multi-agent orchestration
   prompts. Evaluates prompt artefacts rather than downstream execution.
+- [Orca AI Incident Archive](https://github.com/Continuum-AI-Corp/Orca-AI-Incident-Archive) -
+  Open database of 354 real-world AI agent security incidents (2025-01 to
+  2026-09), each with an attack-chain diagram and at least one primary source.
+  Records are labelled for confirmed harm and for whether AI involvement is
+  confirmed, disputed, or unverified, separating deployed compromise from
+  research demonstrations. Early-stage project (created 2026-09-16) with
+  editorial classifications; CC BY 4.0, last checked 2026-09-24.
 
 ## Prompt Injection and Instruction Attacks
 
@@ -181,6 +188,11 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   Prompt-injection preflight sensor that probes untrusted input with a
   powerless model before it reaches a tool-using agent. Provides risk signals
   that require application-level enforcement.
+- [Decision Model Guard](https://github.com/patronus-protect/decision-model-guard) -
+  Model-agnostic guard for the classifiers, LLM judges and extraction models
+  inside agents: erases untrusted pieces one at a time so claims planted in tool
+  output or retrieved content cannot steer the verdict. Provides decisions and
+  risk signals that require application-level enforcement.
 
 ## Tool Use, MCP, and Runtime Security
 
@@ -217,6 +229,10 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   provenance-aware, argument-level authorisation for agent tool calls, enforced
   by a deterministic monitor outside the model. Evaluated on AgentDojo without
   adaptive attacks; no code is released.
+- [AgentPolicyForge](https://arxiv.org/abs/2610.28989) - Research on building
+  executable environments, a policy-violation benchmark (PolicyGym), and trained
+  policy guards that lower attack success more than placing the policy in the
+  prompt.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
 
@@ -236,6 +252,10 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   artefact-mediated propagation, where injected content persists in one
   assistant's memory and spreads to other assistants through shared documents.
   Evaluated in simulated multi-agent worlds; effective payloads are withheld.
+- [PerMIT](https://arxiv.org/abs/2610.28987) - Research on a persistent agent
+  memory architecture with integrity guarantees proven in Lean 4: content from
+  the environment cannot trigger a sensitive action without passing a
+  confirmation gate. Also proposes community endorsements for shared knowledge.
 
 ## Credentials, Identity, and Delegated Authority
 
@@ -281,6 +301,15 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [ClawBench](https://arxiv.org/abs/2604.08523) - Complementary browser-agent
   workflow benchmark with submission interception and recorded outcome
   evidence. Does not evaluate adversarial security threats.
+- [Behavior Beyond Text: Evaluating Refusal Transfer Failure in LLM Agents](https://neurips.cc/virtual/2026/168146)
+  - Evaluation of refusal transfer failure, where models that refuse harmful
+  requests in text still make the unsafe tool call; a refusal direction in
+  internal activations explains only part of the gap.
+- [EC²-Bench (EC2-Bench)](https://arxiv.org/abs/2610.17816) - Executable
+  benchmark for edge-cloud collaborative agents that scores task performance,
+  cloud cost, and privacy exposure, i.e. how much annotated sensitive workspace
+  data becomes visible to the cloud model. Measures exposure in ordinary
+  collaborative execution rather than adversarial attacks.
 - [Benchmark catalogue](resources/benchmarks.md) - Benchmarks, testbeds, and
   evaluation methods with proof limits and maturity notes.
 
@@ -347,7 +376,7 @@ provide exploitation instructions.
 - [Anthropic coordinated vulnerability disclosure](https://www.anthropic.com/coordinated-vulnerability-disclosure)
   - Useful reference for evidence handling around AI-discovered vulnerabilities
   and maintainer workflows.
-- [agent-evidence-vectors](https://github.com/astrogilda/agent-evidence-vectors) -
+- [agent-evidence-vectors](https://github.com/probityai/agent-evidence-vectors) -
   Conformance corpus and reference verifier for agent execution evidence. 461
   vectors across eight corpora at v0.10.1 cover the in-toto
   adversarial-execution-evidence and ai-agent-action predicates, SCITT and COSE
