@@ -158,6 +158,13 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [PerspectiveGap](https://arxiv.org/abs/2606.08878) - Research benchmark for
   omissions and cross-role information leakage in multi-agent orchestration
   prompts. Evaluates prompt artefacts rather than downstream execution.
+- [Orca AI Incident Archive](https://github.com/Continuum-AI-Corp/Orca-AI-Incident-Archive) -
+  Open database of 354 real-world AI agent security incidents (2025-01 to
+  2026-09), each with an attack-chain diagram and at least one primary source.
+  Records are labelled for confirmed harm and for whether AI involvement is
+  confirmed, disputed, or unverified, separating deployed compromise from
+  research demonstrations. Early-stage project (created 2026-09-16) with
+  editorial classifications; CC BY 4.0, last checked 2026-09-24.
 
 ## Prompt Injection and Instruction Attacks
 
