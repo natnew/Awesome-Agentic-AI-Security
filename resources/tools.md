@@ -174,6 +174,7 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+
 ### Sunglasses
 
 - Resource type: Open-source local input scanner and Claude Code tool-call hook for AI agents.
@@ -184,3 +185,28 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Evidence quality and maturity level: Actively maintained open-source project (MIT), published to PyPI (`sunglasses`, v0.6.0, 2026-09-26) with 30 GitHub releases since 2026-03-30, a test suite, a changelog with a known issues section and a security policy.
 - Last checked: 2026-09-26.
 - Limitations or caveats: A detector, not a sandbox or a security guarantee. A clean result means nothing matched in the part that was inspected. Coverage is English-first, with two dedicated patterns each in 13 other languages. Pattern matching can miss novel or paraphrased attacks, so it does not replace least-privilege tool design, approval gates or system-specific red-team evaluation.
+
+
+### Patronus Ark
+- Resource type: Open-source local security scanning library with a Rust core and Python bindings.
+- Producer or publisher: Casdo Labs GmbH.
+- Source link: <https://github.com/patronus-protect/patronus-security>.
+- Relevance to agentic execution security: Inspects untrusted text at prompt, tool-output, and outgoing tool-call boundaries. Returns detection signals for application-enforced blocking, routing, or approval decisions.
+- Coverage: Prompt injection, secrets, PII, sensitive documents, and agentic tool-risk classification; native rules and optional local model-backed scanning.
+- Evidence quality and maturity level: Early-stage implementation with public source, installation examples, and a documented threat model. GPL-3.0-only with a commercial licensing option. This entry does not establish independently validated detection effectiveness.
+- Last checked: 2026-09-26.
+- Limitations or caveats: False positives and missed attacks are possible. It does not track information flow across an agent trajectory, sandbox tool execution, or enforce application policy. Model-backed scanning requires cached assets; callers must handle degraded results and readiness failures.
+
+### AI-Infra-Guard
+
+- Resource type: Open-source AI red teaming and scanning platform.
+- Producer or publisher: Tencent Zhuque Lab.
+- Source link: <https://github.com/Tencent/AI-Infra-Guard>.
+- Relevance to agentic execution security: Scans MCP servers and agent skills for insecure coding patterns and supply-chain risk before they are given execution authority, and separately probes AI infrastructure components (inference servers, orchestration frameworks) for known CVEs and runs jailbreak evaluations against target models.
+- Coverage: MCP server and agent-skill static scanning across a fixed set of risk categories (source or remote-URL input), AI infrastructure CVE scanning across 140+ components, multi-turn jailbreak evaluation, and an "Agent Scan" mode for auditing agent workflows on platforms such as Dify and Coze.
+- Evidence quality and maturity level: Actively maintained open-source project (Apache-2.0), Docker/CLI/Web UI distribution, adopted as part of the OpenClaw project's official Skill-scanning stack for the ClawHub marketplace as of September 2026. Reported detection scores (e.g. an F1 figure on the maintainer's own SkillTrustBench dataset) are vendor-published and have not been independently reproduced.
+- Last checked: 2026-09-23.
+- Limitations or caveats: Static and infra-level scanning does not evaluate runtime tool-call authority, memory, or credential flows once an agent is executing; pair with runtime controls for full coverage. Benchmark numbers come from a dataset curated by the same team that built the scanner, so treat them as a vendor-reported signal rather than independent evidence.
+
+
+
