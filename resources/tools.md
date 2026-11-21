@@ -174,6 +174,7 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+
 ### Memory Poisoning Lab
 
 - Resource type: Open-source memory-security teaching tool.
@@ -184,3 +185,87 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Evidence quality and maturity level: Early teaching implementation with public code, scenario assertions and backend conformance tests. Supplied scenarios use synthetic targets and a scripted deterministic agent, not measured LLM behaviour.
 - Last checked: 2026-11-14.
 - Limitations or caveats: Not a production guardrail or a measure of hosted memory-service safety. Pre-import source provenance cannot be recovered. Repair alone cannot remove a grafted preference where no owner policy exists. ChromaDB initially downloads an embedding model; sqlite-vec uses hashed bag-of-words, not a semantic-quality benchmark. Known-scenario outcomes do not establish general defence coverage.
+
+
+### Speakeasy control plane
+
+- Resource type: Open-source MCP gateway and agent governance platform.
+- Producer or publisher: Speakeasy.
+- Source link: <https://github.com/speakeasy-api/gram>.
+- Relevance to agentic execution security: Connects enterprise identity to MCP
+  tool access, allowing teams to restrict which tools an agent or user can reach
+  and retain a record of calls.
+- Coverage: OAuth authentication, role-based server and tool permissions,
+  gateway policy configuration, and tool-call logging.
+- Evidence quality and maturity level: Maintained AGPL-3.0 source with a
+  documented local development setup and a commercial hosted service with public
+  technical documentation. This entry is based on documentation and source
+  review, not an independent deployment or security benchmark.
+- Last checked: 2026-10-26.
+- Limitations or caveats: Gateway controls cover traffic routed through the
+  gateway. Direct network access, agent code execution, and downstream tool side
+  effects need separate controls. Detection effectiveness and
+  deployment-specific permission boundaries require independent testing;
+  inclusion is not a security endorsement.
+
+### whatileaked
+
+- Resource type: Open-source local scanner for credentials in AI coding agent transcripts and instruction files.
+- Producer or publisher: Selan (selan-ai).
+- Source link: <https://github.com/selan-ai/whatileaked>.
+- Relevance to agentic execution security: Scans local Claude Code, Codex and Cursor transcripts for credentials already sent to the model, using the gitleaks rule set. Instruction and memory files such as `CLAUDE.md` and `AGENTS.md` are scanned too, because an agent re-reads them at the start of every session, so a credential in one keeps reaching the model provider until the file is edited.
+- Coverage: Credential detection in agent session history, prompt history and instruction files; findings reported as a rule name and a one-way fingerprint rather than the value; an optional, explicitly confirmed `wipe` that redacts findings in place while keeping the files readable by the agent.
+- Evidence quality and maturity level: Early-stage open-source project (MIT), CI-gated, published to npm (`whatileaked`, v0.5.3, 2026-10-20). No network requests and zero runtime dependencies, so its behaviour can be checked by reading the source.
+- Last checked: 2026-10-22.
+- Limitations or caveats: A detection and clean-up step after the fact, not a runtime control: a credential it finds has already left the machine and must be rotated. Detection is pattern-based, so test fixtures can appear as findings, and some stores (such as Cursor's older Ask-mode chats) are not yet scanned. Published by a vendor that also sells a redacting proxy, which the project discloses.
+
+
+### SkillTotal
+
+- Resource type: Open-source command-line tool under the Apache-2.0 licence, also available as a GitHub Action, an MCP server and a Claude Code plugin.
+- Producer or publisher: Independent open-source project, maintained by its author (GitHub: pezhik).
+- Source link: <https://github.com/pezhik/skilltotal>.
+- Relevance to agentic execution security: Checks an AI component before it is installed or connected to an agent. It reports what the code can do (shell execution, network access, file access, dynamic code), where prompt injection could enter, and whether embedded secrets or exfiltration paths are present. The Claude Code plugin runs this check before the agent installs a package.
+- Coverage: MCP servers, agent skills and plugins, npm and PyPI packages, and git repositories. It also reports hidden Unicode and install hooks. Findings map to the OWASP Agentic Skills Top 10 (AST01 to AST05 only), and behaviour traits map to CSA agentic traits, MAESTRO layers and MITRE ATLAS where applicable. Output is JSON or SARIF 2.1.0.
+- Evidence quality and maturity level: Detection is deterministic (regex and Python AST, no LLM). The tool does not execute the code it analyses, has no runtime dependencies and runs offline. Each finding includes the file, line and snippet it rests on. Detection is measured on a labelled corpus, with results published at <https://www.skilltotal.ai/detection-benchmark>. The project is at an early stage: the repository was created in June 2026 and had 6 stars when checked. It is distributed on PyPI and through npx.
+- Last checked: 2026-10-09.
+- Limitations or caveats: Static analysis only, so behaviour that appears only at runtime is not visible. Behaviour detection covers Python and JavaScript/TypeScript. Go, Rust, Java, Ruby and PHP get only secret, sensitive-path and hidden-Unicode checks, and the report states this. This entry was submitted by the project's author.
+
+
+### Sunglasses
+
+- Resource type: Open-source local input scanner and Claude Code tool-call hook for AI agents.
+- Producer or publisher: sunglasses-dev.
+- Source link: <https://github.com/sunglasses-dev/sunglasses> and <https://pypi.org/project/sunglasses/>.
+- Relevance to agentic execution security: Scans the text and files an agent is about to read (tool results, web pages, documents, repository files) for prompt injection, credential leaks and data exfiltration attempts before the agent acts on them. A Claude Code PreToolUse hook blocks tool calls that touch credential paths or break a user-written policy, and `sunglasses pin` records a SHA-256 of every MCP tool descriptor so a later change to a tool description is reported.
+- Coverage: Pattern and keyword matching over 1,554 patterns in 118 categories, exposed as a CLI, a Python API, an MCP server (`scan_text`, `scan_file`, `scanner_info`) and a Claude Code hook. Runs locally with no network calls. Content it cannot read (an archive, an image without OCR, input past the size cap) is reported as not inspected rather than clean.
+- Evidence quality and maturity level: Actively maintained open-source project (MIT), published to PyPI (`sunglasses`, v0.6.0, 2026-09-26) with 30 GitHub releases since 2026-03-30, a test suite, a changelog with a known issues section and a security policy.
+- Last checked: 2026-09-26.
+- Limitations or caveats: A detector, not a sandbox or a security guarantee. A clean result means nothing matched in the part that was inspected. Coverage is English-first, with two dedicated patterns each in 13 other languages. Pattern matching can miss novel or paraphrased attacks, so it does not replace least-privilege tool design, approval gates or system-specific red-team evaluation.
+
+
+### Patronus Ark
+- Resource type: Open-source local security scanning library with a Rust core and Python bindings.
+- Producer or publisher: Casdo Labs GmbH.
+- Source link: <https://github.com/patronus-protect/patronus-security>.
+- Relevance to agentic execution security: Inspects untrusted text at prompt, tool-output, and outgoing tool-call boundaries. Returns detection signals for application-enforced blocking, routing, or approval decisions.
+- Coverage: Prompt injection, secrets, PII, sensitive documents, and agentic tool-risk classification; native rules and optional local model-backed scanning.
+- Evidence quality and maturity level: Early-stage implementation with public source, installation examples, and a documented threat model. GPL-3.0-only with a commercial licensing option. This entry does not establish independently validated detection effectiveness.
+- Last checked: 2026-09-26.
+- Limitations or caveats: False positives and missed attacks are possible. It does not track information flow across an agent trajectory, sandbox tool execution, or enforce application policy. Model-backed scanning requires cached assets; callers must handle degraded results and readiness failures.
+
+### AI-Infra-Guard
+
+- Resource type: Open-source AI red teaming and scanning platform.
+- Producer or publisher: Tencent Zhuque Lab.
+- Source link: <https://github.com/Tencent/AI-Infra-Guard>.
+- Relevance to agentic execution security: Scans MCP servers and agent skills for insecure coding patterns and supply-chain risk before they are given execution authority, and separately probes AI infrastructure components (inference servers, orchestration frameworks) for known CVEs and runs jailbreak evaluations against target models.
+- Coverage: MCP server and agent-skill static scanning across a fixed set of risk categories (source or remote-URL input), AI infrastructure CVE scanning across 140+ components, multi-turn jailbreak evaluation, and an "Agent Scan" mode for auditing agent workflows on platforms such as Dify and Coze.
+- Evidence quality and maturity level: Actively maintained open-source project (Apache-2.0), Docker/CLI/Web UI distribution, adopted as part of the OpenClaw project's official Skill-scanning stack for the ClawHub marketplace as of September 2026. Reported detection scores (e.g. an F1 figure on the maintainer's own SkillTrustBench dataset) are vendor-published and have not been independently reproduced.
+- Last checked: 2026-09-23.
+- Limitations or caveats: Static and infra-level scanning does not evaluate runtime tool-call authority, memory, or credential flows once an agent is executing; pair with runtime controls for full coverage. Benchmark numbers come from a dataset curated by the same team that built the scanner, so treat them as a vendor-reported signal rather than independent evidence.
+
+
+
+
+

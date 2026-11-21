@@ -158,6 +158,13 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [PerspectiveGap](https://arxiv.org/abs/2606.08878) - Research benchmark for
   omissions and cross-role information leakage in multi-agent orchestration
   prompts. Evaluates prompt artefacts rather than downstream execution.
+- [Orca AI Incident Archive](https://github.com/Continuum-AI-Corp/Orca-AI-Incident-Archive) -
+  Open database of 354 real-world AI agent security incidents (2025-01 to
+  2026-09), each with an attack-chain diagram and at least one primary source.
+  Records are labelled for confirmed harm and for whether AI involvement is
+  confirmed, disputed, or unverified, separating deployed compromise from
+  research demonstrations. Early-stage project (created 2026-09-16) with
+  editorial classifications; CC BY 4.0, last checked 2026-09-24.
 
 ## Prompt Injection and Instruction Attacks
 
@@ -181,6 +188,11 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   Prompt-injection preflight sensor that probes untrusted input with a
   powerless model before it reaches a tool-using agent. Provides risk signals
   that require application-level enforcement.
+- [Decision Model Guard](https://github.com/patronus-protect/decision-model-guard) -
+  Model-agnostic guard for the classifiers, LLM judges and extraction models
+  inside agents: erases untrusted pieces one at a time so claims planted in tool
+  output or retrieved content cannot steer the verdict. Provides decisions and
+  risk signals that require application-level enforcement.
 
 ## Tool Use, MCP, and Runtime Security
 
@@ -221,6 +233,9 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   executable environments, a policy-violation benchmark (PolicyGym), and trained
   policy guards that lower attack success more than placing the policy in the
   prompt.
+- [Speakeasy control plane](https://github.com/speakeasy-api/gram) - MCP gateway
+  for identity-based tool permissions and tool-call audit logs; governs traffic
+  routed through it rather than isolating the agent execution environment.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
 
@@ -366,7 +381,7 @@ provide exploitation instructions.
 - [Anthropic coordinated vulnerability disclosure](https://www.anthropic.com/coordinated-vulnerability-disclosure)
   - Useful reference for evidence handling around AI-discovered vulnerabilities
   and maintainer workflows.
-- [agent-evidence-vectors](https://github.com/astrogilda/agent-evidence-vectors) -
+- [agent-evidence-vectors](https://github.com/probityai/agent-evidence-vectors) -
   Conformance corpus and reference verifier for agent execution evidence. 461
   vectors across eight corpora at v0.10.1 cover the in-toto
   adversarial-execution-evidence and ai-agent-action predicates, SCITT and COSE
