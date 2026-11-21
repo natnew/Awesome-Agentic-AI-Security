@@ -175,6 +175,18 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
 
+### Memory Poisoning Lab
+
+- Resource type: Open-source memory-security teaching tool.
+- Producer or publisher: Rishabh Pande, project maintainer and submitting author.
+- Source link: <https://github.com/RishabhPande/memory-poison-lab>.
+- Relevance to agentic execution security: Makes the boundary between untrusted memory writes, storage labels and recorded source origin inspectable before those memories influence later decisions.
+- Coverage: Direct injection, summary laundering, repetition, laundered imports, retrieval flooding and preference grafting; write screening, origin-aware recall and conflict-scoped repair. Includes a dependency-free reference store and optional ChromaDB and sqlite-vec adapters.
+- Evidence quality and maturity level: Early teaching implementation with public code, scenario assertions and backend conformance tests. Supplied scenarios use synthetic targets and a scripted deterministic agent, not measured LLM behaviour.
+- Last checked: 2026-11-14.
+- Limitations or caveats: Not a production guardrail or a measure of hosted memory-service safety. Pre-import source provenance cannot be recovered. Repair alone cannot remove a grafted preference where no owner policy exists. ChromaDB initially downloads an embedding model; sqlite-vec uses hashed bag-of-words, not a semantic-quality benchmark. Known-scenario outcomes do not establish general defence coverage.
+
+
 ### Speakeasy control plane
 
 - Resource type: Open-source MCP gateway and agent governance platform.
@@ -252,6 +264,7 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Evidence quality and maturity level: Actively maintained open-source project (Apache-2.0), Docker/CLI/Web UI distribution, adopted as part of the OpenClaw project's official Skill-scanning stack for the ClawHub marketplace as of September 2026. Reported detection scores (e.g. an F1 figure on the maintainer's own SkillTrustBench dataset) are vendor-published and have not been independently reproduced.
 - Last checked: 2026-09-23.
 - Limitations or caveats: Static and infra-level scanning does not evaluate runtime tool-call authority, memory, or credential flows once an agent is executing; pair with runtime controls for full coverage. Benchmark numbers come from a dataset curated by the same team that built the scanner, so treat them as a vendor-reported signal rather than independent evidence.
+
 
 
 

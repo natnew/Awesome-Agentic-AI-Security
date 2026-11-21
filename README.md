@@ -260,6 +260,8 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
   the environment cannot trigger a sensitive action without passing a
   confirmation gate. Also proposes community endorsements for shared knowledge.
 
+- [Memory Poisoning Lab](https://github.com/RishabhPande/memory-poison-lab) - Local teaching range for memory poisoning, source provenance and repair limits; synthetic scenarios with a scripted agent, not a production defence.
+
 ## Credentials, Identity, and Delegated Authority
 
 - [Credential and Token Boundaries](patterns/credential-and-token-boundaries.md)
