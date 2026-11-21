@@ -151,4 +151,26 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-22.
 - Limitations or caveats: Guarantees depend on specification coverage and faithful API mapping. Despite successful verification, only 82/100 terminal outputs pass separate security tests; robotic functional preservation reaches 11/20 after mitigation. See the [resource scoresheet](../rubrics/scoresheets/resource-mags.md).
 
+### Share-Borne AI Virus: Memory-Hopping Attacks Across LLM Agents
+
+- Resource type: Research preprint and evaluation framework.
+- Producer or publisher: Pulipaka et al. (SPAR, University of Cambridge, APTA AI, CISPA), arXiv.
+- Source link: <https://arxiv.org/abs/2609.35576> and <https://github.com/psidharth567/Share-Borne-Virus>.
+- Relevance to agentic execution security: Shows how content in a shared artefact can be written into an assistant's persistent memory, reproduced in later artefacts, and picked up by other independent assistants, linking memory poisoning to cross-agent propagation.
+- Coverage: Artefact-mediated propagation, persistent memory files, multi-hop infection, endpoint-assisted and prompt-only variants, simulated multi-agent worlds, and memory-write classifier evaluation.
+- Evidence quality and maturity level: Emerging research evaluated on 36 held-out simulated worlds with four backbone models; results are author-reported and have not been independently reproduced for this catalogue.
+- Last checked: 2026-10-03.
+- Limitations or caveats: The main variant relies on an attacker-operated endpoint that re-inserts the payload; endpoint-free propagation degrades. Results are limited to the evaluated models and synthetic world designs. Effective payloads are withheld, so attack-side results cannot be fully reproduced from public artefacts. The repository does not state a licence. See the [resource scoresheet](../rubrics/scoresheets/resource-share-borne-ai-virus.md).
+
+### ToolFence: Fine-Grained Authorization For Secure Tool-Using LLM Agents
+
+- Resource type: Research preprint.
+- Producer or publisher: Li et al. (Hong Kong Polytechnic University and Shandong University), arXiv.
+- Source link: <https://arxiv.org/abs/2609.37196>.
+- Relevance to agentic execution security: Moves tool-call authorisation outside the model by compiling the user request into a typed capability blueprint, tracking argument provenance, and enforcing it with a deterministic monitor before execution.
+- Coverage: Indirect prompt injection, argument-level authorisation, provenance constraints, cross-tool escalation versus within-tool hijacking, deterministic enforcement, and judge-granted capability extension.
+- Evidence quality and maturity level: Emerging research evaluated on 629 AgentDojo injection-task pairs with three backbone models and six baselines; results are author-reported and code is not released.
+- Last checked: 2026-10-03.
+- Limitations or caveats: No adaptive-attacker evaluation. Utility drops when legitimate authority-sensitive values exist only in untrusted sources, and attacks can succeed when the model selects among several authorised values; the authors suggest selective human confirmation. See the [resource scoresheet](../rubrics/scoresheets/resource-toolfence.md).
+
 <!-- markdownlint-enable MD013 -->
