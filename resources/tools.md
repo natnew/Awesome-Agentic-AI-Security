@@ -174,6 +174,17 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Last checked: 2026-09-10.
 - Limitations or caveats: An inbound risk sensor, not a security guarantee or an agent runtime. It does not replace least-privilege tool design, sandboxing, approval gates, or system-specific red-team evaluation, and its own documentation states it makes no aggregate-accuracy claim for the current release.
 
+
+### Patronus Ark
+- Resource type: Open-source local security scanning library with a Rust core and Python bindings.
+- Producer or publisher: Casdo Labs GmbH.
+- Source link: <https://github.com/patronus-protect/patronus-security>.
+- Relevance to agentic execution security: Inspects untrusted text at prompt, tool-output, and outgoing tool-call boundaries. Returns detection signals for application-enforced blocking, routing, or approval decisions.
+- Coverage: Prompt injection, secrets, PII, sensitive documents, and agentic tool-risk classification; native rules and optional local model-backed scanning.
+- Evidence quality and maturity level: Early-stage implementation with public source, installation examples, and a documented threat model. GPL-3.0-only with a commercial licensing option. This entry does not establish independently validated detection effectiveness.
+- Last checked: 2026-09-26.
+- Limitations or caveats: False positives and missed attacks are possible. It does not track information flow across an agent trajectory, sandbox tool execution, or enforce application policy. Model-backed scanning requires cached assets; callers must handle degraded results and readiness failures.
+
 ### AI-Infra-Guard
 
 - Resource type: Open-source AI red teaming and scanning platform.
@@ -184,4 +195,5 @@ Each entry uses the repository metadata format: resource type, producer, source,
 - Evidence quality and maturity level: Actively maintained open-source project (Apache-2.0), Docker/CLI/Web UI distribution, adopted as part of the OpenClaw project's official Skill-scanning stack for the ClawHub marketplace as of September 2026. Reported detection scores (e.g. an F1 figure on the maintainer's own SkillTrustBench dataset) are vendor-published and have not been independently reproduced.
 - Last checked: 2026-09-23.
 - Limitations or caveats: Static and infra-level scanning does not evaluate runtime tool-call authority, memory, or credential flows once an agent is executing; pair with runtime controls for full coverage. Benchmark numbers come from a dataset curated by the same team that built the scanner, so treat them as a vendor-reported signal rather than independent evidence.
+
 
