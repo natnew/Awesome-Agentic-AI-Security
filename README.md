@@ -236,6 +236,12 @@ fuller model is in [Defence Architecture](docs/04-defence-architecture.md).
 - [Speakeasy control plane](https://github.com/speakeasy-api/gram) - MCP gateway
   for identity-based tool permissions and tool-call audit logs; governs traffic
   routed through it rather than isolating the agent execution environment.
+- [OmniForge Agent Skills](https://github.com/zColdWater/omniforge-skills) - MIT
+  pack of 50 read-only `SKILL.md` skills and an MCP server
+  (`zColdWater/mcp-launch-audit`) for auditing AI-generated web apps, Supabase
+  and Firebase rules, HTTP headers, email DNS, and `/llms.txt` before deploy.
+  New (`v2.6.0`), author-maintained, and passive only; optional remediation
+  packs are paid add-ons outside the MIT repo.
 - [Tools catalogue](resources/tools.md) - Defensive tools for red teaming,
   evaluation, observability, inventory, and runtime control.
 
